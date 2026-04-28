@@ -19,3 +19,19 @@ grant insert, update, delete on spotify.artista to 'RolEmpleados';
 grant insert, update, delete on spotify.músico to 'RolEmpleados';
 grant insert, update, delete on spotify.podcaster to 'RolEmpleados';
 
+create user Cliente identified by '0000' default role RolClientes;
+create role RolClientes;
+
+grant select on spotify.audio to ‘RolClientes’;
+grant select on spotify.canción to ‘RolClientes’;
+grant select on spotify.podcast to ‘RolClientes’;
+grant select on spotify.album to ‘RolClientes’;
+grant select on spotify.artista to ‘RolClientes’;
+grant select on spotify.músico to ‘RolClientes’;
+grant select on spotify.podcaster to ‘RolClientes’;
+grant select on spotify.idioma to ‘RolClientes’;
+
+grant insert, update, delete on spotify.playlist to 'RolClientes';
+grant insert, update, delete on spotify.playlist_canciones to 'RolClientes';
+grant insert, update, delete on spotify.gustos to 'RolClientes';
+grant insert, update, delete on spotify.cliente to 'RolClientes';
