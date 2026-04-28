@@ -1,4 +1,5 @@
 /*todavia no ejecutar*/
+
 create user DBA_Administrador_IT identified by '1234';
 grant all privileges on *.* to DBA_Administrador_IT
 with grant option;
@@ -34,7 +35,7 @@ grant select on spotify.idioma to ‘RolClientes’;
 grant insert, update, delete on spotify.playlist to 'RolClientes';
 grant insert, update, delete on spotify.playlist_canciones to 'RolClientes';
 grant insert, update, delete on spotify.gustos to 'RolClientes';
+/*depende de la tabla cliente, no se sabe si darle la opcion de update*/
 grant insert, update, delete on spotify.cliente to 'RolClientes';
 
-create user ClientePremium identified by '1111' default role RolClientesPremium;
-/*faltan cosas*/
+create user ClientePremium identified by '1111' default role RolClientes;
