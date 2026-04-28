@@ -1,4 +1,8 @@
 /*todavia no ejecutar*/
+create user DBA_Administrador_IT identified by '1234';
+grant all privileges on *.* to DBA_Administrador_IT
+with grant option;
+
 create user Empleados identified by '4321' default role RolEmpleados;
 
 create role RolEmpleados;
