@@ -1,14 +1,15 @@
-CREATE DATABASE spotify COLLATE utf8mb4_spanish_ci;
-USE spotify;
+CREATE DATABASE SPOTIFY COLLATE utf8mb4_spanish_ci;
+USE SPOTIFY;
 
 /* --------------TABLA DE IDIOMA-------------- */
-ALTER TABLE Idioma DISCARD TABLESPACE;
+DROP TABLE IDIOMA;
 CREATE TABLE Idioma (
 	IdIdioma ENUM('ES', 'EU', 'EN', 'FR', 'DE', 'CA', 'GA', 'AR') PRIMARY KEY,
     Descripcion TEXT NOT NULL
 );
 
 /* --------------TABLA DE ARTISTA-------------- */
+ALTER TABLE Artista DISCARD TABLESPACE;
 DROP TABLE Artista;
 CREATE TABLE Artista (
 	IdArtista CHAR(5) PRIMARY KEY,
@@ -51,7 +52,7 @@ CREATE TABLE Album (
 );
 
 /* --------------TABLA DE AUDIO-------------- */
-DROP TABLE Canción;
+DROP TABLE Audio;
 CREATE TABLE Audio (
 	IdAudio CHAR(5) PRIMARY KEY, 
     Nombre VARCHAR(25) NOT NULL UNIQUE, 
@@ -64,25 +65,14 @@ CREATE TABLE Audio (
 /* --------------TABLA DE PODCAST-------------- */
 DROP TABLE Podcast;
 CREATE TABLE Podcast (
-	IdAudio CHAR(5) PRIMARY KEY,
+	IdAudio CHAR(5),
     NºColaboradores INT,
     IdPodcaster CHAR(5) NOT NULL,
+    PRIMARY KEY (IdAudio, IdPodcaster),
     CONSTRAINT fk_audio_podcast FOREIGN KEY (IdAudio) 
         REFERENCES Audio(IdAudio) ON DELETE CASCADE,
     CONSTRAINT fk_podcaster_podcast FOREIGN KEY (IdPodcaster) 
         REFERENCES Podcaster(IdPodcaster) ON DELETE CASCADE
-);
-
-/* --------------TABLA DE CANCION-------------- */
-DROP TABLE Canción;
-CREATE TABLE Canción (
-	IdAudio CHAR(5) PRIMARY KEY,
-    IdAlbum CHAR(5) NOT NULL,
-    ArtistasInvitados TEXT,
-    CONSTRAINT fk_audio_cancion FOREIGN KEY (IdAudio) 
-        REFERENCES Audio(IdAudio) ON DELETE CASCADE,
-    CONSTRAINT fk_album_cancion FOREIGN KEY (IdAlbum) 
-        REFERENCES Album(IdAlbum) ON DELETE CASCADE
 );
 
 /* --------------TABLA DE CLIENTE-------------- */
@@ -132,7 +122,7 @@ CREATE TABLE Playlist_Canciones (
     CONSTRAINT fk_playlist_vinculo FOREIGN KEY (IdList) 
         REFERENCES Playlist(IdList) ON DELETE CASCADE,
     CONSTRAINT fk_cancion_vinculo FOREIGN KEY (IdAudio) 
-        REFERENCES Canción(IdAudio) ON DELETE CASCADE
+        REFERENCES Audio(IdAudio) ON DELETE CASCADE
 );
 
 /* --------------TABLA DE GUSTOS-------------- */
