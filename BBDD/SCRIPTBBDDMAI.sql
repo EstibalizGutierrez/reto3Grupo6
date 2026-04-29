@@ -1,28 +1,16 @@
-<<<<<<< HEAD
 CREATE DATABASE reto3spotify COLLATE utf8mb4_spanish_ci;
 USE reto3spotify;
 
 /* --------------TABLA DE IDIOMA-------------- */
 /* ta bn*/
 DROP TABLE Idioma;
-=======
-CREATE DATABASE SPOTIFY COLLATE utf8mb4_spanish_ci;
-USE SPOTIFY;
-
-/* --------------TABLA DE IDIOMA-------------- */
-DROP TABLE IDIOMA;
->>>>>>> bb2c6d99fe4e131c7ec43fb75e282a1046dd84d1
 CREATE TABLE Idioma (
 	IdIdioma ENUM('ES', 'EU', 'EN', 'FR', 'DE', 'CA', 'GA', 'AR') PRIMARY KEY,
     Descripcion VARCHAR (25) NOT NULL
 );
 
 /* --------------TABLA DE ARTISTA-------------- */
-<<<<<<< HEAD
 /* TA BN */
-=======
-ALTER TABLE Artista DISCARD TABLESPACE;
->>>>>>> bb2c6d99fe4e131c7ec43fb75e282a1046dd84d1
 DROP TABLE Artista;
 CREATE TABLE Artista (
 	IdArtista CHAR(5) PRIMARY KEY,
@@ -81,23 +69,15 @@ CREATE TABLE Audio (
 
 DROP TABLE Podcast;
 CREATE TABLE Podcast (
-<<<<<<< HEAD
     IdPodcaster CHAR(5) PRIMARY KEY,
     IdAudio CHAR(5),
     NºColaboradores INT,
-=======
-	IdAudio CHAR(5),
-    NºColaboradores INT,
-    IdPodcaster CHAR(5) NOT NULL,
-    PRIMARY KEY (IdAudio, IdPodcaster),
->>>>>>> bb2c6d99fe4e131c7ec43fb75e282a1046dd84d1
     CONSTRAINT fk_audio_podcast FOREIGN KEY (IdAudio) 
         REFERENCES Audio(IdAudio) ON DELETE CASCADE,
     CONSTRAINT fk_podcaster_podcast FOREIGN KEY (IdPodcaster) 
         REFERENCES Podcaster(IdPodcaster) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-<<<<<<< HEAD
 /* --------------TABLA DE CANCION-------------- */
 DROP TABLE Cancion;
 CREATE TABLE Cancion (
@@ -111,8 +91,6 @@ CREATE TABLE Cancion (
         REFERENCES Album(IdAlbum) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-=======
->>>>>>> bb2c6d99fe4e131c7ec43fb75e282a1046dd84d1
 /* --------------TABLA DE CLIENTE-------------- */
 DROP TABLE Cliente;
 CREATE TABLE Cliente (
@@ -125,11 +103,7 @@ CREATE TABLE Cliente (
     FechaNacimiento DATE NOT NULL,
     FechaRegistro DATE NOT NULL,
     Tipo ENUM('Free', 'Premium'),
-<<<<<<< HEAD
 	IdIdioma ENUM('ES', 'EU', 'EN', 'FR', 'DE', 'CA', 'GA', 'AR'),
-=======
-	IdIdioma ENUM('ES', 'EU', 'EN', 'FR', 'DE', 'CA', 'GA', 'AR') NOT NULL UNIQUE,
->>>>>>> bb2c6d99fe4e131c7ec43fb75e282a1046dd84d1
 	CONSTRAINT fk_idioma_cliente FOREIGN KEY (IdIdioma) 
 		REFERENCES Idioma(IdIdioma) ON DELETE CASCADE ON UPDATE CASCADE
 );
@@ -157,7 +131,6 @@ CREATE TABLE Playlist (
 /* --------------TABLA DE PLAYLIST-CANCIONES-------------- */
 DROP TABLE Playlist_Canciones;
 CREATE TABLE Playlist_Canciones (
-<<<<<<< HEAD
     IdList INT UNSIGNED AUTO_INCREMENT,
     IdCancion CHAR(5),
     FechaPlayList_cancion DATE NOT NULL,
@@ -166,16 +139,6 @@ CREATE TABLE Playlist_Canciones (
         REFERENCES Playlist(IdList) ON DELETE CASCADE,
     CONSTRAINT fk_cancion_vinculo FOREIGN KEY (IdCancion) 
         REFERENCES Cancion(IdCancion) ON DELETE CASCADE
-=======
-    IdList INT(5),
-    IdAudio CHAR(5),
-    FechaPayList_cancion DATE NOT NULL,
-    PRIMARY KEY (IdList, IdAudio),
-    CONSTRAINT fk_playlist_vinculo FOREIGN KEY (IdList) 
-        REFERENCES Playlist(IdList) ON DELETE CASCADE,
-    CONSTRAINT fk_cancion_vinculo FOREIGN KEY (IdAudio) 
-        REFERENCES Audio(IdAudio) ON DELETE CASCADE
->>>>>>> bb2c6d99fe4e131c7ec43fb75e282a1046dd84d1
 );
 
 /* --------------TABLA DE GUSTOS-------------- */
@@ -189,5 +152,6 @@ CREATE TABLE Gustos (
     CONSTRAINT fk_gustos_audio FOREIGN KEY (IdAudio) 
         REFERENCES Audio(IdAudio) ON DELETE CASCADE
 );
+
 
 
