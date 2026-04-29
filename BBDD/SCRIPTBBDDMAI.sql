@@ -2,7 +2,7 @@ CREATE DATABASE spotify COLLATE utf8mb4_spanish_ci;
 USE spotify;
 
 /* --------------TABLA DE IDIOMA-------------- */
-DROP TABLE Idioma;
+ALTER TABLE Idioma DISCARD TABLESPACE;
 CREATE TABLE Idioma (
 	IdIdioma ENUM('ES', 'EU', 'EN', 'FR', 'DE', 'CA', 'GA', 'AR') PRIMARY KEY,
     Descripcion TEXT NOT NULL
@@ -51,7 +51,7 @@ CREATE TABLE Album (
 );
 
 /* --------------TABLA DE AUDIO-------------- */
-DROP TABLE Audio;
+DROP TABLE Canción;
 CREATE TABLE Audio (
 	IdAudio CHAR(5) PRIMARY KEY, 
     Nombre VARCHAR(25) NOT NULL UNIQUE, 
@@ -76,7 +76,7 @@ CREATE TABLE Podcast (
 /* --------------TABLA DE CANCION-------------- */
 DROP TABLE Canción;
 CREATE TABLE Canción (
-	IdCancion CHAR(5) PRIMARY KEY,
+	IdAudio CHAR(5) PRIMARY KEY,
     IdAlbum CHAR(5) NOT NULL,
     ArtistasInvitados TEXT,
     CONSTRAINT fk_audio_cancion FOREIGN KEY (IdAudio) 
@@ -97,6 +97,7 @@ CREATE TABLE Cliente (
     FechaNacimiento DATE NOT NULL,
     FechaRegistro DATE NOT NULL,
     Tipo ENUM('Free', 'Premium'),
+	IdIdioma ENUM('ES', 'EU', 'EN', 'FR', 'DE', 'CA', 'GA', 'AR') NOT NULL UNIQUE,
 	CONSTRAINT fk_idioma_cliente FOREIGN KEY (IdIdioma) 
 		REFERENCES Idioma(IdIdioma) ON DELETE CASCADE
 );
@@ -124,9 +125,10 @@ CREATE TABLE Playlist (
 /* --------------TABLA DE PLAYLIST-CANCIONES-------------- */
 DROP TABLE Playlist_Canciones;
 CREATE TABLE Playlist_Canciones (
-    IdList INT(5) PRIMARY KEY,
-    IdAudio CHAR(5) PRIMARY KEY,
+    IdList INT(5),
+    IdAudio CHAR(5),
     FechaPayList_cancion DATE NOT NULL,
+    PRIMARY KEY (IdList, IdAudio),
     CONSTRAINT fk_playlist_vinculo FOREIGN KEY (IdList) 
         REFERENCES Playlist(IdList) ON DELETE CASCADE,
     CONSTRAINT fk_cancion_vinculo FOREIGN KEY (IdAudio) 
@@ -136,8 +138,9 @@ CREATE TABLE Playlist_Canciones (
 /* --------------TABLA DE GUSTOS-------------- */
 DROP TABLE Gustos;
 CREATE TABLE Gustos (
-	IdCliente CHAR(5) PRIMARY KEY,
-    IdAudio CHAR(5) PRIMARY KEY,
+	IdCliente CHAR(5),
+    IdAudio CHAR(5),
+    PRIMARY KEY (IdCliente, IdAudio),
     CONSTRAINT fk_gustos_cliente FOREIGN KEY (IdCliente) 
         REFERENCES Cliente(IdCliente) ON DELETE CASCADE,
     CONSTRAINT fk_gustos_audio FOREIGN KEY (IdAudio) 
