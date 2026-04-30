@@ -177,10 +177,10 @@ values ('A0001', 'solista'),
 
 
 insert into Audio(IdAudio, Nombre, Duracion, Archivo, Tipo, NReproducciones)
-values ('AU001', 'Space bound', 4, 'media/cancion/AU001.mp3', 'Canción', default),
-	    ('AU002', '¿Donde invertir?', 9, 'media/podcast/AU002.mp3', 'Podcast', default),
-        ('AU003', 'Fiebre', 3, 'media/cancion/AU003.mp3', 'Canción', 3400),
-        ('AU004', 'Odio', 4, 'media/cancion/AU004.mp3', 'Canción', 7000);
+values ('AU001', 'Space bound', 4, 'reto3Grupo6/media/cancion/AU001.mp3', 'Canción', default),
+	    ('AU002', '¿Donde invertir?', 9, 'reto3Grupo6/media/podcast/AU002.mp3', 'Podcast', default),
+        ('AU003', 'Fiebre', 3, 'reto3Grupo6/media/cancion/AU003.mp3', 'Canción', 3400),
+        ('AU004', 'Odio', 4, 'reto3Grupo6/media/cancion/AU004.mp3', 'Canción', 7000);
 		
 
 INSERT INTO Album (IdAlbum, Titulo, Anno, Genero, Imagen, IdMusico)
@@ -225,7 +225,3 @@ values (1, 'AU001', current_date()),
 INSERT into Gustos(IdCliente, IdAudio)
 values ('CL001', 'AU001'),
 	   ('CL002', 'AU004');
-
-
-
-
