@@ -47,7 +47,7 @@ CREATE TABLE Album (
     Titulo VARCHAR(50) NOT NULL,
     Anno DATE NOT NULL,
     Genero VARCHAR(25) NOT NULL,
-    Imagen LONGBLOB,
+    Imagen VARCHAR(255),
     IdMusico CHAR(5) NOT NULL,
     CONSTRAINT fk_musico_album FOREIGN KEY (IdMusico) 
         REFERENCES Musico(IdMusico) ON DELETE CASCADE ON UPDATE CASCADE
@@ -59,8 +59,8 @@ DROP TABLE Audio;
 CREATE TABLE Audio (
 	IdAudio CHAR(5) PRIMARY KEY, 
     Nombre VARCHAR(25) NOT NULL UNIQUE, 
-    Duracion INT NOT NULL,
-    Archivo LONGBLOB,
+    Duracion INT UNSIGNED NOT NULL,
+    Archivo VARCHAR(255),
     Tipo ENUM('Podcast', 'Canción') NOT NULL,
     NReproducciones INT NOT NULL DEFAULT 0 
 );
@@ -69,10 +69,10 @@ CREATE TABLE Audio (
 
 DROP TABLE Podcast;
 CREATE TABLE Podcast (
-    IdPodcaster CHAR(5) PRIMARY KEY,
-    IdAudio CHAR(5),
-    NºColaboradores INT,
-    CONSTRAINT fk_audio_podcast FOREIGN KEY (IdAudio) 
+    IdPodcast CHAR(5) PRIMARY KEY,
+    NºColaboradores INT UNSIGNED,
+    IdPodcaster CHAR(5) NOT NULL, 
+    CONSTRAINT fk_audio_podcast FOREIGN KEY (IdPodcast) 
         REFERENCES Audio(IdAudio) ON DELETE CASCADE,
     CONSTRAINT fk_podcaster_podcast FOREIGN KEY (IdPodcaster) 
         REFERENCES Podcaster(IdPodcaster) ON DELETE CASCADE ON UPDATE CASCADE
@@ -97,13 +97,13 @@ CREATE TABLE Cliente (
 	IdCliente CHAR(5) PRIMARY KEY,
     Nombre VARCHAR(25) NOT NULL,
     Apellido VARCHAR(25) NOT NULL,
-	Idioma ENUM('ES', 'EU', 'EN', 'FR', 'DE', 'CA', 'GA', 'AR'),
+	Idioma ENUM('ES', 'EU', 'EN', 'FR', 'DE', 'CA', 'GA', 'AR') NOT NULL,
     Usuario VARCHAR(25) NOT NULL UNIQUE,
     Contrasenna VARCHAR(30) NOT NULL,
     FechaNacimiento DATE NOT NULL,
     FechaRegistro DATE NOT NULL,
-    Tipo ENUM('Free', 'Premium'),
-	IdIdioma ENUM('ES', 'EU', 'EN', 'FR', 'DE', 'CA', 'GA', 'AR'),
+    Tipo ENUM('Free', 'Premium') NOT NULL,
+	IdIdioma ENUM('ES', 'EU', 'EN', 'FR', 'DE', 'CA', 'GA', 'AR') NOT NULL,
 	CONSTRAINT fk_idioma_cliente FOREIGN KEY (IdIdioma) 
 		REFERENCES Idioma(IdIdioma) ON DELETE CASCADE ON UPDATE CASCADE
 );
@@ -135,10 +135,10 @@ CREATE TABLE Playlist_Canciones (
     IdCancion CHAR(5),
     FechaPlayList_cancion DATE NOT NULL,
     PRIMARY KEY (IdList, IdCancion),
-    CONSTRAINT fk_playlist_vinculo FOREIGN KEY (IdList) 
-        REFERENCES Playlist(IdList) ON DELETE CASCADE,
+    CONSTRAINT fk_playlist_playlist_canciones FOREIGN KEY (IdList) 
+        REFERENCES Playlist(IdList) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT fk_cancion_vinculo FOREIGN KEY (IdCancion) 
-        REFERENCES Cancion(IdCancion) ON DELETE CASCADE
+        REFERENCES Cancion(IdCancion) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 /* --------------TABLA DE GUSTOS-------------- */
@@ -148,9 +148,9 @@ CREATE TABLE Gustos (
     IdAudio CHAR(5),
     PRIMARY KEY (IdCliente, IdAudio),
     CONSTRAINT fk_gustos_cliente FOREIGN KEY (IdCliente) 
-        REFERENCES Cliente(IdCliente) ON DELETE CASCADE,
+        REFERENCES Cliente(IdCliente) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT fk_gustos_audio FOREIGN KEY (IdAudio) 
-        REFERENCES Audio(IdAudio) ON DELETE CASCADE
+        REFERENCES Audio(IdAudio) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 
