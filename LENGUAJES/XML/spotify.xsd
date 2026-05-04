@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:element name="spotify">
+		
+		<xsd:complexType>
+
+			<xsd:sequence>
+				<xsd:element name="idiomas">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="idioma" minOccurs="1" maxOccurs="8">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="descripcion" type="tipoDescripcion"/>
+									</xsd:sequence>	
+
+									<xsd:attribute name="id">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:pattern value="[A-Z]{2}"/>
+											</xsd:restriction>
+										</xsd:simpleType>	
+									</xsd:attribute>
+
+								</xsd:complexType>	
+							</xsd:element>
+						</xsd:sequence>						
+					</xsd:complexType>	
+				</xsd:element>
+
+				<xsd:element name="artistas">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="artista" minOccurs="1" maxOccurs="unbounded">
+								<xsd:complexType>
+
+									<xsd:sequence>
+										<xsd:element name="nombreArtistico" type="tipoPalabras"/>
+										<xsd:element name="genero" type="tipoPalabras"/>
+										<xsd:element name="imagen" type="tipoLinks"/>
+									</xsd:sequence>
+
+									<xsd:attribute name="id">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:pattern value="[A][0-9]{4}"></xsd:pattern>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:attribute>
+
+								</xsd:complexType>	
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+
+			</xsd:sequence>	
+
+		</xsd:complexType>
+
+	</xsd:element>
+
+	<xsd:simpleType name="tipoDescripcion">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="español"/>
+			<xsd:enumeration value="frances"/>
+			<xsd:enumeration value="ingles"/>
+			<xsd:enumeration value="euskera"/>
+			<xsd:enumeration value="aleman"/>
+			<xsd:enumeration value="catalan"/>
+			<xsd:enumeration value="irlandes"/>
+			<xsd:enumeration value="arabe"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="tipoPalabras">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="[a-zA-ZáéíóúÁÉÍÓÚñÑ\-\s/]+"></xsd:pattern>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="tipoLinks">
+		<xsd:restriction base="xsd:anyURI">
+			<xsd:pattern value="https?://.+"></xsd:pattern>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+</xsd:schema>
