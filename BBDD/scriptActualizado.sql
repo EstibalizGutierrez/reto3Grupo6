@@ -286,7 +286,7 @@ values ('CL001', 'Ernesto Manuel', 'Valverde', 'mrKristo67', 'elorrieta00', '200
 
 INSERT into Premium (IdCliente, FechaCaducidad)
 values ('CL001', current_date() + interval 1 year),
-	   ('CL002', current_date() + interval 6 month);
+	   ('CL003', current_date() + interval 6 month);
 
 
 inserT into Playlist (IdList, Titulo, FechaCreacion, IdCliente)
