@@ -1,5 +1,5 @@
-CREATE DATABASE reto3spotify5 COLLATE utf8mb4_spanish_ci;
-USE reto3spotify5;
+CREATE DATABASE reto3spotify COLLATE utf8mb4_spanish_ci;
+USE reto3spotify;
 
 /* --------------TABLA DE IDIOMA-------------- */
 /* ta bn*/
@@ -229,43 +229,43 @@ values ('ALB01', 'Recovery', '2010-06-18', 'Rap/Hip-Hop', 'https://cdn-images.dz
 
 
 INSERT INTO Cancion(IdCancion, IdAlbum, ArtistasInvitados)
-values('AU001', 'ALB01', 0),
-	   ('AU003', 'ALB03', 1),
-       ('AU004', 'ALB02', 1),
-       ('AU005', 'ALB01',1),
-	   ('AU006', 'ALB01',1),
-       ('AU007', 'ALB01',0),
-       ('AU008', 'ALB01',1),
-       ('AU009', 'ALB04',0),
-       ('AU010', 'ALB04',1),
-       ('AU011', 'ALB04',0),
-       ('AU012', 'ALB04',0),
-       ('AU013', 'ALB04',0),
-       ('AU014', 'ALB05',1),
-       ('AU015', 'ALB05',0),
-       ('AU016', 'ALB05',1),
-       ('AU017', 'ALB05',0),
-       ('AU018', 'ALB05',1),
-       ('AU019', 'ALB06',0),
-       ('AU020', 'ALB06',0),
-       ('AU021', 'ALB06',0),
-       ('AU022', 'ALB06',0),
-       ('AU023', 'ALB06',0),
-       ('AU024', 'ALB07',1),
-       ('AU025', 'ALB07',1),
-       ('AU026', 'ALB07',1),
-       ('AU027', 'ALB07',1),
-       ('AU028', 'ALB07',1),
-       ('AU029', 'ALB08',0),
-       ('AU030', 'ALB08',0),
-       ('AU031', 'ALB08',0),
-       ('AU032', 'ALB08',0),
-       ('AU033', 'ALB08',0),
-       ('AU034', 'ALB09',0),
-       ('AU035', 'ALB09',0),
-       ('AU036', 'ALB09',0),
-       ('AU037', 'ALB09',0),
-       ('AU038', 'ALB09',0);
+values('AU001', 'ALB01', null),
+	   ('AU003', 'ALB03', 'x'),
+       ('AU004', 'ALB02',  'x'),
+       ('AU005', 'ALB01', 'x'),
+	   ('AU006', 'ALB01', 'x'),
+       ('AU007', 'ALB01',null),
+       ('AU008', 'ALB01', 'x'),
+       ('AU009', 'ALB04',null),
+       ('AU010', 'ALB04', 'x'),
+       ('AU011', 'ALB04',null),
+       ('AU012', 'ALB04',null),
+       ('AU013', 'ALB04',null),
+       ('AU014', 'ALB05', 'x'),
+       ('AU015', 'ALB05',null),
+       ('AU016', 'ALB05', 'x'),
+       ('AU017', 'ALB05',null),
+       ('AU018', 'ALB05', 'x'),
+       ('AU019', 'ALB06',null),
+       ('AU020', 'ALB06',null),
+       ('AU021', 'ALB06',null),
+       ('AU022', 'ALB06',null),
+       ('AU023', 'ALB06',null),
+       ('AU024', 'ALB07', 'x'),
+       ('AU025', 'ALB07', 'x'),
+       ('AU026', 'ALB07', 'x'),
+       ('AU027', 'ALB07', 'x'),
+       ('AU028', 'ALB07', 'x'),
+       ('AU029', 'ALB08',null),
+       ('AU030', 'ALB08',null),
+       ('AU031', 'ALB08',null),
+       ('AU032', 'ALB08',null),
+       ('AU033', 'ALB08',null),
+       ('AU034', 'ALB09',null),
+       ('AU035', 'ALB09',null),
+       ('AU036', 'ALB09',null),
+       ('AU037', 'ALB09',null),
+       ('AU038', 'ALB09',null);
 
 
 
