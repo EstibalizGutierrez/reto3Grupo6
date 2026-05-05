@@ -1,5 +1,5 @@
-CREATE DATABASE reto3spotify2 COLLATE utf8mb4_spanish_ci;
-USE reto3spotify2;
+CREATE DATABASE reto3spotify5 COLLATE utf8mb4_spanish_ci;
+USE reto3spotify5;
 
 /* --------------TABLA DE IDIOMA-------------- */
 /* ta bn*/
@@ -155,7 +155,6 @@ CREATE TABLE Gustos (
 
 insert into Idioma (IdIdioma, Descripcion)
 values ('ES','español'),
-		('EU','euskera'),
         ('EN','ingles'),
         ('FR','frances');
 		
@@ -279,8 +278,10 @@ values ('AU002', 2, 'A0006');
 
 
 INSERT INto Cliente (IdCliente, Nombre, Apellido,Usuario, Contrasena, FechaNacimiento, FechaRegistro, Tipo, IdIdioma)
-values ('CL001', 'Ernesto Manuel', 'Valverde', 'mrKristo67', SHA2('elorrieta00' ,256), '2004-08-04', current_date(), 'Premium', 'ES'),
-	   ('CL002', 'Victoria', 'Rosales', 'Vickyy04', SHA2('estrellaLuna' ,256), '1999-04-04', current_date(), 'Free', 'FR');
+values ('CL001', 'Ernesto Manuel', 'Valverde', 'mrKristo67', 'elorrieta00', '2004-08-04', current_date(), 'Premium', 'ES'),
+	   ('CL002', 'Victoria', 'Rosales', 'Vickyy04','estrellaLuna', '1999-04-04', current_date(), 'Free', 'FR'),
+       ('CL003', 'Jhon', 'Izarra', 'johannbachx25', 'piscobamba', '2004-08-04', current_date(), 'Premium', 'EN'),
+       ('CL004', 'Keyla', 'Castillo', 'freeGirl', 'iamfree99', '2000-12-12', current_date(), 'Free', 'ES');
        
 
 INSERT into Premium (IdCliente, FechaCaducidad)
