@@ -1,5 +1,5 @@
-CREATE DATABASE reto3spotify2 COLLATE utf8mb4_spanish_ci;
-USE reto3spotify2;
+CREATE DATABASE reto3spotify COLLATE utf8mb4_spanish_ci;
+USE reto3spotify;
 
 /* --------------TABLA DE IDIOMA-------------- */
 /* ta bn*/
@@ -58,7 +58,7 @@ CREATE TABLE Album (
 DROP TABLE if exists Audio;
 CREATE TABLE Audio (
 	IdAudio CHAR(5) PRIMARY KEY, 
-    Nombre VARCHAR(25) NOT NULL UNIQUE, 
+    Nombre VARCHAR(40) NOT NULL UNIQUE, 
     Duracion INT UNSIGNED NOT NULL,
     Archivo VARCHAR(300),
     Tipo ENUM('Podcast', 'Canción') NOT NULL,
@@ -129,7 +129,7 @@ CREATE TABLE Playlist (
 /* --------------TABLA DE PLAYLIST-CANCIONES-------------- */
 DROP TABLE if exists Playlist_Canciones;
 CREATE TABLE Playlist_Canciones (
-    IdList INT UNSIGNED AUTO_INCREMENT,
+    IdList INT UNSIGNED,
     IdCancion CHAR(5),
     FechaPlayList_cancion DATE NOT NULL,
     PRIMARY KEY (IdList, IdCancion),
@@ -155,7 +155,6 @@ CREATE TABLE Gustos (
 
 insert into Idioma (IdIdioma, Descripcion)
 values ('ES','español'),
-		('EU','euskera'),
         ('EN','ingles'),
         ('FR','frances');
 		
@@ -177,22 +176,98 @@ values ('A0001', 'solista'),
 
 
 insert into Audio(IdAudio, Nombre, Duracion, Archivo, Tipo, NReproducciones)
-values ('AU001', 'Space bound', 4, 'reto3Grupo6/media/cancion/AU001.mp3', 'Canción', default),
-	    ('AU002', '¿Donde invertir?', 9, 'reto3Grupo6/media/podcast/AU002.mp3', 'Podcast', default),
-        ('AU003', 'Fiebre', 3, 'reto3Grupo6/media/cancion/AU003.mp3', 'Canción', 3400),
-        ('AU004', 'Odio', 4, 'reto3Grupo6/media/cancion/AU004.mp3', 'Canción', 7000);
+values ('AU001', 'Space bound', 4, 'media/cancion/AU001.mp3', 'Canción', 343),
+	    ('AU002', '¿Donde invertir?', 9, 'media/podcast/AU002.mp3', 'Podcast', 23),
+        ('AU003', 'Fiebre', 3, 'media/cancion/AU003.mp3', 'Canción', 3400),
+        ('AU004', 'Odio', 4, 'media/cancion/AU004.mp3', 'Canción', 7000),
+        ('AU005', 'Love the way you lie',4, 'media/cancion/AU005.mp3', 'Canción', 203),
+		('AU006', 'No love', 5, 'media/cancion/AU006.mp3', 'Canción', 43493),
+		('AU007', 'Going through changes',5, 'media/cancion/AU007.mp3', 'Canción', 4504),
+        ('AU008', "Won't back down",4, 'media/cancion/AU005.mp3', 'Canción', 433),
+		('AU009', 'Kill you', 4, 'media/cancion/AU009.mp3', 'Canción', 53454),
+        ('AU010', 'Stan', 6,'media/cancion/AU010.mp3', 'Canción', 449549),
+        ('AU011', 'The real slim shady', 4, 'media/cancion/AU011.mp3', 'Canción', 4544),
+        ('AU012', 'Marshall Mathers', 5,'media/cancion/AU012.mp3', 'Canción', 45545),
+        ('AU013', 'Drug ballad', 5,'media/cancion/AU013.mp3', 'Canción', 69699),
+        ('AU014', "You Gon'learn",4, 'media/cancion/AU014.mp3', 'Canción', 343),
+		('AU015', 'Darkness',5, 'media/cancion/AU015.mp3', 'Canción', 43435),
+        ('AU016', 'Leaven heaving',4, 'media/cancion/AU016.mp3', 'Canción', 234),
+        ('AU017', 'Never love again',3, 'media/cancion/AU017.mp3', 'Canción', 23),
+        ('AU018', 'No regrets', 3,'media/cancion/AU018.mp3', 'Canción', 656),
+		('AU019', 'DNA', 3,'media/cancion/AU019.mp3', 'Canción', 43535),
+        ('AU020', 'Fake love', 4,'media/cancion/AU020.mp3', 'Canción', 656),
+        ('AU021', 'Dimple', 3,'media/cancion/AU021.mp3', 'Canción', 4333),
+        ('AU022', 'Her', 3,'media/cancion/AU022.mp3', 'Canción', 67676),
+        ('AU023', 'Singularity', 3,'media/cancion/AU023.mp3', 'Canción', 123),
+        ('AU024', 'Awake', 3,'media/cancion/AU024.mp3', 'Canción', 3344),
+        ('AU025', 'Lost', 4,'media/cancion/AU025.mp3', 'Canción', 233),
+        ('AU026', 'MAMA', 3,'media/cancion/AU026.mp3', 'Canción', 66),
+        ('AU027', 'Lie', 3,'media/cancion/AU027.mp3', 'Canción', 3),
+        ('AU028', 'Stigma', 3,'media/cancion/AU028.mp3', 'Canción', 1111),
+        ('AU029', 'El ataque de las chicas cocodrilo', 3,'media/cancion/AU029.mp3', 'Canción', 65650),
+        ('AU030', 'Te quiero', 3,'media/cancion/AU030.mp3', 'Canción', 454),
+        ('AU031', 'En la Playa', 4,'media/cancion/AU031.mp3', 'Canción', 234),
+        ('AU032', 'Indiana', 3,'media/cancion/AU032.mp3', 'Canción', 545),
+        ('AU033', 'Un par de palabras', 3,'media/cancion/AU033.mp3', 'Canción', 23),
+        ('AU034', 'Tengo una chica', 4,'media/cancion/AU034.mp3', 'Canción', 5454),
+        ('AU035', 'Viernes', 3,'media/cancion/AU035.mp3', 'Canción', 343),
+        ('AU036', 'Será esta noche', 4,'media/cancion/AU036.mp3', 'Canción', 341),
+        ('AU037', 'Suéltate el pelo', 3,'media/cancion/AU037.mP3', 'Canción', 6767),
+        ('AU038', 'La madre de Ana', 3,'media/cancion/AU038.mp3', 'Canción', 79);
 		
 
 INSERT INTO Album (IdAlbum, Titulo, Anno, Genero, Imagen, IdMusico)
 values ('ALB01', 'Recovery', '2010-06-18', 'Rap/Hip-Hop', 'https://cdn-images.dzcdn.net/images/cover/be682506145061814eddee648edb7c59/1900x1900-000000-81-0-0.jpg', 'A0001'),
 	   ('ALB02', 'Formula, vol.2', '2014-02-25', 'Bachata', 'https://i.discogs.com/Yg_4JABhzbAaYe0_gva4Utt8tDYWq98c4f2Ih3Xobk0/rs:fit/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEzMjI5/MjU5LTE1NTAzNDkw/NTUtMjYwOC5qcGVn.jpegg', 'A0004'),
-	   ('ALB03', 'Slow wine Mixtape', '2016-11-09', 'Dancehall', 'https://i.discogs.com/crWjb1vUa54B4vOK32UJWaQ4izEnHb375Di3KuAiK08/rs:fit/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEwMzg1/NDA2LTE0OTY0MjM1/NzgtMzEwNS5qcGVn.jpeg', 'A0005');
+	   ('ALB03', 'Slow wine Mixtape', '2016-11-09', 'Dancehall', 'https://i.discogs.com/crWjb1vUa54B4vOK32UJWaQ4izEnHb375Di3KuAiK08/rs:fit/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEwMzg1/NDA2LTE0OTY0MjM1/NzgtMzEwNS5qcGVn.jpeg', 'A0005'),
+	   ('ALB04', 'Marshall Mathers LP', '2020-05-23', 'Rap/hip-hop', 'https://cdn-3.expansion.mx/dims4/default/52bd153/2147483647/strip/true/crop/1200x630+0+85/resize/1200x630!/format/jpg/quality/80/?url=https%3A%2F%2Fcdn-3.expansion.mx%2Fae%2F67%2F5fb91bce4edd8f43eba266613793%2Feminem.jpg','A0001'),
+       ('ALB05', 'Music to be Murdered By', '2020-01-17','Rap/hip-hop','https://upload.wikimedia.org/wikipedia/en/8/80/Eminem_-_Music_to_Be_Murdered_By.png','A0001'),
+       ('ALB06', 'Love yourself: Answer', '2017-08-24','K-pop','https://static.wikia.nocookie.net/bangtan/images/5/55/Answer_cover.jpg/revision/latest?cb=20180824221028&path-prefix=es','A0002'),
+		('ALB07', 'Wings', '2016-10-10', 'K-pop','https://kstoryespana.es/cdn/shop/products/cokodive-bts-2nd-full-length-album-wings-3716964745296.png?v=1753594143&width=1946', 'A0002'),
+		('ALB08', 'La cagaste...Burt Lancaster', '1986-04-28', 'Rock','https://static.wikia.nocookie.net/hombres-g/images/4/48/La_Cagaste_Burt_Lancaster.jpeg/revision/latest/thumbnail/width/360/height/450?cb=20240625075251&path-prefix=es', 'A0003'),
+        ('ALB09', 'Agitar antes de usar', '1988-05-24', 'Rock', 'https://static.wikia.nocookie.net/hombres-g/images/a/a0/Agitar_Antes_De_Usar.jpg/revision/latest?cb=20240618195117&path-prefix=es','A0003');
 
 
 INSERT INTO Cancion(IdCancion, IdAlbum, ArtistasInvitados)
-values('AU001', 'ALB01', NULL),
-	   ('AU003', 'ALB03', 2),
-       ('AU004', 'ALB02', 2);
+values('AU001', 'ALB01', null),
+	   ('AU003', 'ALB03', 'x'),
+       ('AU004', 'ALB02',  'x'),
+       ('AU005', 'ALB01', 'x'),
+	   ('AU006', 'ALB01', 'x'),
+       ('AU007', 'ALB01',null),
+       ('AU008', 'ALB01', 'x'),
+       ('AU009', 'ALB04',null),
+       ('AU010', 'ALB04', 'x'),
+       ('AU011', 'ALB04',null),
+       ('AU012', 'ALB04',null),
+       ('AU013', 'ALB04',null),
+       ('AU014', 'ALB05', 'x'),
+       ('AU015', 'ALB05',null),
+       ('AU016', 'ALB05', 'x'),
+       ('AU017', 'ALB05',null),
+       ('AU018', 'ALB05', 'x'),
+       ('AU019', 'ALB06',null),
+       ('AU020', 'ALB06',null),
+       ('AU021', 'ALB06',null),
+       ('AU022', 'ALB06',null),
+       ('AU023', 'ALB06',null),
+       ('AU024', 'ALB07', 'x'),
+       ('AU025', 'ALB07', 'x'),
+       ('AU026', 'ALB07', 'x'),
+       ('AU027', 'ALB07', 'x'),
+       ('AU028', 'ALB07', 'x'),
+       ('AU029', 'ALB08',null),
+       ('AU030', 'ALB08',null),
+       ('AU031', 'ALB08',null),
+       ('AU032', 'ALB08',null),
+       ('AU033', 'ALB08',null),
+       ('AU034', 'ALB09',null),
+       ('AU035', 'ALB09',null),
+       ('AU036', 'ALB09',null),
+       ('AU037', 'ALB09',null),
+       ('AU038', 'ALB09',null);
+
+
 
 INSERT INTO Podcaster (IdPodcaster)
 values ('A0006');
@@ -203,8 +278,10 @@ values ('AU002', 2, 'A0006');
 
 
 INSERT INto Cliente (IdCliente, Nombre, Apellido,Usuario, Contrasena, FechaNacimiento, FechaRegistro, Tipo, IdIdioma)
-values ('CL001', 'Ernesto Manuel', 'Valverde', 'mrKristo67', SHA2('elorrieta00' ,256), '2004-08-04', current_date(), 'Premium', 'ES'),
-	   ('CL002', 'Victoria', 'Rosales', 'Vickyy04', SHA2('estrellaLuna' ,256), '1999-04-04', current_date(), 'Free', 'FR');
+values ('CL001', 'Ernesto Manuel', 'Valverde', 'mrKristo67', 'elorrieta00', '2004-08-04', current_date(), 'Premium', 'ES'),
+	   ('CL002', 'Victoria', 'Rosales', 'Vickyy04','estrellaLuna', '1999-04-04', current_date(), 'Free', 'FR'),
+       ('CL003', 'Jhon', 'Izarra', 'johannbachx25', 'piscobamba', '2004-08-04', current_date(), 'Premium', 'EN'),
+       ('CL004', 'Keyla', 'Castillo', 'freeGirl', 'iamfree99', '2000-12-12', current_date(), 'Free', 'ES');
        
 
 INSERT into Premium (IdCliente, FechaCaducidad)
@@ -224,4 +301,9 @@ values (1, 'AU001', current_date()),
 
 INSERT into Gustos(IdCliente, IdAudio)
 values ('CL001', 'AU001'),
+		('CL001', 'AU003'),
+		('CL001', 'AU009'),
+		('CL001', 'AU012'),
+		('CL001', 'AU018'),
+		('CL001', 'AU013'),
 	   ('CL002', 'AU004');
