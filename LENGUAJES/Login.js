@@ -4,7 +4,7 @@ function validarLogin(event) {
     // Arrays de Usuarios y contraseñas
     let usuariosRegistrados = ["mrKristo67", "Vickyy04", "johannbachx25", "freeGirl"];
     let clavesRegistradas = ["elorrieta00", "estrellaluna", "piscobamba", "iamfree99"];
-    let freePremium = ["Free", "Free", "Premium", "Premium"];
+    let freePremium = ["Premium", "Free", "Premium", "Free"];
 
     // Coge los dtos del formlario mediante su ID
     let userIngresado = document.getElementById("usuario").value;
@@ -46,7 +46,8 @@ window.onload = function() {
     }
 };
 
+//FALTA Q ESTO FUNCIONE
 function cerrarSesion() {
-    localStorage.clear();
-    location.reload();
+    localStorage.removeItem("saludo");
+    window.location.href = "index.html";
 }
