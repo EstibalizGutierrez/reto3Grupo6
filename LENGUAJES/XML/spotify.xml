@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spotify xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="spotify.xsd">
+
+    <!-- Idiomas -->
+    <idiomas>
+        <idioma id="ES">
+            <descripcion>español</descripcion>
+        </idioma>
+        <idioma id="EU">
+            <descripcion>euskera</descripcion>
+        </idioma>
+        <idioma id="EN">
+            <descripcion>ingles</descripcion>
+        </idioma>
+        <idioma id="FR">
+            <descripcion>frances</descripcion>
+        </idioma>
+    </idiomas>
+
+    <artistas>
+
+		<!-- Músico-->
+
+        <artista id="A0001">
+            <nombreArtistico>Eminem</nombreArtistico>
+            <genero>Rap/Hip-Hop</genero>
+            <imagen>https://static.wikia.nocookie.net/rap/images/3/34/Eminem_Fotografia_01.jpg/revision/latest?cb=20220507042018&amp;path-prefix=es</imagen>
+            <descripcion>Eminem, conocido también como Slim Shady...</descripcion>
+            
+            <musico caracteristica="Solista">
+                <album id="ALB01">
+                    <titulo>Recovery</titulo>
+                    <anno>2010-06-18</anno>
+                    <genero>Rap/Hip-Hop</genero>
+                    <imagen>https://cdn-images.dzcdn.net/images/cover/be682506145061814eddee648edb7c59/1900x1900-000000-81-0-0.jpg</imagen>
+                    <canciones>
+
+						<cancion id="AU001">
+                            <nombre>Space bound</nombre>
+                            <duracion>4</duracion>
+                            <archivo>BBDD/media/cancion/AU001.mp3</archivo>
+                            <nReproducciones>343</nReproducciones>
+                            <artistasInvitados xsi:nil="true" />
+                        </cancion>
+                    </canciones>
+                </album>
+            </musico>
+        </artista>
+
+		<!-- podcaster-->
+
+        <artista id="A0006">
+            <nombreArtistico>The wildProject</nombreArtistico>
+            <genero>Talk show</genero>
+            <imagen>https://s2.elespanol.com/2024/09/13/omicrono/software/885671616_249158676_1024x576.jpg</imagen>
+            <descripcion>The Wild Project es el podcast número 1 en español...</descripcion>
+            
+  
+            <podcaster>
+
+				<podcast id="AU002">
+                    <nombre>¿Donde invertir?</nombre>
+                    <duracion>9</duracion>
+                    <archivo>BBDD/media/podcast/AU002.mp3</archivo>
+                    <nReproducciones>23</nReproducciones>
+                    <nColaboradores>2</nColaboradores>
+                </podcast>
+            </podcaster>
+        </artista>
+    </artistas>
+
+	<!-- Parte usuario-->
+
+	<clientes>
+        <cliente id="CL001" >
+            <nombre>Ernesto Manuel</nombre>
+            <apellido>Valverde</apellido>
+            <usuario>mrKristo67</usuario>
+
+			<contrasena>elorrieta00</contrasena>
+            <fechaNacimiento>2004-08-04</fechaNacimiento>
+            <fechaRegistro>2026-05-04</fechaRegistro>
+            <idIdioma>ES</idIdioma>
+
+			<premium>
+                <fechaCaducidad>2027-05-04</fechaCaducidad>
+            </premium>
+            
+
+			<playlists>
+                <playlist id="1">
+                    <titulo>miPlaylistSolitaria</titulo>
+                    <fechaCreacion>2026-05-04</fechaCreacion>
+                    <playlistCanciones>
+                        <idCancion>AU001</idCancion>
+					</playlistCanciones>
+                </playlist>
+            </playlists>
+        </cliente>
+
+		<cliente id="CL002" >
+			<nombre>Victoria</nombre>
+			<apellido>Rosales</apellido>
+			<usuario>Vickyy04</usuario>
+			<contrasena>estrellaluna</contrasena>
+			<fechaNacimiento>1999-04-04</fechaNacimiento>
+			<idIdioma>FR</idIdioma>
+
+			<playlists>
+				<playlist id="2">
+					<titulo>paraDiscotecaList</titulo>
+					<fechaCreacion>2026-05-04</fechaCreacion>
+				
+					<playlistCanciones>
+						<idCancion>AU003</idCancion>
+						<idCancion>AU004</idCancion>
+					</playlistCanciones>
+				
+				</playlist>
+			</playlists>
+
+
+		</cliente>
+
+    </clientes>
+
+</spotify>
