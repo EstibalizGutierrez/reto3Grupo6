@@ -13,16 +13,11 @@
 									<xsd:sequence>
 										<xsd:element name="descripcion" type="tipoDescripcion"/>
 									</xsd:sequence>	
+									
+									<!-- Atributo de idioma-->
+									<xsd:attribute name="id" type="tipoIdIdioma"/>
 
-									<xsd:attribute name="id">
-										<xsd:simpleType>
-											<xsd:restriction base="xsd:string">
-												<xsd:pattern value="[A-Z]{2}"/>
-											</xsd:restriction>
-										</xsd:simpleType>	
-									</xsd:attribute>
-
-								</xsd:complexType>	
+								</xsd:complexType>
 							</xsd:element>
 						</xsd:sequence>						
 					</xsd:complexType>	
@@ -35,18 +30,101 @@
 								<xsd:complexType>
 
 									<xsd:sequence>
+										<!-- Elementos de artista-->
 										<xsd:element name="nombreArtistico" type="tipoPalabras"/>
 										<xsd:element name="genero" type="tipoPalabras"/>
 										<xsd:element name="imagen" type="tipoLinks"/>
+										<xsd:element name="descripcion" type="tipoPalabras"/>
+
+										<!-- Choice para elegir entre musico o podcaster-->
+										<xsd:choice>
+											<!-- Opción musico-->
+											<xsd:element name="musico">
+												<xsd:complexType>
+
+													<xsd:sequence>
+														<!-- Elemento de músico-->
+														<xsd:element name="album" maxOccurs="unbounded">
+															<xsd:complexType>
+
+																<xsd:sequence>
+																	<!-- Elementos de álbum-->
+																	<xsd:element name="titulo" type="tipoPalabras"/>
+																	<xsd:element name="anno" type="xsd:date"/>
+																	<xsd:element name="genero" type="tipoPalabras"/>
+																	<xsd:element name="imagen" type="tipoLinks"/>
+
+																	<xsd:element name="canciones">
+																		<xsd:complexType>
+																			<xsd:sequence>
+																				<xsd:element name="cancion" maxOccurs="unbounded">
+																					<xsd:complexType>
+
+																						<xsd:sequence>
+																							<!-- Elementos de canción-->
+																							<xsd:element name="nombre" type="tipoPalabras"/>
+																							<xsd:element name="duracion" type="xsd:integer"/>
+																							<xsd:element name="archivo" type="tipoPalabras"/>
+																							<xsd:element name="NReproducciones" type="xsd:integer"/>
+																							<xsd:element name="artistasInvitados" type="tipoPalabras"/>
+																						</xsd:sequence>
+
+																					<!-- Atributo canción-->
+																						<xsd:attribute name="id" type="tipoIdAudio"/>
+
+																					</xsd:complexType>
+																				</xsd:element>
+																			</xsd:sequence>
+																		</xsd:complexType>
+																	</xsd:element>
+
+																</xsd:sequence>
+														
+																<!-- Atributo de álbum-->
+																<xsd:attribute name="id" type="tipoIdAlbum"/>
+															
+															</xsd:complexType>
+														</xsd:element>
+													</xsd:sequence>
+
+													<!-- Atributo de músico-->
+													<xsd:attribute name="caracteristica" type="tipoCaracteristicaMusico"/>
+
+												</xsd:complexType>
+											</xsd:element>
+
+											<!-- Opción podcaster-->
+											<xsd:element name="podcaster">
+												<xsd:complexType>
+													<xsd:sequence>
+														<!-- Elemento de podcaster-->
+														<xsd:element name="podcast" maxOccurs="unbounded">
+															<xsd:complexType>
+																<!-- Elementos de podcast-->
+																<xsd:sequence>
+																	<xsd:element name="nombre" type="tipoPalabras"/>
+																	<xsd:element name="duracion" type="xsd:integer"/>
+																	<xsd:element name="archivo" type="tipoPalabras"/>
+																	<xsd:element name="NReproducciones" type="xsd:integer"/>
+																	<xsd:element name="NColaboradores" type="xsd:integer"/>
+																</xsd:sequence>
+
+																<!-- Atributo podcast-->
+																<xsd:attribute name="id" type="tipoIdAudio"	/>
+
+															</xsd:complexType>
+														</xsd:element>
+													</xsd:sequence>
+												</xsd:complexType>
+													
+											</xsd:element>	
+
+										</xsd:choice>
+
 									</xsd:sequence>
 
-									<xsd:attribute name="id">
-										<xsd:simpleType>
-											<xsd:restriction base="xsd:string">
-												<xsd:pattern value="[A][0-9]{4}"></xsd:pattern>
-											</xsd:restriction>
-										</xsd:simpleType>
-									</xsd:attribute>
+									<!-- Atributo de artista-->
+									<xsd:attribute name="id" type="tipoIdArtista"/>
 
 								</xsd:complexType>	
 							</xsd:element>
@@ -54,12 +132,76 @@
 					</xsd:complexType>
 				</xsd:element>
 
-			</xsd:sequence>	
+				<xsd:element name="clientes">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="cliente" minOccurs="1" maxOccurs="unbounded">
+								<xsd:complexType>
+
+									<xsd:sequence>
+										<!-- Elementos de cliente-->
+										<xsd:element name="nombre" type="tipoPalabras"/>
+										<xsd:element name="apellido" type="tipoPalabras"/>
+										<xsd:element name="usuario" type="tipoPalabras"/>
+										<xsd:element name="contrasena" type="tipoPalabras"/>
+										<xsd:element name="fechaNacimiento" type="xsd:date"/>
+										<xsd:element name="fechaRegistro" type="xsd:date"/>
+										<xsd:element name="idIdioma" type="tipoIdIdioma"/>
+
+										<xsd:element name="premium" minOccurs="0">
+											<xsd:complexType>
+												<xsd:sequence>
+													<!-- Elemento premium-->
+													<xsd:element name="fechaCaducidad" type="xsd:date"/>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element> 
+
+										<xsd:element name="playlists">
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="playlist" maxOccurs="unbounded">
+														<xsd:complexType>
+
+															<xsd:sequence>
+																<xsd:element name="titulo" type="tipoPalabras"/>
+																<xsd:element name="fechaCreacion" type="xsd:date"/>
+
+																<xsd:element name="playlistCanciones" minOccurs="0" maxOccurs="unbounded">
+																	<xsd:complexType>
+																		<xsd:sequence>
+																			<xsd:element name="idCancion" type="tipoIdAudio" minOccurs="1" maxOccurs="unbounded"/>
+																		</xsd:sequence>
+																	</xsd:complexType>
+																</xsd:element>
+
+															</xsd:sequence>
+
+															<!-- Atributo playlist-->
+															<xsd:attribute name="id" type="xsd:integer"/>
+														</xsd:complexType>
+													</xsd:element>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+
+									</xsd:sequence>
+
+									<!-- Atributo cliente-->
+									<xsd:attribute name="id" type="tipoIdCliente"/>
+
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+
+			</xsd:sequence>
 
 		</xsd:complexType>
-
 	</xsd:element>
 
+	<!-- Types de todos los elementos (que lo necesiten)-->
 	<xsd:simpleType name="tipoDescripcion">
 		<xsd:restriction base="xsd:string">
 			<xsd:enumeration value="español"/>
@@ -75,14 +217,60 @@
 
 	<xsd:simpleType name="tipoPalabras">
 		<xsd:restriction base="xsd:string">
-			<xsd:pattern value="[a-zA-ZáéíóúÁÉÍÓÚñÑ\-\s/]+"></xsd:pattern>
+			<xsd:pattern value="[a-zA-ZáéíóúÁÉÍÓÚñÑ0-9\-\s/.,\(\)¿?]+"/>
 		</xsd:restriction>
 	</xsd:simpleType>
 
 	<xsd:simpleType name="tipoLinks">
 		<xsd:restriction base="xsd:anyURI">
-			<xsd:pattern value="https?://.+"></xsd:pattern>
+			<xsd:pattern value="https?://.+"/>
 		</xsd:restriction>
 	</xsd:simpleType>
+
+	
+	<!-- Types de los atributos-->
+	 <xsd:simpleType name="tipoIdIdioma">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="ES"/>
+			<xsd:enumeration value="EU"/>
+			<xsd:enumeration value="EN"/>
+			<xsd:enumeration value="DE"/>
+			<xsd:enumeration value="FR"/>
+			<xsd:enumeration value="CA"/>
+			<xsd:enumeration value="GA"/>
+			<xsd:enumeration value="AR"/>
+		</xsd:restriction>
+	 </xsd:simpleType>
+
+	 <xsd:simpleType name="tipoIdAudio">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="AU[0-9]{3}"/>
+		</xsd:restriction>
+	 </xsd:simpleType>
+
+	 <xsd:simpleType name="tipoIdAlbum">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="ALB[0-9]{2}"/>
+		</xsd:restriction>
+	 </xsd:simpleType>
+
+	 <xsd:simpleType name="tipoCaracteristicaMusico">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Grupo"/>
+			<xsd:enumeration value="Solista"/>
+		</xsd:restriction>
+	 </xsd:simpleType>
+
+	 <xsd:simpleType name="tipoIdArtista">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="[A][0-9]{4}"/>
+		</xsd:restriction>
+	 </xsd:simpleType>
+
+	 <xsd:simpleType name="tipoIdCliente">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="CL[0-9]{3}"/>
+		</xsd:restriction>
+	 </xsd:simpleType>
 
 </xsd:schema>
