@@ -7,9 +7,6 @@
         <idioma id="ES">
             <descripcion>español</descripcion>
         </idioma>
-        <idioma id="EU">
-            <descripcion>euskera</descripcion>
-        </idioma>
         <idioma id="EN">
             <descripcion>ingles</descripcion>
         </idioma>
@@ -26,7 +23,7 @@
             <nombreArtistico>Eminem</nombreArtistico>
             <genero>Rap/Hip-Hop</genero>
             <imagen>https://static.wikia.nocookie.net/rap/images/3/34/Eminem_Fotografia_01.jpg/revision/latest?cb=20220507042018&amp;path-prefix=es</imagen>
-            <descripcion>Eminem, conocido también como Slim Shady...</descripcion>
+            <descripcion>Eminem, conocido también como Slim Shady, es uno de los raperos más influyentes y exitosos en la historia del hip hop. Destaca por su técnica excepcional, rimas complejas y una capacidad única para narrar historias crudas y personales con un estilo provocador. A lo largo de su carrera ha ganado múltiples premios Grammy y un Oscar, consolidándose como un ícono cultural global. Su impacto no solo transformó el género, sino que rompió barreras raciales en la industria musical.</descripcion>
             
             <musico caracteristica="Solista">
                 <album id="ALB01">
@@ -40,8 +37,8 @@
                             <nombre>Space bound</nombre>
                             <duracion>4</duracion>
                             <archivo>BBDD/media/cancion/AU001.mp3</archivo>
-                            <nReproducciones>343</nReproducciones>
-                            <artistasInvitados xsi:nil="true" />
+                            <NReproducciones>343</NReproducciones>
+                            <artistasInvitados>ninguno</artistasInvitados>
                         </cancion>
                     </canciones>
                 </album>
@@ -54,7 +51,7 @@
             <nombreArtistico>The wildProject</nombreArtistico>
             <genero>Talk show</genero>
             <imagen>https://s2.elespanol.com/2024/09/13/omicrono/software/885671616_249158676_1024x576.jpg</imagen>
-            <descripcion>The Wild Project es el podcast número 1 en español...</descripcion>
+            <descripcion>The Wild Project es el podcast número uno en español, dirigido por Jordi Wild. Se caracteriza por conversaciones extensas y sin censura sobre actualidad, deportes (MMA, boxeo), ciencia, misterio y filosofía. Con invitados variados, busca el entretenimiento y el debate, ganando premios ESALAND al mejor talk show.</descripcion>
             
   
             <podcaster>
@@ -63,8 +60,8 @@
                     <nombre>¿Donde invertir?</nombre>
                     <duracion>9</duracion>
                     <archivo>BBDD/media/podcast/AU002.mp3</archivo>
-                    <nReproducciones>23</nReproducciones>
-                    <nColaboradores>2</nColaboradores>
+                    <NReproducciones>23</NReproducciones>
+                    <NColaboradores>2</NColaboradores>
                 </podcast>
             </podcaster>
         </artista>
@@ -105,6 +102,7 @@
 			<usuario>Vickyy04</usuario>
 			<contrasena>estrellaluna</contrasena>
 			<fechaNacimiento>1999-04-04</fechaNacimiento>
+			<fechaRegistro>2026-05-05</fechaRegistro>
 			<idIdioma>FR</idIdioma>
 
 			<playlists>
