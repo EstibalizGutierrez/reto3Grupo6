@@ -1,24 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<spotify xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:noNamespaceSchemaLocation="spotify.xsd">
-
-    <!-- Idiomas -->
-    <idiomas>
-        <idioma id="ES">
-            <descripcion>español</descripcion>
-        </idioma>
-        <idioma id="EN">
-            <descripcion>ingles</descripcion>
-        </idioma>
-        <idioma id="FR">
-            <descripcion>frances</descripcion>
-        </idioma>
-    </idiomas>
-
+<spotify xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="spotify.xsd">
     <artistas>
-
-		<!-- Músico-->
-
         <artista id="A0001">
             <nombreArtistico>Eminem</nombreArtistico>
             <genero>Rap/Hip-Hop</genero>
@@ -32,7 +14,6 @@
                     <genero>Rap/Hip-Hop</genero>
                     <imagen>https://cdn-images.dzcdn.net/images/cover/be682506145061814eddee648edb7c59/1900x1900-000000-81-0-0.jpg</imagen>
                     <canciones>
-
 						<cancion id="AU001">
                             <nombre>Space bound</nombre>
                             <duracion>4</duracion>
@@ -44,18 +25,15 @@
                 </album>
             </musico>
         </artista>
+    </artistas>
 
 		<!-- podcaster-->
 
-        <artista id="A0006">
+        <podcaster id="A0006">
             <nombreArtistico>The wildProject</nombreArtistico>
             <genero>Talk show</genero>
             <imagen>https://s2.elespanol.com/2024/09/13/omicrono/software/885671616_249158676_1024x576.jpg</imagen>
             <descripcion>The Wild Project es el podcast número uno en español, dirigido por Jordi Wild. Se caracteriza por conversaciones extensas y sin censura sobre actualidad, deportes (MMA, boxeo), ciencia, misterio y filosofía. Con invitados variados, busca el entretenimiento y el debate, ganando premios ESALAND al mejor talk show.</descripcion>
-            
-  
-            <podcaster>
-
 				<podcast id="AU002">
                     <nombre>¿Donde invertir?</nombre>
                     <duracion>9</duracion>
@@ -63,9 +41,7 @@
                     <NReproducciones>23</NReproducciones>
                     <NColaboradores>2</NColaboradores>
                 </podcast>
-            </podcaster>
-        </artista>
-    </artistas>
+        </podcaster>
 
 	<!-- Parte usuario-->
 
