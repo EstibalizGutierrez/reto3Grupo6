@@ -1,68 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 	<xsd:element name="spotify">
-		
 		<xsd:complexType>
-
 			<xsd:sequence>
-				<xsd:element name="idiomas">
-					<xsd:complexType>
-						<xsd:sequence>
-							<xsd:element name="idioma" minOccurs="1" maxOccurs="8">
-								<xsd:complexType>
-									<xsd:sequence>
-										<xsd:element name="descripcion" type="tipoDescripcion"/>
-									</xsd:sequence>	
-									
-									<!-- Atributo de idioma-->
-									<xsd:attribute name="id" type="tipoIdIdioma"/>
-
-								</xsd:complexType>
-							</xsd:element>
-						</xsd:sequence>						
-					</xsd:complexType>	
-				</xsd:element>
-
 				<xsd:element name="artistas">
 					<xsd:complexType>
 						<xsd:sequence>
 							<xsd:element name="artista" minOccurs="1" maxOccurs="unbounded">
 								<xsd:complexType>
-
 									<xsd:sequence>
-										<!-- Elementos de artista-->
+<!-- Elementos de artista-->
 										<xsd:element name="nombreArtistico" type="tipoPalabras"/>
 										<xsd:element name="genero" type="tipoPalabras"/>
 										<xsd:element name="imagen" type="tipoLinks"/>
 										<xsd:element name="descripcion" type="tipoPalabras"/>
 
-										<!-- Choice para elegir entre musico o podcaster-->
+<!-- Choice para elegir entre musico o podcaster-->
 										<xsd:choice>
-											<!-- Opción musico-->
+<!-- Opción musico-->
 											<xsd:element name="musico">
 												<xsd:complexType>
-
 													<xsd:sequence>
-														<!-- Elemento de músico-->
+<!-- Elemento de músico-->
 														<xsd:element name="album" maxOccurs="unbounded">
 															<xsd:complexType>
-
 																<xsd:sequence>
 																	<!-- Elementos de álbum-->
 																	<xsd:element name="titulo" type="tipoPalabras"/>
 																	<xsd:element name="anno" type="xsd:date"/>
 																	<xsd:element name="genero" type="tipoPalabras"/>
 																	<xsd:element name="imagen" type="tipoLinks"/>
-
 																	<xsd:element name="canciones">
 																		<xsd:complexType>
 																			<xsd:sequence>
 																				<xsd:element name="cancion" maxOccurs="unbounded">
 																					<xsd:complexType>
-
 																						<xsd:sequence>
 																							<!-- Elementos de canción-->
 																							<xsd:element name="nombre" type="tipoPalabras"/>
+<!--POSIBLE TIPO TIME-->
 																							<xsd:element name="duracion" type="xsd:integer"/>
 																							<xsd:element name="archivo" type="tipoPalabras"/>
 																							<xsd:element name="NReproducciones" type="xsd:integer"/>
@@ -70,7 +46,7 @@
 																						</xsd:sequence>
 
 																					<!-- Atributo canción-->
-																						<xsd:attribute name="id" type="tipoIdAudio"/>
+																					<xsd:attribute name="id" type="tipoIdAudio"/>
 
 																					</xsd:complexType>
 																				</xsd:element>
@@ -80,8 +56,8 @@
 
 																</xsd:sequence>
 														
-																<!-- Atributo de álbum-->
-																<xsd:attribute name="id" type="tipoIdAlbum"/>
+<!-- Atributo de álbum-->
+															<xsd:attribute name="id" type="tipoIdAlbum"/>
 															
 															</xsd:complexType>
 														</xsd:element>
@@ -92,6 +68,7 @@
 
 												</xsd:complexType>
 											</xsd:element>
+										
 
 											<!-- Opción podcaster-->
 											<xsd:element name="podcaster">
@@ -124,7 +101,7 @@
 									</xsd:sequence>
 
 									<!-- Atributo de artista-->
-									<xsd:attribute name="id" type="tipoIdArtista"/>
+								<xsd:attribute name="id" type="tipoIdArtista"/>
 
 								</xsd:complexType>	
 							</xsd:element>
@@ -188,7 +165,7 @@
 									</xsd:sequence>
 
 									<!-- Atributo cliente-->
-									<xsd:attribute name="id" type="tipoIdCliente"/>
+								<xsd:attribute name="id" type="tipoIdCliente"/>
 
 								</xsd:complexType>
 							</xsd:element>
@@ -222,7 +199,7 @@
 	</xsd:simpleType>
 
 	<xsd:simpleType name="tipoLinks">
-		<xsd:restriction base="xsd:anyURI">
+		<xsd:restriction base="xsd:string">
 			<xsd:pattern value="https?://.+"/>
 		</xsd:restriction>
 	</xsd:simpleType>
