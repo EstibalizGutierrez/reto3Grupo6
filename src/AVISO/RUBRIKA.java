@@ -1,8 +1,4 @@
-package AVISO;
 
-public class RUBRIKA {
-
-	
 	/*
 	 * RUBRICA (SE PUEDE CAMBIAR PERO CONSULTAR)
 	 * 
@@ -22,5 +18,3 @@ public class RUBRIKA {
 	 * */
 	
 	
-	
-}
