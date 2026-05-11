@@ -26,25 +26,7 @@
             </musico>
         </artista>
     </artistas>
-
-		<!-- podcaster-->
-
-        <podcaster id="A0006">
-            <nombreArtistico>The wildProject</nombreArtistico>
-            <genero>Talk show</genero>
-            <imagen>https://s2.elespanol.com/2024/09/13/omicrono/software/885671616_249158676_1024x576.jpg</imagen>
-            <descripcion>The Wild Project es el podcast número uno en español, dirigido por Jordi Wild. Se caracteriza por conversaciones extensas y sin censura sobre actualidad, deportes (MMA, boxeo), ciencia, misterio y filosofía. Con invitados variados, busca el entretenimiento y el debate, ganando premios ESALAND al mejor talk show.</descripcion>
-				<podcast id="AU002">
-                    <nombre>¿Donde invertir?</nombre>
-                    <duracion>9</duracion>
-                    <archivo>BBDD/media/podcast/AU002.mp3</archivo>
-                    <NReproducciones>23</NReproducciones>
-                    <NColaboradores>2</NColaboradores>
-                </podcast>
-        </podcaster>
-
 	<!-- Parte usuario-->
-
 	<clientes>
         <cliente id="CL001" >
             <nombre>Ernesto Manuel</nombre>
