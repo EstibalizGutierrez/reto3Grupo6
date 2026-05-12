@@ -23,10 +23,192 @@
                         </cancion>
                     </canciones>
                 </album>
-            </musico>
+                
+                <album id="ALB05">
+                    <titulo>Music to be Murdered By</titulo>
+                    <anno>2020-01-17</anno>
+                    <genero>Rap/hip-hop</genero>
+                    <imagen>https://upload.wikimedia.org/wikipedia/en/8/80/Eminem_-_Music_to_Be_Murdered_By.png</imagen>
+                    <canciones>
+                        <cancion id="AU015">
+                            <nombre>Darkness</nombre>
+                            <duracion>00:05:37</duracion>
+                            <archivo>media/cancion/AU015.mp3</archivo>
+                            <NReproducciones>43435</NReproducciones>
+                            <artistasInvitados>ninguno</artistasInvitados>
+                        </cancion>
 
+                        <cancion id="AU016">
+                            <nombre>Leaving heaven</nombre>
+                            <duracion>00:04:25</duracion>
+                            <archivo>media/cancion/AU016.mp3</archivo>
+                            <NReproducciones>234</NReproducciones>
+                            <artistasInvitados>x</artistasInvitados>
+                        </cancion>
+
+                        <cancion id="AU017">
+                            <nombre>Never love again</nombre>
+                            <duracion>00:03:00</duracion>
+                            <archivo>media/cancion/AU017.mp3</archivo>
+                            <NReproducciones>23</NReproducciones>
+                            <artistasInvitados>ninguno</artistasInvitados>
+                        </cancion>
+
+                        <cancion id="AU018">
+                            <nombre>No regrets</nombre>
+                            <duracion>00:03:20</duracion>
+                            <archivo>media/cancion/AU018.mp3</archivo>
+                            <NReproducciones>656</NReproducciones>
+                            <artistasInvitados>x</artistasInvitados>
+                        </cancion>
+                    </canciones>
+                </album>
+            </musico>
+        </artista>
+        
+        <artista id="A0002">
+            <nombreArtistico>BTS</nombreArtistico>
+            <genero>k-pop</genero>
+            <imagen>https://static.wikia.nocookie.net/mamarre-estudios-espanol/images/2/24/3OWSV6ZZHZHQFDIC6HXDTQDUKE.jpg/revision/latest?cb=20200420001515&path-prefix=es</imagen>
+            <descripcion>Septeto surcoreano formado en Seúl en 2010. Es el grupo de K-pop más influyente a nivel mundial, compuesto por Jin, Suga, J-Hope, RM, Jimin, V y Jungkook. Han encabezado las listas de Billboard y son reconocidos por su impacto cultural global y récords en ventas.</descripcion>
+        
+            <musico caracteristica="Grupo">
+                <album id="ALB06">
+                    <titulo>Love Yourself: Answer</titulo>
+                    <anno>2017-08-24</anno>
+                    <genero>k-pop</genero>
+                    <imagen>https://static.wikia.nocookie.net/bangtan/images/5/55/Answer_cover.jpg/revision/latest?cb=20180824221028&path-prefix=es</imagen>
+                    <canciones>
+                        <cancion id="AU019">
+                            <nombre>DNA</nombre>
+                            <duracion>00:03:43</duracion>
+                            <archivo>BBDD/media/cancion/AU019.mp3</archivo>
+                            <NReproducciones>43535</NReproducciones>
+                            <artistasInvitados>ninguno</artistasInvitados>
+                        </cancion>
+
+                        <cancion id="AU020">
+                            <nombre>Fake love</nombre>
+                            <duracion>00:04</duracion>
+                            <archivo>media/cancion/AU020.mp3</archivo>
+                            <NReproducciones>656</NReproducciones>
+                            <artistasInvitados>ninguno</artistasInvitados>
+                        </cancion>
+
+                        <cancion id="AU021">
+                            <nombre>Dimple</nombre>
+                            <duracion>00:03:16</duracion>
+                            <archivo>media/cancion/AU021.mp3</archivo>
+                            <NReproducciones>4333</NReproducciones>
+                            <artistasInvitados>ninguno</artistasInvitados>
+                        </cancion>
+
+                        <cancion id="AU022">
+                            <nombre>Her</nombre>
+                            <duracion>00:03:49</duracion>
+                            <archivo>media/cancion/AU022.mp3</archivo>
+                            <NReproducciones>67676</NReproducciones>
+                            <artistasInvitados>ninguno</artistasInvitados>
+                        </cancion>
+
+                        <cancion id="AU023">
+                            <nombre>Singularity</nombre>
+                            <duracion>00:03:16</duracion>
+                            <archivo>media/cancion/AU023.mp3</archivo>
+                            <NReproducciones>123</NReproducciones>
+                        </cancion>
+                    </canciones>
+                </album>
+
+                <album id="ALB07">
+                    <titulo>Wings</titulo>
+                    <anno>2016-10-10</anno>
+                    <genero>K-pop</genero>
+                    <imagen>https://kstoryespana.es/cdn/shop/products/cokodive-bts-2nd-full-length-album-wings-3716964745296.png?v=1753594143&width=1946</imagen>
+                    <canciones>
+                        <cancion id="AU024">
+                            <nombre>Awake</nombre>
+                            <duracion>00:03:46</duracion>
+                            <archivo>media/cancion/AU024.mp3</archivo>
+                            <NReproducciones>3344</NReproducciones>
+                            <artistasInvitados>x</artistasInvitados>
+                        </cancion>
+
+                        <cancion id="AU025">
+                            <nombre>Lost</nombre>
+                            <duracion>00:04:02</duracion>
+                            <archivo>media/cancion/AU025.mp3</archivo>
+                            <NReproducciones>233</NReproducciones>
+                            <artistasInvitados>x</artistasInvitados>
+                        </cancion>
+
+                        <cancion id="AU026">
+                            <nombre>MAMA</nombre>
+                            <duracion>00:03:52</duracion>
+                            <archivo>media/cancion/AU026.mp3</archivo>
+                            <NReproducciones>66</NReproducciones>
+                            <artistasInvitados>x</artistasInvitados>
+                        </cancion>
+
+                        <cancion id="AU027">
+                            <nombre>Lie</nombre>
+                            <duracion>00:03:35</duracion>
+                            <archivo>media/cancion/AU027.mp3</archivo>
+                            <NReproducciones>3</NReproducciones>
+                            <artistasInvitados>x</artistasInvitados>
+                        </cancion>
+
+                        <cancion id="AU028">
+                            <nombre>Stigma</nombre>
+                            <duracion>00:03:36</duracion>
+                            <archivo>media/cancion/AU028.mp3</archivo>
+                            <NReproducciones>1111</NReproducciones>
+                            <artistasInvitados>x</artistasInvitados>
+                        </cancion>
+                    </canciones>
+                </album>
+            </musico>
         </artista>
 
+        <artista id="A0003">
+            <nombreArtistico>Hombres G</nombreArtistico>
+            <genero>Rock</genero>
+            <imagen>https://lafonoteca.net/wp-content/uploads/2008/03/hombres-g.jpg</imagen>
+            <descripcion>Banda española de pop-rock y new wave fundada en Madrid en 1982. Liderada por David Summers, se convirtió en uno de los grupos más exitosos de los años 80 con himnos como Devuélveme a mi chica y Venezia, marcando a toda una generación en España y Latinoamérica</descripcion>
+        
+            <musico caracteristica="Grupo">
+                <album id="ALB08">
+                    <titulo>La cagaste...Burt Lancaster</titulo>
+                    <anno>1986-04-28</anno>
+                    <genero>Rock</genero>
+                    <imagen>https://static.wikia.nocookie.net/hombres-g/images/4/48/La_Cagaste_Burt_Lancaster.jpeg/revision/latest/thumbnail/width/360/height/450?cb=20240625075251&path-prefix=es</imagen>
+                    <canciones>
+                        <cancion id="AU029">
+                            <nombre>El ataque de las chicas cocodrilo</nombre>
+                            <duracion>00:03:10</duracion>
+                            <archivo>BBDD/media/cancion/AU029.mp3</archivo>
+                            <NReproducciones>65650</NReproducciones>
+                            <artistasInvitados>ninguno</artistasInvitados>
+                        </cancion>
+
+                        <cancion id="AU030">
+                            <nombre>Te quiero</nombre>
+                            <duracion>00:03:35</duracion>
+                            <archivo>BBDD/media/cancion/AU030</archivo>
+                            <NReproducciones>454</NReproducciones>
+                            <artistasInvitados>ninguno</artistasInvitados>
+                        </cancion>
+                    </canciones>
+                </album>
+                
+                <album id="ALB09">
+                    <titulo>Agitar antes de usar</titulo>
+                    <anno>1988-05-24</anno>
+                    <genero>Rock</genero>
+                    <imagen>https://static.wikia.nocookie.net/hombres-g/images/a/a0/Agitar_Antes_De_Usar.jpg/revision/latest?cb=20240618195117&path-prefix=es</imagen>
+                </album>
+            </musico>
+        </artista>
 
 		<!-- podcaster-->
 		
@@ -76,7 +258,6 @@
 			<contrasena>estrellaluna</contrasena>
 			<fechaNacimiento>1999-04-04</fechaNacimiento>
 			<fechaRegistro>2026-05-05</fechaRegistro>
-
 		</cliente>
 
     </clientes>
