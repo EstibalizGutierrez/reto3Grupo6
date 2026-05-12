@@ -22,6 +22,11 @@ public class Enums {
 	}
 
 
+	public enum tipoAudio {
+		
+		Cancion, Podcast
+		
+	}
 	
 }
 

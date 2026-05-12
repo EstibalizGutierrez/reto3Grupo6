@@ -156,7 +156,11 @@ CREATE TABLE Gustos (
 insert into Idioma (IdIdioma, Descripcion)
 values ('ES','español'),
         ('EN','ingles'),
-        ('FR','frances');
+        ('FR','frances'),
+        ('EU','euskera'),
+        ('DE','aleman'),
+        ('AR','arabe'),
+        ('CA','catalan');
 		
 
 insert into Artista (IdArtista, NombreArtistico, Genero, Imagen, Descripcion)
@@ -168,11 +172,11 @@ values ('A0001', 'Eminem', 'Rap/Hip-Hop', 'https://static.wikia.nocookie.net/rap
        ('A0006', 'The wildProject', "Talk show", 'https://s2.elespanol.com/2024/09/13/omicrono/software/885671616_249158676_1024x576.jpg','The Wild Project es el podcast número 1 en español, dirigido por Jordi Wild. Se caracteriza por conversaciones extensas y sin censura sobre actualidad, deportes (MMA, boxeo), ciencia, misterio y filosofía. Con invitados variados, busca el entretenimiento y el debate, ganando premios ESALAND al mejor talk show.');  
        
 insert into Musico (IdMusico, Caracteristica)
-values ('A0001', 'solista'),
-	   ('A0002', 'grupo'),
-       ('A0003', 'grupo'),
-       ('A0004', 'solista'),
-       ('A0005', 'solista');
+values ('A0001', 'Solista'),
+	   ('A0002', 'Grupo'),
+       ('A0003', 'Grupo'),
+       ('A0004', 'Solista'),
+       ('A0005', 'Solista');
 
 
 insert into Audio(IdAudio, Nombre, Duracion, Archivo, Tipo, NReproducciones)
