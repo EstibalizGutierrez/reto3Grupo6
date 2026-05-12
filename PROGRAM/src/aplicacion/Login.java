@@ -119,6 +119,19 @@ public class Login extends JFrame {
 		botonRegistro = new JButton("REGISTRO");
 		botonRegistro.setFont(new Font("Constantia", Font.BOLD, 15));
 		botonRegistro.setBounds(265, 298, 118, 31);
+		botonRegistro.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				Registro panelRegistro = new Registro();
+				dispose();
+				panelRegistro.setVisible(true);
+				
+				
+			}			
+			
+		});
 		panelUsuario.add(botonRegistro);
 
 	}

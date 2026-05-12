@@ -8,31 +8,32 @@ import java.sql.SQLException;
 import java.sql.Date;
 import java.time.LocalDate;
 import POJOs.Cliente;
+import POJOs.Idioma;
 import POJOs.Enums.idIdioma;
 import POJOs.Enums.tipoUsuario;
 import UTILS.Conexion;
 
-public class ClienteDAO {
+public class clienteDAO {
 		
 	private Conexion conn = new Conexion();
 	private PreparedStatement statement;
 	private ResultSet resultSet;
-	private String clienteInsertado = "¡¡Cliente creado correctamente!!";
-	private String sqlError = "No se ha podido registrar al cliente";
+
 	
 	
 
-	/**
+	/*
 	 * Método para validar el login y obtener los datos del cliente
 	 * @param Cliente datos
 	 * @return Cliente
 	 */
+	
 	public Cliente clienteLogin (Cliente datos) {
 			
 	Connection conexion = null;
 	Cliente clienteLogueado = null; 
 
-	String sql = "Select * from Clientes where Usuario = ? and Contrasena = ?";
+	String sql = "Select * from Cliente where Usuario = ? and Contrasena = ?";
 			
 		try {
 				
@@ -46,41 +47,48 @@ public class ClienteDAO {
 				resultSet = statement.executeQuery();
 					
 				if (resultSet.next()) {
+					
+					//DEbido a que idIdioma es un atributo derivado de clase Idioma, la instanciamos en un objeto
+					String idIdio = resultSet.getString("IdIdioma");
+					Idioma idioma = new Idioma(idIdioma.valueOf(idIdio));
 						
 					// Si existe el cliente en el login lo rellenamos con sus datos de la BBDD
 					
 						clienteLogueado = new Cliente(
-						resultSet.getString("Usuario"),
-						resultSet.getString("Contrasena"),
+						resultSet.getString("IdCliente"),
 						resultSet.getString("Nombre"),
 						resultSet.getString("Apellido"),
-						idIdioma.valueOf(resultSet.getString("Idioma")),
+						resultSet.getString("Usuario"),
+						resultSet.getString("Contrasena"),
 						resultSet.getDate("FechaNacimiento").toLocalDate(),
 						resultSet.getDate("FechaRegistro").toLocalDate(),
-						tipoUsuario.valueOf(resultSet.getString("Tipo"))
-	
+						
+						tipoUsuario.valueOf(resultSet.getString("Tipo")),
+						idioma
+						
 							);
-						
-						JOptionPane.showMessageDialog(null, "Login exitoso para el cliente" , clienteLogueado.getNombre(), 0);
-						
+												
 						}
 					
 				}
 				
 			} catch (SQLException error) {
 				
-				JOptionPane.showMessageDialog(null, "Cliente no encontrado");
+				error.printStackTrace();
 				
 			} 
 			return clienteLogueado;
 			
 		}
+	
+
 
 		/**
 		 * Método para registrar un nuevo cliente a la BBDD
 		 * @param Cliente nuevo
 		 * @return boolean
 		 */
+		 
 		public boolean clienteInsertar (Cliente nuevo) {
 			
 			Connection conexion = null;
@@ -88,8 +96,8 @@ public class ClienteDAO {
 			String idNuevo = generarId();
 
 			//CONSULTA SQL
-			String sql = "Insert into Clientes (Usuario, Contrasena, Nombre, Apellido, Idioma, FechaNacimiento, FechaRegistro, Tipo) "
-					+ 	"values (?, ?, ?, ?, ?, ?, ?, ?)";
+			String sql = "Insert into Cliente (IdCliente, Nombre, Apellido, Usuario, Contrasena, FechaNacimiento, FechaRegistro, Tipo, IdIdioma) "
+					+ 	"values (?, ?, ?, ?, ?, ?, ?, ? , ?)";
 			
 			try {
 				
@@ -97,32 +105,31 @@ public class ClienteDAO {
 				
 				if (conexion != null) {
 					
+					statement = conexion.prepareStatement(sql);
+					
 					statement.setString(1, idNuevo); 
-		            statement.setString(2, nuevo.getUsuario());
-		            statement.setString(3, nuevo.getContrasena());
-		            statement.setString(4, nuevo.getNombre());
-		            statement.setString(5, nuevo.getApellido());
-		            statement.setString(6, nuevo.getIdioma().name());
-		            statement.setDate(7, Date.valueOf(nuevo.getFechaNacimiento()));
-		            statement.setDate(8, Date.valueOf(LocalDate.now()));  
-		            statement.setString(9, nuevo.getTipo().name());
+		            statement.setString(2, nuevo.getNombre());
+		            statement.setString(3, nuevo.getApellido());
+		            statement.setString(4, nuevo.getUsuario());
+		            statement.setString(5, nuevo.getContrasena());
+		            statement.setDate(6, Date.valueOf(nuevo.getFechaNacimiento()));
+		            statement.setDate(7, Date.valueOf(nuevo.getFechaRegistro()));
+		            statement.setString(8, nuevo.getTipo().name());  
+		            statement.setString(9, nuevo.getIdIdioma().getIdIdioma().name());
 					
 					int filas = statement.executeUpdate();//Lo hacemos para ver si se han incluido las filas en la BBDD
 					
 					if (filas > 0) { //con que se haya insertado al menos una fila ya sabremos que se han insertado las otras
 						
 						clienteValidoInsertado = true;
-						
-						JOptionPane.showMessageDialog(null, clienteInsertado);
-						
+												
 					}
 					
 				}
 				
 			} catch (SQLException error) {
 				
-				JOptionPane.showMessageDialog(null, sqlError);
-				
+				error.printStackTrace();
 			} 
 			
 			return clienteValidoInsertado;
@@ -137,10 +144,10 @@ public class ClienteDAO {
 		 
 		public String generarId() {
 			Connection conexion = null;
-			String nuevoId = null;
-			String sql = "Select idCliente from clientes order by idCliente desc limit 1"; //SENTENCIa para guardar el id del ultimo cliente en un String
+			String nuevoId = "";
+			String sql = "Select idCliente from Cliente order by IdCliente desc limit 1"; //sentencIa para guardar el id del ultimo cliente en un String
 			
-			try {
+			try { 
 				conexion = conn.getConnection();
 				
 				if (conexion != null) {
@@ -149,7 +156,7 @@ public class ClienteDAO {
 					resultSet = statement.executeQuery();
 					
 					if (resultSet.next()) {
-						String ultimoId = resultSet.getString("idCliente"); //guardamos el ultimo id en un string
+						String ultimoId = resultSet.getString("IdCliente"); //guardamos el ultimo id en un string
 						
 						int num = Integer.parseInt(ultimoId.substring(2)); //Hacemos substring para OBTENER los ultimos 3 digitos y quitarnos la parte "CL" del id "CL004" (EJEMPLO)
 						
