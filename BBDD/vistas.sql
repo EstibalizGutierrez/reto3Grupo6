@@ -1,27 +1,26 @@
-/*vista medio hecha*/
-CREATE VIEW vista_ranking_contenido AS
-SELECT 
-    A.IdAudio,
-    A.Nombre AS Titulo,
+create view vista_ranking_contenido as
+select 
+    A.Nombre as Titulo,
     A.Tipo,
     A.NReproducciones,
-    CASE 
-        WHEN A.Tipo = 'Canción' THEN (SELECT Art.NombreArtistico 
-                                      FROM Artista Art 
-                                      JOIN Musico M ON Art.IdArtista = M.IdMusico
-                                      JOIN Album Alb ON M.IdMusico = Alb.IdMusico
-                                      JOIN Cancion C ON Alb.IdAlbum = C.IdAlbum
-                                      WHERE C.IdCancion = A.IdAudio)
-        WHEN A.Tipo = 'Podcast' THEN (SELECT Art.NombreArtistico 
-                                      FROM Artista Art 
-                                      JOIN Podcaster P ON Art.IdArtista = P.IdPodcaster
-                                      JOIN Podcast Pod ON P.IdPodcaster = Pod.IdPodcaster
-                                      WHERE Pod.IdPodcast = A.IdAudio)
-    END AS Autor
-FROM Audio A
-ORDER BY A.NReproducciones DESC;
-
-
+    case 
+        when A.Tipo = 'Canción' then (select Art.NombreArtistico 
+                                      from Artista Art 
+                                      join Musico M on Art.IdArtista = M.IdMusico
+                                      join Album Alb on M.IdMusico = Alb.IdMusico
+                                      join Cancion C on Alb.IdAlbum = C.IdAlbum
+                                      where C.IdCancion = A.IdAudio)
+        when A.Tipo = 'Podcast' then (select Art.NombreArtistico 
+                                      from Artista Art 
+                                      join Podcaster P on Art.IdArtista = P.IdPodcaster
+                                      join Podcast Pod on P.IdPodcaster = Pod.IdPodcaster
+                                      where Pod.IdPodcast = A.IdAudio)
+    end as Autor
+from Audio A
+order by A.NReproducciones desc;
+/*albumes mas escuchados*/
+/*artistas*/
+/*podcasters*/
 
 
 
