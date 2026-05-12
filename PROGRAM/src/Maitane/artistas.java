@@ -57,6 +57,7 @@ public class artistas extends JFrame {
 		JButton btnAtras = new JButton("Atras");
 		btnAtras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 			}
 		});
 		GridBagConstraints gbc_btnAtras = new GridBagConstraints();
