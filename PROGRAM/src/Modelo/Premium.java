@@ -1,4 +1,4 @@
-package POJOs;
+package Modelo;
 import java.time.LocalDate;
 public class Premium {
 	

@@ -1,10 +1,14 @@
-package aplicacion;
+package Vista;
 
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Controlador.ClienteDAO;
+import Controlador.PremiumDAO;
+
 import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -16,13 +20,13 @@ import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDate;
-import POJOs.Cliente;
-import POJOs.Enums.idIdioma;
-import POJOs.Enums.tipoUsuario;
-import POJOs.Premium;
-import POJOs.Idioma;
-import DAOs.clienteDAO;
-import DAOs.premiumDAO;
+
+import Modelo.Cliente;
+import Modelo.Idioma;
+import Modelo.Premium;
+import Modelo.Enums.idIdioma;
+import Modelo.Enums.tipoUsuario;
+
 import java.awt.Color;
 
 
@@ -295,7 +299,7 @@ public class Registro extends JFrame {
 					Idioma idioma = new Idioma(idIdioma.valueOf(idiomaSeleccionado));
 
 					//instanciamos dao
-					clienteDAO daoC = new clienteDAO();
+					ClienteDAO daoC = new ClienteDAO();
 					String idCliente = daoC.generarId(); //generamos el ID
 					
 					//insertamos cliente mediante metodo
@@ -313,7 +317,7 @@ public class Registro extends JFrame {
 			                    
 			                    clienteInsertado = new Cliente(idCliente);
 			                    Premium premium = new Premium(clienteInsertado, fechaCaducidadPremium);    
-			                    premiumDAO pdao = new premiumDAO();
+			                    PremiumDAO pdao = new PremiumDAO();
 			                    
 			                   
 			                    if (pdao.insertarPremium(premium)) {
