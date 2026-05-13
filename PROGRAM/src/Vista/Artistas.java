@@ -69,6 +69,13 @@ public class Artistas extends JFrame {
 		contentPane.add(lblListaArtistas, gbc_lblListaArtistas);
 		
 		JButton btnPerfil = new JButton("Perfil");
+		btnPerfil.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Artistas ventanaDeArtistas = new Artistas();
+				ventanaDeArtistas.setVisible(true);
+				Artistas.this.dispose();
+			}
+		});
 		btnPerfil.setFont(new Font("Constantia", Font.BOLD, 15));
 		GridBagConstraints gbc_btnPerfil = new GridBagConstraints();
 		gbc_btnPerfil.anchor = GridBagConstraints.NORTHEAST;
@@ -95,7 +102,7 @@ public class Artistas extends JFrame {
 	                    Artistas.this.dispose();
 	                    System.out.println("Cargando a: " + nombreSeleccionado);
 	                }
-	            }
+	            }	
 	        });
 		btnVerArtista.setFont(new Font("Constantia", Font.BOLD, 15));
 		GridBagConstraints gbc_btnVerArtista = new GridBagConstraints();
