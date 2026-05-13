@@ -337,13 +337,15 @@ public class Perfil extends JFrame {
 					String idiomaSeleccionado = comboBoxIdiomas.getSelectedItem().toString();
 					Idioma idioma = new Idioma(idIdioma.valueOf(idiomaSeleccionado));
 					
-					Cliente clienteEditado = new Cliente(nombre,apellido,usuario,contrasena, fechaNacimiento, tipo, idioma);
+					// Se añade el ID de clientePerfil para que el UPDATE sepa qué registro tocar
+					Cliente clienteEditado = new Cliente(clientePerfil.getIdCliente(), nombre, apellido, usuario, contrasena, fechaNacimiento, clientePerfil.getFechaRegistro(), tipo, idioma);
 					
 					ClienteDAO daoC = new ClienteDAO();
 					
 					if (contrasena.equals(confirmar)) {
 						
-						if (daoC.editarCliente(clientePerfil)) {
+						// Se envía clienteEditado (datos nuevos) en lugar de clientePerfil (datos viejos)
+						if (daoC.editarCliente(clienteEditado)) {
 							
 							if (tipo == tipoUsuario.Premium) {
 								
@@ -391,9 +393,8 @@ public class Perfil extends JFrame {
 		
 		contentPane.add(botonGuardarCambios);
 		
-	
-	}
-	
+	}		
+		
 	/**
 	 * Metodo para formatear fecha y pasar de localdate a string
 	 * 

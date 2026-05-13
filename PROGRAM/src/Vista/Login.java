@@ -114,18 +114,17 @@ public class Login extends JFrame {
 				
 				Cliente clienteConTodosLosDatos = dao.clienteLogin(clienteExistente);
 				
-				if (clienteConTodosLosDatos !=  null) {
+				if (clienteConTodosLosDatos !=  null && comboBoxOpcionUsuario.getSelectedIndex() == 0) {
 					
 					//Instanciamos la clase static de Usuario para poder guardar el dato del cliente 
 					//logueado en todas las clases y asi poder seguir el flujo de la app en base al Usuario
 					
 					Usuario.setUsuario(clienteConTodosLosDatos);
 					
-					Perfil panelPerfil = new Perfil();
 					
 					dispose();
-					
-					panelPerfil.setVisible(true);
+					Menu_Cliente panelMenuCliente = new Menu_Cliente();
+					panelMenuCliente.setVisible(true);
 					
 				} else {
 					

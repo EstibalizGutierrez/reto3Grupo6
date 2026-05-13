@@ -46,10 +46,11 @@ public class Cliente {
 	}
 	
 	
-	//COnstructor para guardar datos editables en el perfil del usuario
+	//COnstructor para guardar datos del cliente editado en el perfil del usuario
 	
-	public Cliente (String nombre, String apellido, String usuario, String contrasena, LocalDate fechaNacimiento,tipoUsuario tipo, Idioma idIdioma) {
+	public Cliente (String idCliente, String nombre, String apellido, String usuario, String contrasena, LocalDate fechaNacimiento,tipoUsuario tipo, Idioma idIdioma) {
 		
+		this.idCliente = idCliente;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.usuario = usuario;
