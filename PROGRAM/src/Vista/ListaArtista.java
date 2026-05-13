@@ -25,19 +25,26 @@ public class ListaArtista extends JFrame {
 
 	public ListaArtista() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 399, 439);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(128, 128, 0));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		GridBagLayout gbl_contentPane = new GridBagLayout();
-		gbl_contentPane.columnWidths = new int[]{164, 85, 141, 0};
+		gbl_contentPane.columnWidths = new int[]{164, 85, 157, 0};
 		gbl_contentPane.rowHeights = new int[]{59, 30, 147, 154, 0};
-		gbl_contentPane.columnWeights = new double[]{0.0, 0.0, 1.0, Double.MIN_VALUE};
-		gbl_contentPane.rowWeights = new double[]{1.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_contentPane.columnWeights = new double[]{1.0, 1.0, 1.0, Double.MIN_VALUE};
+		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		contentPane.setLayout(gbl_contentPane);
 		
 		JButton btnAtras = new JButton("Atras");
+		btnAtras.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Artistas ventanaDeArtistas = new Artistas();
+				ventanaDeArtistas.setVisible(true);
+				ListaArtista.this.dispose();
+			}
+		});
 		btnAtras.setFont(new Font("Constantia", Font.BOLD, 15));
 		GridBagConstraints gbc_btnAtras = new GridBagConstraints();
 		gbc_btnAtras.anchor = GridBagConstraints.NORTHWEST;
