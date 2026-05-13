@@ -220,7 +220,7 @@ values  ('AU001', 'Space bound', 4, 'media/cancion/AU001.mp3', 'Canción', 343),
         ('AU036', 'Será esta noche', 4,'media/cancion/AU036.mp3', 'Canción', 341),
         ('AU037', 'Suéltate el pelo', 3,'media/cancion/AU037.mP3', 'Canción', 6767),
         ('AU038', 'La madre de Ana', 3,'media/cancion/AU038.mp3', 'Canción', 79),
-        ('AU039', '¿De CANTANTE FAMOSO A ASESINO? El Caso de D4VD y Celeste Rivas', 74, 'media/podcast/AU039.mp3', 'Podcast', 5413),
+        ('AU039', '¿De CANTANTE FAMOSO A ASESINO?', 74, 'media/podcast/AU039.mp3', 'Podcast', 5413),
         ('AU040', 'LA MAFIA MEXICANA', 140, 'media/podcast/AU040.mp3', 'Podcast', 1654);
 		
 
