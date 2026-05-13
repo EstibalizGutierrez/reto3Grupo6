@@ -1,19 +1,20 @@
-package DAOs;
+package Controlador;
 
 import javax.swing.*;
+
+import Modelo.Cliente;
+import Modelo.Idioma;
+import Modelo.Enums.idIdioma;
+import Modelo.Enums.tipoUsuario;
+
 import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Date;
 import java.time.LocalDate;
-import POJOs.Cliente;
-import POJOs.Idioma;
-import POJOs.Enums.idIdioma;
-import POJOs.Enums.tipoUsuario;
-import UTILS.Conexion;
 
-public class clienteDAO {
+public class ClienteDAO {
 		
 	private Conexion conn = new Conexion();
 	private PreparedStatement statement;

@@ -1,4 +1,4 @@
-package Maitane;
+package Vista;
 
 import java.awt.EventQueue;
 

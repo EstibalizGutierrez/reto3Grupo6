@@ -1,8 +1,9 @@
-package POJOs;
+package Modelo;
 
-import POJOs.Enums.idIdioma;
-import POJOs.Enums.tipoUsuario;
 import java.time.LocalDate;
+
+import Modelo.Enums.idIdioma;
+import Modelo.Enums.tipoUsuario;
 
 public class Cliente {
 	

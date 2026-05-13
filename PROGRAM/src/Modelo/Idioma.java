@@ -1,6 +1,6 @@
-package POJOs;
+package Modelo;
 
-import POJOs.Enums.idIdioma;;
+import Modelo.Enums.idIdioma;;
 
 public class Idioma {
 	

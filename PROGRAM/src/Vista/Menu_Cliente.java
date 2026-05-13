@@ -1,4 +1,4 @@
-package Maitane;
+package Vista;
 
 import java.awt.EventQueue;
 
@@ -21,8 +21,9 @@ import java.awt.CardLayout;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import java.awt.Color;
 
-public class menu_Cliente extends JFrame {
+public class Menu_Cliente extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -35,7 +36,7 @@ public class menu_Cliente extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					menu_Cliente frame = new menu_Cliente();
+					Menu_Cliente frame = new Menu_Cliente();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -47,10 +48,11 @@ public class menu_Cliente extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public menu_Cliente() {
+	public Menu_Cliente() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(128, 128, 0));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		GridBagLayout gbl_contentPane = new GridBagLayout();
@@ -63,13 +65,15 @@ public class menu_Cliente extends JFrame {
 		JButton btnAtras = new JButton("Atras");
 		btnAtras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-//levara hacia atras (registro o login)
+				Login ventanaDeLogin = new Login();
+				ventanaDeLogin.setVisible(true);
+				Menu_Cliente.this.dispose();
 			}
 		});
+		btnAtras.setFont(new Font("Constantia", Font.BOLD, 15));
 		GridBagConstraints gbc_btnAtras = new GridBagConstraints();
-		gbc_btnAtras.insets = new Insets(0, 0, 0, 5);
-		gbc_btnAtras.gridheight = 4;
 		gbc_btnAtras.anchor = GridBagConstraints.NORTHWEST;
+		gbc_btnAtras.insets = new Insets(0, 0, 5, 5);
 		gbc_btnAtras.gridx = 0;
 		gbc_btnAtras.gridy = 0;
 		contentPane.add(btnAtras, gbc_btnAtras);
@@ -79,56 +83,64 @@ public class menu_Cliente extends JFrame {
 		lblElige.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		GridBagConstraints gbc_lblElige = new GridBagConstraints();
 		gbc_lblElige.insets = new Insets(0, 0, 5, 5);
-		gbc_lblElige.anchor = GridBagConstraints.NORTH;
 		gbc_lblElige.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblElige.gridx = 1;
 		gbc_lblElige.gridy = 0;
 		contentPane.add(lblElige, gbc_lblElige);
 		
-		JButton btnPerfil = new JButton("Perfil");
-		btnPerfil.addActionListener(new ActionListener() {
+		JButton btnDescubrirMusica = new JButton("Descubrir Musica");
+		btnDescubrirMusica.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-//mostrara el perfil del usuario que haya iniciado sesion o se haya registrado
+				Artistas ventanaDeArtistas = new Artistas();
+				ventanaDeArtistas.setVisible(true);
+				Menu_Cliente.this.dispose();
 			}
 		});
+		
+		JButton btnPerfil = new JButton("Perfil");
+		btnPerfil.setFont(new Font("Constantia", Font.BOLD, 15));
 		GridBagConstraints gbc_btnPerfil = new GridBagConstraints();
-		gbc_btnPerfil.insets = new Insets(0, 0, 5, 0);
 		gbc_btnPerfil.anchor = GridBagConstraints.NORTHEAST;
+		gbc_btnPerfil.insets = new Insets(0, 0, 5, 0);
 		gbc_btnPerfil.gridx = 2;
 		gbc_btnPerfil.gridy = 0;
 		contentPane.add(btnPerfil, gbc_btnPerfil);
+		btnDescubrirMusica.setFont(new Font("Constantia", Font.BOLD, 15));
+		GridBagConstraints gbc_btnDescubrirMusica = new GridBagConstraints();
+		gbc_btnDescubrirMusica.insets = new Insets(0, 0, 5, 5);
+		gbc_btnDescubrirMusica.gridx = 1;
+		gbc_btnDescubrirMusica.gridy = 1;
+		contentPane.add(btnDescubrirMusica, gbc_btnDescubrirMusica);
 		
 		JButton btnDescubrirPodcast = new JButton("Descubrir Podcast");
 		btnDescubrirPodcast.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-// llevaria a un apartado donde mostrara todas las playlist disponibles sacados de la bbdd (aun no existe)
+				Podcasters ventanaDePodcasters = new Podcasters();
+				ventanaDePodcasters.setVisible(true);
+				Menu_Cliente.this.dispose();
 			}
 		});
+		btnDescubrirPodcast.setFont(new Font("Constantia", Font.BOLD, 15));
 		GridBagConstraints gbc_btnDescubrirPodcast = new GridBagConstraints();
-		gbc_btnDescubrirPodcast.anchor = GridBagConstraints.ABOVE_BASELINE;
 		gbc_btnDescubrirPodcast.insets = new Insets(0, 0, 5, 5);
 		gbc_btnDescubrirPodcast.gridx = 1;
-		gbc_btnDescubrirPodcast.gridy = 1;
+		gbc_btnDescubrirPodcast.gridy = 2;
 		contentPane.add(btnDescubrirPodcast, gbc_btnDescubrirPodcast);
 		
-		JButton btnDescubrirMusica = new JButton("Descubrir Musica");
-		btnDescubrirMusica.addActionListener(new ActionListener() {
+		JButton btnMisPlaylist = new JButton("Mis Playlist");
+		btnMisPlaylist.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-// llevaria a un apartado donde mostrara todos los podcasters disponibles sacados de la bbdd (aun no existe)
+				Playlist ventanaDePlaylist = new Playlist();
+				ventanaDePlaylist.setVisible(true);
+				Menu_Cliente.this.dispose();
 			}
 		});
-		GridBagConstraints gbc_btnDescubrirMusica = new GridBagConstraints();
-		gbc_btnDescubrirMusica.insets = new Insets(0, 0, 5, 5);
-		gbc_btnDescubrirMusica.gridx = 1;
-		gbc_btnDescubrirMusica.gridy = 2;
-		contentPane.add(btnDescubrirMusica, gbc_btnDescubrirMusica);
-		
-		JButton btnMiPlaylist = new JButton("Mi Playlist");
-		GridBagConstraints gbc_btnMiPlaylist = new GridBagConstraints();
-		gbc_btnMiPlaylist.insets = new Insets(0, 0, 0, 5);
-		gbc_btnMiPlaylist.gridx = 1;
-		gbc_btnMiPlaylist.gridy = 3;
-		contentPane.add(btnMiPlaylist, gbc_btnMiPlaylist);
+		btnMisPlaylist.setFont(new Font("Constantia", Font.BOLD, 15));
+		GridBagConstraints gbc_btnMisPlaylist = new GridBagConstraints();
+		gbc_btnMisPlaylist.insets = new Insets(0, 0, 0, 5);
+		gbc_btnMisPlaylist.gridx = 1;
+		gbc_btnMisPlaylist.gridy = 3;
+		contentPane.add(btnMisPlaylist, gbc_btnMisPlaylist);
 
 	}
 	private class SwingAction extends AbstractAction {
