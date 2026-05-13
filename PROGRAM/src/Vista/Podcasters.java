@@ -27,26 +27,7 @@ public class Podcasters extends JFrame {
 	private JPanel contentPane;
 	private JComboBox comboBox;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Artistas frame = new Artistas();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
-	public Artistas() {
+	public Podcasters() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -61,6 +42,13 @@ public class Podcasters extends JFrame {
 		contentPane.setLayout(gbl_contentPane);
 		
 		JButton btnAtras = new JButton("Atras");
+		btnAtras.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Artistas ventanaDeArtistas = new Artistas();
+				ventanaDeArtistas.setVisible(true);
+				Podcasters.this.dispose();
+			}
+		});
 		btnAtras.setFont(new Font("Constantia", Font.BOLD, 15));
 		GridBagConstraints gbc_btnAtras = new GridBagConstraints();
 		gbc_btnAtras.anchor = GridBagConstraints.NORTHWEST;
@@ -69,13 +57,13 @@ public class Podcasters extends JFrame {
 		gbc_btnAtras.gridy = 0;
 		contentPane.add(btnAtras, gbc_btnAtras);
 		
-		JLabel lblListaArtistas = new JLabel("Lista de Artistas");
-		lblListaArtistas.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		GridBagConstraints gbc_lblListaArtistas = new GridBagConstraints();
-		gbc_lblListaArtistas.insets = new Insets(0, 0, 5, 5);
-		gbc_lblListaArtistas.gridx = 2;
-		gbc_lblListaArtistas.gridy = 0;
-		contentPane.add(lblListaArtistas, gbc_lblListaArtistas);
+		JLabel lblListaPodcasters = new JLabel("Lista de Podcasters");
+		lblListaPodcasters.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		GridBagConstraints gbc_lblListaPodcasters = new GridBagConstraints();
+		gbc_lblListaPodcasters.insets = new Insets(0, 0, 5, 5);
+		gbc_lblListaPodcasters.gridx = 2;
+		gbc_lblListaPodcasters.gridy = 0;
+		contentPane.add(lblListaPodcasters, gbc_lblListaPodcasters);
 		
 		JButton btnPerfil = new JButton("Perfil");
 		btnPerfil.setFont(new Font("Constantia", Font.BOLD, 15));
@@ -94,8 +82,8 @@ public class Podcasters extends JFrame {
 		gbc_comboBox.gridy = 1;
 		contentPane.add(comboBox, gbc_comboBox);
 		
-		JButton btnVerArtista = new JButton("Ver Artista");
-		btnVerArtista.addActionListener(new ActionListener() {
+		JButton btnVerPodcaster = new JButton("Ver Podcaster");
+		btnVerPodcaster.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				 String nombreSeleccionado = (String) comboBox.getSelectedItem();
 	                if (nombreSeleccionado != null) {
@@ -106,29 +94,31 @@ public class Podcasters extends JFrame {
 	                }
 	            }
 	        });
-		btnVerArtista.setFont(new Font("Constantia", Font.BOLD, 15));
-		GridBagConstraints gbc_btnVerArtista = new GridBagConstraints();
-		gbc_btnVerArtista.insets = new Insets(0, 0, 0, 5);
-		gbc_btnVerArtista.gridx = 2;
-		gbc_btnVerArtista.gridy = 2;
-		contentPane.add(btnVerArtista, gbc_btnVerArtista);
-		rellenarCombo();
+		btnVerPodcaster.setFont(new Font("Constantia", Font.BOLD, 15));
+		GridBagConstraints gbc_btnVerPodcaster = new GridBagConstraints();
+		gbc_btnVerPodcaster.insets = new Insets(0, 0, 0, 5);
+		gbc_btnVerPodcaster.gridx = 2;
+		gbc_btnVerPodcaster.gridy = 2;
+		contentPane.add(btnVerPodcaster, gbc_btnVerPodcaster);
+		rellenarComboPodcasters();
 	}
 	
-	private void rellenarCombo() {
-        String sql = "SELECT NombreArtistico FROM Artista";
-        
-        try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/reto3spotify", "root", "Elorrieta00");
-             Statement st = con.createStatement();
-             ResultSet rs = st.executeQuery(sql)) {
+	private void rellenarComboPodcasters() {
+	    String sql = "SELECT Artista.NombreArtistico " +
+	                 "FROM Artista " +
+	                 "JOIN Podcaster ON Artista.IdArtista = Podcaster.IdPodcaster";
 
-            while (rs.next()) {
-                comboBox.addItem(rs.getString("NombreArtistico"));
-            }
+	    try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/reto3spotify", "root", "Elorrieta00");
+	    	 Statement st = con.createStatement();
+	         ResultSet rs = st.executeQuery(sql)) {
 
-        } catch (SQLException e) {
-            System.out.println("Error al conectar: " + e.getMessage());
-        }
-    }
+	        comboBox.removeAllItems();
+	        while (rs.next()) {
+	            comboBox.addItem(rs.getString("NombreArtistico"));
+	        }
+	    } catch (SQLException e) {
+	        System.err.println("Error al cargar músicos: " + e.getMessage());
+	    }
+	}
 }
 

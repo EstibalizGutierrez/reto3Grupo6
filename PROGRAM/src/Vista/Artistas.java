@@ -30,25 +30,6 @@ public class Artistas extends JFrame {
 	private JPanel contentPane;
 	private JComboBox comboBox;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Artistas frame = new Artistas();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
 	public Artistas() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -64,6 +45,13 @@ public class Artistas extends JFrame {
 		contentPane.setLayout(gbl_contentPane);
 		
 		JButton btnAtras = new JButton("Atras");
+		btnAtras.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Menu_Cliente ventanaDeMenu = new Menu_Cliente();
+				ventanaDeMenu.setVisible(true);
+				Artistas.this.dispose();
+			}
+		});
 		btnAtras.setFont(new Font("Constantia", Font.BOLD, 15));
 		GridBagConstraints gbc_btnAtras = new GridBagConstraints();
 		gbc_btnAtras.anchor = GridBagConstraints.NORTHWEST;
@@ -115,25 +103,25 @@ public class Artistas extends JFrame {
 		gbc_btnVerArtista.gridx = 2;
 		gbc_btnVerArtista.gridy = 2;
 		contentPane.add(btnVerArtista, gbc_btnVerArtista);
-		rellenarCombo();
+		rellenarComboMusicos();
 	}
 	
-	private void rellenarCombo() {
-        String sql = "SELECT Artista.NombreArtistico" +
-        		"FROM Artista" +
-        		"JOIN Musico ON Artista.IdArtista = Musico.IdMusico";
-        
-        try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/reto3spotify", "root", "Elorrieta00");
-             Statement st = con.createStatement();
-             ResultSet rs = st.executeQuery(sql)) {
+	private void rellenarComboMusicos() {
+	    String sql = "SELECT Artista.NombreArtistico " +
+	                 "FROM Artista " +
+	                 "JOIN Musico ON Artista.IdArtista = Musico.IdMusico";
 
-            while (rs.next()) {
-                comboBox.addItem(rs.getString("NombreArtistico"));
-            }
+	    try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/reto3spotify", "root", "Elorrieta00");
+	    	 Statement st = con.createStatement();
+	         ResultSet rs = st.executeQuery(sql)) {
 
-        } catch (SQLException e) {
-            System.out.println("Error al conectar: " + e.getMessage());
-        }
-    }
+	        comboBox.removeAllItems();
+	        while (rs.next()) {
+	            comboBox.addItem(rs.getString("NombreArtistico"));
+	        }
+	    } catch (SQLException e) {
+	        System.err.println("Error al cargar músicos: " + e.getMessage());
+	    }
+	}
 }
 
