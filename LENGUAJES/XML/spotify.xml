@@ -50,7 +50,7 @@
                         </cancion>
 
                         <cancion id="AU008">
-                            <nombre>Won't back down</nombre>
+                            <nombre>Wont back down</nombre>
                             <duracion>00:04:47</duracion>
                             <archivo>BBDD/media/cancion/AU008.mp3</archivo>
                             <NReproducciones>433</NReproducciones>
@@ -114,7 +114,7 @@
                     <imagen>imagenes/albumes/MusicToBeMurderedBy.png</imagen>
                     <canciones>
                         <cancion id="AU014">
-                            <nombre>You Gon'learn</nombre>
+                            <nombre>You Gon learn</nombre>
                             <duracion>00:03:54</duracion>
                             <archivo>media/cancion/AU014.mp3</archivo>
                             <NReproducciones>343</NReproducciones>
@@ -166,7 +166,7 @@
         
             <musico caracteristica="Grupo">
                 <album id="ALB06">
-                    <titulo>Love Yourself: Answer</titulo>
+                    <titulo>Love Yourself Answer</titulo>
                     <anno>2017-08-24</anno>
                     <genero>k-pop</genero>
                     <imagen>imagenes/albumes/LoveYourselfAnswer.jpg</imagen>
@@ -208,6 +208,7 @@
                             <duracion>00:03:16</duracion>
                             <archivo>media/cancion/AU023.mp3</archivo>
                             <NReproducciones>123</NReproducciones>
+                            <artistasInvitados>ninguno</artistasInvitados>
                         </cancion>
                     </canciones>
                 </album>
@@ -386,7 +387,7 @@
                     <canciones>
                         <cancion id="AU004">
                             <nombre>Odio</nombre>
-                            <duracion>3:45</duracion>
+                            <duracion>00:03:45</duracion>
                             <archivo>media/cancion/AU004.mp3</archivo>
                             <NReproducciones>7000</NReproducciones>
                             <artistasInvitados>x</artistasInvitados>
