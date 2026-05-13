@@ -32,7 +32,7 @@ public class ListaArtista extends JFrame {
 		setContentPane(contentPane);
 		GridBagLayout gbl_contentPane = new GridBagLayout();
 		gbl_contentPane.columnWidths = new int[]{164, 85, 141, 0};
-		gbl_contentPane.rowHeights = new int[]{34, 30, 189, 154, 0};
+		gbl_contentPane.rowHeights = new int[]{59, 30, 147, 154, 0};
 		gbl_contentPane.columnWeights = new double[]{0.0, 0.0, 1.0, Double.MIN_VALUE};
 		gbl_contentPane.rowWeights = new double[]{1.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		contentPane.setLayout(gbl_contentPane);
@@ -47,6 +47,7 @@ public class ListaArtista extends JFrame {
 		contentPane.add(btnAtras, gbc_btnAtras);
 		
 		JLabel lblNombreArtista = new JLabel("si");
+		lblNombreArtista.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		GridBagConstraints gbc_lblNombreArtista = new GridBagConstraints();
 		gbc_lblNombreArtista.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNombreArtista.gridx = 1;
@@ -63,6 +64,7 @@ public class ListaArtista extends JFrame {
 		contentPane.add(btnPerfil, gbc_btnPerfil);
 		
 		JLabel lblListaDiscos = new JLabel("Lista de Discos");
+		lblListaDiscos.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		GridBagConstraints gbc_lblListaDiscos = new GridBagConstraints();
 		gbc_lblListaDiscos.insets = new Insets(0, 0, 5, 5);
 		gbc_lblListaDiscos.gridx = 0;
@@ -70,6 +72,7 @@ public class ListaArtista extends JFrame {
 		contentPane.add(lblListaDiscos, gbc_lblListaDiscos);
 		
 		JLabel lblInformacion = new JLabel("Informacion");
+		lblInformacion.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		GridBagConstraints gbc_lblInformacion = new GridBagConstraints();
 		gbc_lblInformacion.insets = new Insets(0, 0, 5, 0);
 		gbc_lblInformacion.gridx = 2;
