@@ -324,6 +324,8 @@ public class Registro extends JFrame {
 			                   
 			                    	JOptionPane.showMessageDialog(botonRegistro, "Cliente Premium registrado correctamente");
 			                        dispose();
+			                        Menu_Cliente menuCliente = new Menu_Cliente();
+				                    menuCliente.setVisible(true);
 			                  
 			                    } else {
 			                    	
@@ -334,6 +336,8 @@ public class Registro extends JFrame {
 
 			                    JOptionPane.showMessageDialog(botonRegistro, "Cliente registrado correctamente");
 			                    dispose();
+			                    Menu_Cliente menuCliente = new Menu_Cliente();
+			                    menuCliente.setVisible(true);
 			                }
 			                
 			            } else {
