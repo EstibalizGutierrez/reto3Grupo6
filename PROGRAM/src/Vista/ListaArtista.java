@@ -12,7 +12,7 @@ import java.awt.Insets;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-public class listaArtista extends JFrame {
+public class ListaArtista extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -26,7 +26,7 @@ public class listaArtista extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					listaArtista frame = new listaArtista();
+					ListaArtista frame = new ListaArtista();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -38,15 +38,15 @@ public class listaArtista extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public listaArtista() {
+	public ListaArtista() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		GridBagLayout gbl_contentPane = new GridBagLayout();
-		gbl_contentPane.columnWidths = new int[]{154, 85, 141, 0};
-		gbl_contentPane.rowHeights = new int[]{0, 0, 189, 154, 0};
+		gbl_contentPane.columnWidths = new int[]{164, 85, 141, 0};
+		gbl_contentPane.rowHeights = new int[]{34, 30, 189, 154, 0};
 		gbl_contentPane.columnWeights = new double[]{0.0, 0.0, 1.0, Double.MIN_VALUE};
 		gbl_contentPane.rowWeights = new double[]{1.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		contentPane.setLayout(gbl_contentPane);
