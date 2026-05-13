@@ -1,11 +1,15 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 <spotify xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="spotify.xsd">
     <artistas>
         <artista id="A0001">
             <nombreArtistico>Eminem</nombreArtistico>
             <genero>Rap/Hip-Hop</genero>
-            <imagen>https://static.wikia.nocookie.net/rap/images/3/34/Eminem_Fotografia_01.jpg/revision/latest?cb=20220507042018&amp;path-prefix=es</imagen>
-            <descripcion>Eminem, conocido también como Slim Shady, es uno de los raperos más influyentes y exitosos en la historia del hip hop. Destaca por su técnica excepcional, rimas complejas y una capacidad única para narrar historias crudas y personales con un estilo provocador. A lo largo de su carrera ha ganado múltiples premios Grammy y un Oscar, consolidándose como un ícono cultural global. Su impacto no solo transformó el género, sino que rompió barreras raciales en la industria musical.</descripcion>
+            <imagen>imagenes/artistas/Eminem.webp</imagen>
+            <descripcion>Eminem, conocido también como Slim Shady, es uno de los raperos más influyentes y exitosos en la historia del hip hop. 
+                Destaca por su técnica excepcional, rimas complejas y una capacidad única para narrar historias crudas y personales con un estilo provocador.
+                A lo largo de su carrera ha ganado múltiples premios Grammy y un Oscar, consolidándose como un ícono cultural global. 
+                Su impacto no solo transformó el género, sino que rompió barreras raciales en la industria musical.</descripcion>
             
             <musico caracteristica="Solista">
                 <album id="ALB01">
@@ -21,6 +25,88 @@
                             <NReproducciones>343</NReproducciones>
                             <artistasInvitados>ninguno</artistasInvitados>
                         </cancion>
+<!-- tengo que ver las duraciones-->
+                        <cancion id="AU005">
+                            <nombre>Love the way you lie</nombre>
+                            <duracion>00:04:47</duracion>
+                            <archivo>BBDD/media/cancion/AU005.mp3</archivo>
+                            <NReproducciones>203</NReproducciones>
+                            <artistasInvitados>x</artistasInvitados>
+                        </cancion>
+
+                        <cancion id="AU006">
+                            <nombre>No love</nombre>
+                            <duracion>00:04:47</duracion>
+                            <archivo>BBDD/media/cancion/AU006.mp3</archivo>
+                            <NReproducciones>43493</NReproducciones>
+                            <artistasInvitados>x</artistasInvitados>
+                        </cancion>
+
+                        <cancion id="AU007">
+                            <nombre>Going through changes</nombre>
+                            <duracion>00:04:47</duracion>
+                            <archivo>BBDD/media/cancion/AU007.mp3</archivo>
+                            <NReproducciones>4504</NReproducciones>
+                            <artistasInvitados>ninguno</artistasInvitados>
+                        </cancion>
+
+                        <cancion id="AU008">
+                            <nombre>Won't back down</nombre>
+                            <duracion>00:04:47</duracion>
+                            <archivo>BBDD/media/cancion/AU008.mp3</archivo>
+                            <NReproducciones>433</NReproducciones>
+                            <artistasInvitados>x</artistasInvitados>
+                        </cancion>
+                    </canciones>
+                </album>
+
+                <album id="ALB05">
+                    <titulo>Marshall Mathers LP</titulo>
+                    <anno>2020-05-23</anno>
+                    <genero>Rap/hip-hop</genero>
+                    <!-- poner la imagen correcta-->
+                    <imagen>https://upload.wikimedia.org/wikipedia/en/8/80/Eminem_-_Music_to_Be_Murdered_By.png</imagen>
+                    <canciones>
+                        <cancion id="AU009">
+                            <nombre>Kill you</nombre>
+                <!-- Mirar la duración-->
+                            <duracion>00:03:54</duracion>
+                            <archivo>media/cancion/AU009.mp3</archivo>
+                            <NReproducciones>53454</NReproducciones>
+                            <artistasInvitados>ninguno</artistasInvitados>
+                        </cancion>
+                        
+                        <cancion id="AU010">
+                            <nombre>Stan</nombre>
+                            <duracion>00:05:37</duracion>
+                            <archivo>media/cancion/AU010.mp3</archivo>
+                            <NReproducciones>449549</NReproducciones>
+                            <artistasInvitados>x</artistasInvitados>
+                        </cancion>
+
+                        <cancion id="AU011">
+                            <nombre>The real slim shady</nombre>
+                            <duracion>00:04:25</duracion>
+                            <archivo>media/cancion/AU011.mp3</archivo>
+                            <NReproducciones>4544</NReproducciones>
+                            <artistasInvitados>ninguno</artistasInvitados>
+                        </cancion>
+
+                        <cancion id="AU012">
+                            <nombre>Marshall Mathers</nombre>
+                            <duracion>00:03:00</duracion>
+                            <archivo>media/cancion/AU012.mp3</archivo>
+                            <NReproducciones>45545</NReproducciones>
+                            <artistasInvitados>ninguno</artistasInvitados>
+                        </cancion>
+
+                        <cancion id="AU013">
+                            <nombre>Drug ballad</nombre>
+                            <duracion>00:03:20</duracion>
+                            <archivo>media/cancion/AU013.mp3</archivo>
+                            <NReproducciones>69699</NReproducciones>
+                            <artistasInvitados>ninguno</artistasInvitados>
+                        </cancion>
                     </canciones>
                 </album>
                 
@@ -30,6 +116,14 @@
                     <genero>Rap/hip-hop</genero>
                     <imagen>https://upload.wikimedia.org/wikipedia/en/8/80/Eminem_-_Music_to_Be_Murdered_By.png</imagen>
                     <canciones>
+                        <cancion id="AU014">
+                            <nombre>You Gon'learn</nombre>
+                            <duracion>00:03:54</duracion>
+                            <archivo>media/cancion/AU014.mp3</archivo>
+                            <NReproducciones>343</NReproducciones>
+                            <artistasInvitados>x</artistasInvitados>
+                        </cancion>
+                        
                         <cancion id="AU015">
                             <nombre>Darkness</nombre>
                             <duracion>00:05:37</duracion>
@@ -70,7 +164,8 @@
             <nombreArtistico>BTS</nombreArtistico>
             <genero>k-pop</genero>
             <imagen>https://static.wikia.nocookie.net/mamarre-estudios-espanol/images/2/24/3OWSV6ZZHZHQFDIC6HXDTQDUKE.jpg/revision/latest?cb=20200420001515&path-prefix=es</imagen>
-            <descripcion>Septeto surcoreano formado en Seúl en 2010. Es el grupo de K-pop más influyente a nivel mundial, compuesto por Jin, Suga, J-Hope, RM, Jimin, V y Jungkook. Han encabezado las listas de Billboard y son reconocidos por su impacto cultural global y récords en ventas.</descripcion>
+            <descripcion>Septeto surcoreano formado en Seúl en 2010. Es el grupo de K-pop más influyente a nivel mundial, compuesto por Jin, Suga, J-Hope, RM, Jimin, V y Jungkook. 
+                Han encabezado las listas de Billboard y son reconocidos por su impacto cultural global y récords en ventas.</descripcion>
         
             <musico caracteristica="Grupo">
                 <album id="ALB06">
@@ -174,7 +269,9 @@
             <nombreArtistico>Hombres G</nombreArtistico>
             <genero>Rock</genero>
             <imagen>https://lafonoteca.net/wp-content/uploads/2008/03/hombres-g.jpg</imagen>
-            <descripcion>Banda española de pop-rock y new wave fundada en Madrid en 1982. Liderada por David Summers, se convirtió en uno de los grupos más exitosos de los años 80 con himnos como Devuélveme a mi chica y Venezia, marcando a toda una generación en España y Latinoamérica</descripcion>
+            <descripcion>Banda española de pop-rock y new wave fundada en Madrid en 1982. 
+                Liderada por David Summers, se convirtió en uno de los grupos más exitosos de los años 80 con himnos como Devuélveme a mi chica y Venezia, 
+                marcando a toda una generación en España y Latinoamérica</descripcion>
         
             <musico caracteristica="Grupo">
                 <album id="ALB08">
@@ -198,6 +295,30 @@
                             <NReproducciones>454</NReproducciones>
                             <artistasInvitados>ninguno</artistasInvitados>
                         </cancion>
+
+                        <cancion id="AU031">
+                            <nombre>En la playa</nombre>
+                            <duracion>00:04:09</duracion>
+                            <archivo>BBDD/media/cancion/AU031</archivo>
+                            <NReproducciones>234</NReproducciones>
+                            <artistasInvitados>ninguno</artistasInvitados>
+                        </cancion>
+
+                        <cancion id="AU032">
+                            <nombre>Indiana</nombre>
+                            <duracion>00:02:53</duracion>
+                            <archivo>BBDD/media/cancion/AU032</archivo>
+                            <NReproducciones>545</NReproducciones>
+                            <artistasInvitados>ninguno</artistasInvitados>
+                        </cancion>
+
+                        <cancion id="AU033">
+                            <nombre>Un par de palabras</nombre>
+                            <duracion>00:03:15</duracion>
+                            <archivo>BBDD/media/cancion/AU033</archivo>
+                            <NReproducciones>23</NReproducciones>
+                            <artistasInvitados>ninguno</artistasInvitados>
+                        </cancion>
                     </canciones>
                 </album>
                 
@@ -206,17 +327,112 @@
                     <anno>1988-05-24</anno>
                     <genero>Rock</genero>
                     <imagen>https://static.wikia.nocookie.net/hombres-g/images/a/a0/Agitar_Antes_De_Usar.jpg/revision/latest?cb=20240618195117&path-prefix=es</imagen>
+                    <canciones>
+                        <cancion id="AU034">
+                            <nombre>Tengo una chica</nombre>
+                            <duracion>00:03:50</duracion>
+                            <archivo>BBDD/media/cancion/AU034</archivo>
+                            <NReproducciones>5454</NReproducciones>
+                            <artistasInvitados>ninguno</artistasInvitados>
+                        </cancion>
+
+                        <cancion id="AU035">
+                            <nombre>Viernes</nombre>
+                            <duracion>00:03:09</duracion>
+                            <archivo>BBDD/media/cancion/AU035</archivo>
+                            <NReproducciones>343</NReproducciones>
+                            <artistasInvitados>ninguno</artistasInvitados>
+                        </cancion>
+
+                        <cancion id="AU036">
+                            <nombre>Será esta noche</nombre>
+                            <duracion>00:04:07</duracion>
+                            <archivo>BBDD/media/cancion/AU036</archivo>
+                            <NReproducciones>341</NReproducciones>
+                            <artistasInvitados>ninguno</artistasInvitados>
+                        </cancion>
+
+                        <cancion id="AU037">
+                            <nombre>Suéltate el pelo</nombre>
+                            <duracion>00:03:13</duracion>
+                            <archivo>BBDD/media/cancion/AU037</archivo>
+                            <NReproducciones>6767</NReproducciones>
+                            <artistasInvitados>ninguno</artistasInvitados>
+                        </cancion>
+
+                        <cancion id="AU038">
+                            <nombre>La madre de Ana</nombre>
+                            <duracion>00:03:35</duracion>
+                            <archivo>BBDD/media/cancion/AU038</archivo>
+                            <NReproducciones>79</NReproducciones>
+                            <artistasInvitados>ninguno</artistasInvitados>
+                        </cancion>
+                    </canciones>
                 </album>
             </musico>
         </artista>
 
+        <artista id="A0004">
+            <nombreArtistico>Romeo Santos</nombreArtistico>
+            <genero>Bachata</genero>
+            <imagen>hfjehfeiuwfhergttps://lafonoteca.net/wp-content/uploads/2008/03/hombres-g.jpg</imagen>
+            <descripcion>Cantante y compositor estadounidense de origen dominicano, conocido mundialmente como El Rey de la Bachata. 
+                Fue el líder y vocalista de la agrupación Aventura antes de consolidarse como solista, 
+                donde ha colaborado con grandes estrellas internacionales como Drake, Usher y Rosalía, 
+                logrando posicionar la bachata en las listas de éxitos más importantes del mundo.</descripcion>
+            <musico caracteristica="Solista">
+                <album id="ALB02">
+                    <titulo>Formula, vol.2</titulo>
+                    <anno>2014-02-25</anno>
+                    <genero>Bachata</genero>
+                    <imagen></imagen>
+                    <canciones>
+                        <cancion id="AU004">
+                            <nombre>Odio</nombre>
+                            <duracion></duracion>
+                            <archivo>media/cancion/AU004.mp3</archivo>
+                            <NReproducciones>7000</NReproducciones>
+                            <artistasInvitados>x</artistasInvitados>
+                        </cancion>
+                    </canciones>
+                </album>
+            </musico>
+        </artista>
+
+        <artista id="A0005">
+            <nombreArtistico>Bad Gyal</nombreArtistico>
+            <genero>Genero Urbano</genero>
+            <imagen>hfjehfeiuwfhergttps://lafonoteca.net/wp-content/uploads/2008/03/hombres-g.jpg</imagen>
+            <descripcion>Cantante, compositora y DJ española, referente absoluta del género urbano y la música de club. 
+                Conocida como la Reina del Dancehall en España, ha logrado fusionar el reggaetón, el dembow y el trap con una estética única. 
+                Ha colaborado con grandes figuras internacionales y es responsable de éxitos globales como Fiebre, Alocao y Chulo, destacando por su estilo innovador y su gran impacto en la escena musical actual.</descripcion>
+            <musico caracteristica="Solista">
+                <album id="ALB03">
+                    <titulo>Slow wine Mixtape</titulo>
+                    <anno>2016-11-09</anno>
+                    <genero>Dancehall</genero>
+                    <imagen></imagen>
+                    <canciones>
+                        <cancion id="AU003">
+                            <nombre>Fiebre</nombre>
+                            <duracion></duracion>
+                            <archivo>media/cancion/AU003.mp3</archivo>
+                            <NReproducciones>3400</NReproducciones>
+                            <artistasInvitados>x</artistasInvitados>
+                        </cancion>
+                    </canciones>
+                </album>
+            </musico>
+        </artista>
 		<!-- podcaster-->
 		
 		<artista id="A0006">
             <nombreArtistico>The wildProject</nombreArtistico>
             <genero>Talk show</genero>
             <imagen>https://s2.elespanol.com/2024/09/13/omicrono/software/885671616_249158676_1024x576.jpg</imagen>
-            <descripcion>The Wild Project es el podcast número uno en español, dirigido por Jordi Wild. Se caracteriza por conversaciones extensas y sin censura sobre actualidad, deportes (MMA, boxeo), ciencia, misterio y filosofía. Con invitados variados, busca el entretenimiento y el debate, ganando premios ESALAND al mejor talk show.</descripcion>
+            <descripcion>The Wild Project es el podcast número uno en español, dirigido por Jordi Wild. 
+                Se caracteriza por conversaciones extensas y sin censura sobre actualidad, deportes (MMA, boxeo), ciencia, misterio y filosofía. 
+                Con invitados variados, busca el entretenimiento y el debate, ganando premios ESALAND al mejor talk show.</descripcion>
 			<podcaster>
 				<podcast id="AU002">
                     <nombre>¿Donde invertir?</nombre>
@@ -260,6 +476,29 @@
 			<fechaRegistro>2026-05-05</fechaRegistro>
 		</cliente>
 
+        <cliente id="CL003" >
+            <nombre>Jhon</nombre>
+            <apellido>Izarra</apellido>
+            <usuario>johannbachx25</usuario>
+
+			<contrasena>piscobamba</contrasena>
+            <fechaNacimiento>2004-08-04</fechaNacimiento>
+            <fechaRegistro>2026-05-04</fechaRegistro>
+
+			<premium>
+                <fechaCaducidad>2027-05-04</fechaCaducidad>
+            </premium>
+        
+        </cliente>
+
+        <cliente id="CL004" >
+			<nombre>Keyla</nombre>
+			<apellido>Castillo</apellido>
+			<usuario>freeGirl</usuario>
+			<contrasena>iamfree99</contrasena>
+			<fechaNacimiento>2000-12-12</fechaNacimiento>
+			<fechaRegistro>2026-05-05</fechaRegistro>
+		</cliente>
     </clientes>
 
 </spotify>
