@@ -440,9 +440,45 @@
                     <NColaboradores>2</NColaboradores>
                 </podcast>
 			</podcaster>
-
 		</artista>
 
+        <artista id="A0007">
+            <nombreArtistico>Dinosaur Vlogs</nombreArtistico>
+            <genero>True Crime</genero>
+            <imagen>imagenes/artistas/DinosaurVlogs.jpg</imagen>
+            <descripcion>Dinosaur Vlogs, liderado por Vicky Armida, es un exitoso canal de YouTube enfocado en casos misteriosos, 
+                True Crime, misterios sin resolver y vlogs de la vida cotidiana. 
+                Con más de 2 millones de suscriptores, destaca por una narrativa de investigación detallada de 
+                casos oscuros y una personalidad cercana, incluyendo también contenido personal.</descripcion>
+			<podcaster>
+				<podcast id="AU039">
+                    <nombre>¿De CANTANTE FAMOSO A ASESINO? El Caso de D4VD y Celeste Rivas</nombre>
+                    <duracion>01:14:33</duracion>
+                    <archivo>BBDD/media/podcast/AU039.mp3</archivo>
+                    <NReproducciones>5413</NReproducciones>
+                    <NColaboradores>1</NColaboradores>
+                </podcast>
+			</podcaster>
+		</artista>
+
+        <artista id="A0008">
+            <nombreArtistico>Black Mango</nombreArtistico>
+            <genero>True Crime</genero>
+            <imagen>imagenes/artistas/BlackMango.jpg</imagen>
+            <descripcion>Black Mango es un popular podcast español de crímenes, historia y misterio, 
+                creado por un trío de jóvenes divulgadores, que cuenta con más de dos millones de 
+                seguidores en plataformas como Spotify, YouTube y Apple Podcasts. 
+                Sus episodios abordan temas como atracos famosos, misterios sin resolver y crímenes históricos.</descripcion>
+			<podcaster>
+				<podcast id="AU040">
+                    <nombre>LA MAFIA MEXICANA</nombre>
+                    <duracion>02:54:49</duracion>
+                    <archivo>BBDD/media/podcast/AU040.mp3</archivo>
+                    <NReproducciones>1654</NReproducciones>
+                    <NColaboradores>3</NColaboradores>
+                </podcast>
+			</podcaster>
+		</artista>
     </artistas>
 
 	
