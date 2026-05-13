@@ -28,19 +28,6 @@ public class Menu_Cliente extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private final Action action = new SwingAction();
-	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Menu_Cliente frame = new Menu_Cliente();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	public Menu_Cliente() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
