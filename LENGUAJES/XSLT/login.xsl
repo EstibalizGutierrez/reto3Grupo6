@@ -3,14 +3,23 @@
     <xsl:template match="/">
         <html>
             <head>
-                <title>Login - Spotify Intranet</title>
+                <title>Login Sputify</title>
+                <link rel="stylesheet" href="styles.css"/>
                 <script src="Login.js"></script>
             </head>
             <body>
-                <h2>Acceso Clientes</h2>
-                Usuario: <input type="text" id="u"/><br/>
-                Contraseña: <input type="password" id="p"/><br/>
-                <button onclick="validar()">Entrar</button>
+                <section id="seccion-login">
+                    <h2>Iniciar Sesión</h2>
+                    <form onsubmit="validarLogin(event)">
+                    <label>Usuario:</label>
+                    <input type="text" id="usuario" required="required"/>
+                    
+                    <label>Contraseña:</label>
+                    <input type="password" id="password" required="required"/>
+                    
+                    <button type="submit">Entrar</button>
+                    </form>
+                </section>
             </body>
         </html>
     </xsl:template>
