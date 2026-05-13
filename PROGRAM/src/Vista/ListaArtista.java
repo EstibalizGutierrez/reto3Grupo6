@@ -62,6 +62,13 @@ public class ListaArtista extends JFrame {
 		contentPane.add(lblNombreArtista, gbc_lblNombreArtista);
 		
 		JButton btnPerfil = new JButton("Perfil");
+		btnPerfil.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Artistas ventanaDeArtistas = new Artistas();
+				ventanaDeArtistas.setVisible(true);
+				ListaArtista.this.dispose();
+			}
+		});
 		btnPerfil.setFont(new Font("Constantia", Font.BOLD, 15));
 		GridBagConstraints gbc_btnPerfil = new GridBagConstraints();
 		gbc_btnPerfil.anchor = GridBagConstraints.NORTHEAST;

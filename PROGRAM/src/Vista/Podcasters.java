@@ -66,6 +66,13 @@ public class Podcasters extends JFrame {
 		contentPane.add(lblListaPodcasters, gbc_lblListaPodcasters);
 		
 		JButton btnPerfil = new JButton("Perfil");
+		btnPerfil.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Artistas ventanaDeArtistas = new Artistas();
+				ventanaDeArtistas.setVisible(true);
+				Podcasters.this.dispose();
+			}
+		});
 		btnPerfil.setFont(new Font("Constantia", Font.BOLD, 15));
 		GridBagConstraints gbc_btnPerfil = new GridBagConstraints();
 		gbc_btnPerfil.anchor = GridBagConstraints.NORTHEAST;
