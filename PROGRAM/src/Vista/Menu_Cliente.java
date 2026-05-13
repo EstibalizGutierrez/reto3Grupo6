@@ -5,6 +5,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Modelo.Cliente;
+import Modelo.Usuario;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
@@ -28,6 +32,7 @@ public class Menu_Cliente extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private final Action action = new SwingAction();
+	private Cliente clientePerfil = Usuario.getCliente();
 
 	public Menu_Cliente() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -78,7 +83,14 @@ public class Menu_Cliente extends JFrame {
 			}
 		});
 		
-		JButton btnPerfil = new JButton("Perfil");
+		JButton btnPerfil = new JButton(clientePerfil.getUsuario());
+		btnPerfil.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Perfil ventanaDePerfil = new Perfil();
+				ventanaDePerfil.setVisible(true);
+				Menu_Cliente.this.dispose();
+			}
+		});
 		btnPerfil.setFont(new Font("Constantia", Font.BOLD, 15));
 		GridBagConstraints gbc_btnPerfil = new GridBagConstraints();
 		gbc_btnPerfil.anchor = GridBagConstraints.NORTHEAST;
