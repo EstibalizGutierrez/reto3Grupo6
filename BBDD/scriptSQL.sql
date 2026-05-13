@@ -169,7 +169,14 @@ values ('A0001', 'Eminem', 'Rap/Hip-Hop', 'https://static.wikia.nocookie.net/rap
        ('A0003', 'Hombres G', 'Rock', 'https://lafonoteca.net/wp-content/uploads/2008/03/hombres-g.jpg', 'Banda española de pop-rock y new wave fundada en Madrid en 1982. Liderada por David Summers, se convirtió en uno de los grupos más exitosos de los años 80 con himnos como Devuélveme a mi chica y Venezia, marcando a toda una generación en España y Latinoamérica'),
        ('A0004', 'Romeo Santos', 'Bachata', 'https://cdn-images.dzcdn.net/images/artist/0a20c1c5fb5cdd61052c915a325b3589/1900x1900-000000-80-0-0.jpg', 'Cantante y compositor estadounidense de origen dominicano, conocido mundialmente como El Rey de la Bachata. Fue el líder y vocalista de la agrupación Aventura antes de consolidarse como solista, donde ha colaborado con grandes estrellas internacionales como Drake, Usher y Rosalía, logrando posicionar la bachata en las listas de éxitos más importantes del mundo.'),
        ('A0005', 'Bad Gyal' , 'Genero Urbano', 'https://elgeneracionalpost.com/wp-content/uploads/2024/01/365689375_844099157085279_2412177309070566805_n.jpeg', 'Cantante, compositora y DJ española, referente absoluta del género urbano y la música de club. Conocida como la Reina del Dancehall en España, ha logrado fusionar el reggaetón, el dembow y el trap con una estética única. Ha colaborado con grandes figuras internacionales y es responsable de éxitos globales como Fiebre, Alocao y Chulo, destacando por su estilo innovador y su gran impacto en la escena musical actual.'),
+<<<<<<< HEAD
+       ('A0006', 'The wildProject', "Talk show", 'https://s2.elespanol.com/2024/09/13/omicrono/software/885671616_249158676_1024x576.jpg','The Wild Project es el podcast número 1 en español, dirigido por Jordi Wild. Se caracteriza por conversaciones extensas y sin censura sobre actualidad, deportes (MMA, boxeo), ciencia, misterio y filosofía. Con invitados variados, busca el entretenimiento y el debate, ganando premios ESALAND al mejor talk show.'),
+       ('A0007', 'Dinosaur Vlogs', "True Crime", 'https://i.scdn.co/image/ab67656300005f1f922f00e6379f2ddbd2f9eb20', 'Dinosaur Vlogs, liderado por Vicky Armida, es un exitoso canal de YouTube enfocado en casos misteriosos, True Crime, misterios sin resolver y vlogs de la vida cotidiana. Con más de 2 millones de suscriptores, destaca por una narrativa de investigación detallada de casos oscuros y una personalidad cercana, incluyendo también contenido personal.'),
+       ('A0008', 'Black Mango Podcast', "True Crime", 'https://m.media-amazon.com/images/S/aplus-media-library-service-media/dc63961d-dc8d-47c4-bed7-6458d05a23ca.__CR0,0,300,300_PT0_SX300_V1___.jpg','Black Mango es un popular podcast español de crímenes, historia y misterio, creado por un trío de jóvenes divulgadores, que cuenta con más de dos millones de seguidores en plataformas como Spotify, YouTube y Apple Podcasts. Sus episodios abordan temas como atracos famosos, misterios sin resolver y crímenes históricos.');
+       
+=======
        ('A0006', 'The wildProject', "Talk show", 'https://s2.elespanol.com/2024/09/13/omicrono/software/885671616_249158676_1024x576.jpg','The Wild Project es el podcast número 1 en español, dirigido por Jordi Wild. Se caracteriza por conversaciones extensas y sin censura sobre actualidad, deportes (MMA, boxeo), ciencia, misterio y filosofía. Con invitados variados, busca el entretenimiento y el debate, ganando premios ESALAND al mejor talk show.');
+>>>>>>> efbc795151afb79b47accd5dfe7b7f6c06575dac
 insert into Musico (IdMusico, Caracteristica)
 values ('A0001', 'Solista'),
 	   ('A0002', 'Grupo'),
@@ -179,7 +186,7 @@ values ('A0001', 'Solista'),
 
 
 insert into Audio(IdAudio, Nombre, Duracion, Archivo, Tipo, NReproducciones)
-values ('AU001', 'Space bound', 4, 'media/cancion/AU001.mp3', 'Canción', 343),
+values  ('AU001', 'Space bound', 4, 'media/cancion/AU001.mp3', 'Canción', 343),
 	    ('AU002', '¿Donde invertir?', 9, 'media/podcast/AU002.mp3', 'Podcast', 23),
         ('AU003', 'Fiebre', 3, 'media/cancion/AU003.mp3', 'Canción', 3400),
         ('AU004', 'Odio', 4, 'media/cancion/AU004.mp3', 'Canción', 7000),
@@ -216,23 +223,25 @@ values ('AU001', 'Space bound', 4, 'media/cancion/AU001.mp3', 'Canción', 343),
         ('AU035', 'Viernes', 3,'media/cancion/AU035.mp3', 'Canción', 343),
         ('AU036', 'Será esta noche', 4,'media/cancion/AU036.mp3', 'Canción', 341),
         ('AU037', 'Suéltate el pelo', 3,'media/cancion/AU037.mP3', 'Canción', 6767),
-        ('AU038', 'La madre de Ana', 3,'media/cancion/AU038.mp3', 'Canción', 79);
+        ('AU038', 'La madre de Ana', 3,'media/cancion/AU038.mp3', 'Canción', 79),
+        ('AU039', '¿De CANTANTE FAMOSO A ASESINO? El Caso de D4VD y Celeste Rivas', 74, 'media/podcast/AU039.mp3', 'Podcast', 5413),
+        ('AU040', 'LA MAFIA MEXICANA', 140, 'media/podcast/AU040.mp3', 'Podcast', 1654);
 		
 
 INSERT INTO Album (IdAlbum, Titulo, Anno, Genero, Imagen, IdMusico)
-values ('ALB01', 'Recovery', '2010-06-18', 'Rap/Hip-Hop', 'https://cdn-images.dzcdn.net/images/cover/be682506145061814eddee648edb7c59/1900x1900-000000-81-0-0.jpg', 'A0001'),
-	   ('ALB02', 'Formula, vol.2', '2014-02-25', 'Bachata', 'https://i.discogs.com/Yg_4JABhzbAaYe0_gva4Utt8tDYWq98c4f2Ih3Xobk0/rs:fit/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEzMjI5/MjU5LTE1NTAzNDkw/NTUtMjYwOC5qcGVn.jpegg', 'A0004'),
-	   ('ALB03', 'Slow wine Mixtape', '2016-11-09', 'Dancehall', 'https://i.discogs.com/crWjb1vUa54B4vOK32UJWaQ4izEnHb375Di3KuAiK08/rs:fit/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEwMzg1/NDA2LTE0OTY0MjM1/NzgtMzEwNS5qcGVn.jpeg', 'A0005'),
-	   ('ALB04', 'Marshall Mathers LP', '2020-05-23', 'Rap/hip-hop', 'https://cdn-3.expansion.mx/dims4/default/52bd153/2147483647/strip/true/crop/1200x630+0+85/resize/1200x630!/format/jpg/quality/80/?url=https%3A%2F%2Fcdn-3.expansion.mx%2Fae%2F67%2F5fb91bce4edd8f43eba266613793%2Feminem.jpg','A0001'),
-       ('ALB05', 'Music to be Murdered By', '2020-01-17','Rap/hip-hop','https://upload.wikimedia.org/wikipedia/en/8/80/Eminem_-_Music_to_Be_Murdered_By.png','A0001'),
-       ('ALB06', 'Love yourself: Answer', '2017-08-24','K-pop','https://static.wikia.nocookie.net/bangtan/images/5/55/Answer_cover.jpg/revision/latest?cb=20180824221028&path-prefix=es','A0002'),
+values 	('ALB01', 'Recovery', '2010-06-18', 'Rap/Hip-Hop', 'https://cdn-images.dzcdn.net/images/cover/be682506145061814eddee648edb7c59/1900x1900-000000-81-0-0.jpg', 'A0001'),
+		('ALB02', 'Formula, vol.2', '2014-02-25', 'Bachata', 'https://i.discogs.com/Yg_4JABhzbAaYe0_gva4Utt8tDYWq98c4f2Ih3Xobk0/rs:fit/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEzMjI5/MjU5LTE1NTAzNDkw/NTUtMjYwOC5qcGVn.jpegg', 'A0004'),
+		('ALB03', 'Slow wine Mixtape', '2016-11-09', 'Dancehall', 'https://i.discogs.com/crWjb1vUa54B4vOK32UJWaQ4izEnHb375Di3KuAiK08/rs:fit/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEwMzg1/NDA2LTE0OTY0MjM1/NzgtMzEwNS5qcGVn.jpeg', 'A0005'),
+		('ALB04', 'Marshall Mathers LP', '2020-05-23', 'Rap/hip-hop', 'https://cdn-3.expansion.mx/dims4/default/52bd153/2147483647/strip/true/crop/1200x630+0+85/resize/1200x630!/format/jpg/quality/80/?url=https%3A%2F%2Fcdn-3.expansion.mx%2Fae%2F67%2F5fb91bce4edd8f43eba266613793%2Feminem.jpg','A0001'),
+		('ALB05', 'Music to be Murdered By', '2020-01-17','Rap/hip-hop','https://upload.wikimedia.org/wikipedia/en/8/80/Eminem_-_Music_to_Be_Murdered_By.png','A0001'),
+		('ALB06', 'Love yourself: Answer', '2017-08-24','K-pop','https://static.wikia.nocookie.net/bangtan/images/5/55/Answer_cover.jpg/revision/latest?cb=20180824221028&path-prefix=es','A0002'),
 		('ALB07', 'Wings', '2016-10-10', 'K-pop','https://kstoryespana.es/cdn/shop/products/cokodive-bts-2nd-full-length-album-wings-3716964745296.png?v=1753594143&width=1946', 'A0002'),
 		('ALB08', 'La cagaste...Burt Lancaster', '1986-04-28', 'Rock','https://static.wikia.nocookie.net/hombres-g/images/4/48/La_Cagaste_Burt_Lancaster.jpeg/revision/latest/thumbnail/width/360/height/450?cb=20240625075251&path-prefix=es', 'A0003'),
         ('ALB09', 'Agitar antes de usar', '1988-05-24', 'Rock', 'https://static.wikia.nocookie.net/hombres-g/images/a/a0/Agitar_Antes_De_Usar.jpg/revision/latest?cb=20240618195117&path-prefix=es','A0003');
 
 
 INSERT INTO Cancion(IdCancion, IdAlbum, ArtistasInvitados)
-values('AU001', 'ALB01', null),
+values ('AU001', 'ALB01', null),
 	   ('AU003', 'ALB03', 'x'),
        ('AU004', 'ALB02',  'x'),
        ('AU005', 'ALB01', 'x'),
@@ -273,11 +282,15 @@ values('AU001', 'ALB01', null),
 
 
 INSERT INTO Podcaster (IdPodcaster)
-values ('A0006');
+values  ('A0006'),
+		('A0007'),
+        ('A0008');
 
 
 insert into Podcast (IdPodcast, NColaboradores, IdPodcaster)
-values ('AU002', 2, 'A0006');
+values  ('AU002', 2, 'A0006'),
+		('AU039', 1, 'A0007'),
+        ('AU040', 3, 'A0008');
 
 
 INSERT INto Cliente (IdCliente, Nombre, Apellido,Usuario, Contrasena, FechaNacimiento, FechaRegistro, Tipo, IdIdioma)
