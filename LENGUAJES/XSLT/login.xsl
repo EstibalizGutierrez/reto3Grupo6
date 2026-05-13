@@ -1,28 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-<xsl:output method="html" encoding="UTF-8" doctype-system="about:legacy-compat"/>
-
     <xsl:template match="/">
-        <html lang="es">
+        <html>
             <head>
-                <meta charset="UTF-8"/>
-                <title>Login</title>
+                <title>Login - Spotify Intranet</title>
                 <script src="Login.js"></script>
             </head>
             <body>
-                    <h2>Acceso al Sistema</h2>
-                    
-                    <form id="formularioLogin" onsubmit="validarLogin(event)">
-                        <label for="usuario">Usuario:</label><br>
-                        <input type="text" id="usuario"></input>
-                    </br>
-                        
-                        <label for="password">Contraseña:</label><br>
-                        <input type="password" id="password" ></input>
-                    </br>
-    
-                        <button type="submit">Entrar</button>
-                    </form>
+                <h2>Acceso Clientes</h2>
+                Usuario: <input type="text" id="u"/><br/>
+                Contraseña: <input type="password" id="p"/><br/>
+                <button onclick="validar()">Entrar</button>
             </body>
         </html>
     </xsl:template>
