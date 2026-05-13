@@ -1,18 +1,17 @@
 package Controlador;
 
 import javax.swing.*;
-
-import Modelo.Cliente;
-import Modelo.Idioma;
-import Modelo.Enums.idIdioma;
-import Modelo.Enums.tipoUsuario;
-
 import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Date;
 import java.time.LocalDate;
+import Modelo.Cliente;
+import Modelo.Idioma;
+import Modelo.Enums.idIdioma;
+import Modelo.Enums.tipoUsuario;
+import Controlador.Conexion;
 
 public class ClienteDAO {
 		
@@ -170,6 +169,64 @@ public class ClienteDAO {
 			}
 			
 			return nuevoId;
+		}
+		
+		
+		/**
+		 *Metodo que edita los datos del usuario desde el perfil del usuario
+		 *
+		 *@param Cliente
+		 *@return boolean 
+		 * 
+		 */
+		
+		public boolean editarCliente (Cliente editado) {
+			
+			Connection conexion = null;
+			boolean clienteEditadoValido = false;
+			String sql = "UPDATE Cliente "
+						+ " SET Nombre = ?, Apellido = ?,Usuario = ?, Contrasena = ?,FechaNacimiento = ?, Tipo = ?, IdIdioma = ? " 
+						+ " where IdCliente = ?";
+			
+			
+			try {
+				
+				conexion = conn.getConnection();
+				
+				if (conexion != null) {
+					
+					statement = conexion.prepareStatement(sql);
+
+					statement.setString(1, editado.getNombre());
+					statement.setString(2, editado.getApellido());
+					statement.setString(3, editado.getUsuario());
+					statement.setString(4, editado.getContrasena());
+			        statement.setDate(5, Date.valueOf(editado.getFechaNacimiento()));
+			        statement.setString(6, editado.getTipo().name());
+			        statement.setString(7, editado.getIdIdioma().getIdIdioma().name());
+			        
+			        //condicion where id = "x"
+			        statement.setString(8, editado.getIdCliente());
+			        
+			        int filas = statement.executeUpdate();
+			        
+			        //si se han modificado mas de 0 filas 
+			        
+			        if (filas > 0) {
+			        	
+			        	clienteEditadoValido = true;
+			        	
+			        }
+					
+				}
+				
+			} catch (SQLException error) {
+				
+				JOptionPane.showMessageDialog(null, "No se ha podido editar el usuario");
+				
+			}
+			
+			return clienteEditadoValido;
 		}
 
 	}

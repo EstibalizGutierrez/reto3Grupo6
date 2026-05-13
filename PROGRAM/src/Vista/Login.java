@@ -7,13 +7,13 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import Modelo.Cliente;
-
-import java.awt.BorderLayout;
-import java.awt.GridBagLayout;
+import Modelo.Usuario;
+import Controlador.ClienteDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.GridBagConstraints;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.border.BevelBorder;
@@ -110,6 +110,30 @@ public class Login extends JFrame {
 				String password = txtContrasena.getText();
 				
 				clienteExistente = new Cliente(user,password);
+				ClienteDAO dao = new ClienteDAO();
+				
+				Cliente clienteConTodosLosDatos = dao.clienteLogin(clienteExistente);
+				
+				if (clienteConTodosLosDatos !=  null) {
+					
+					//Instanciamos la clase static de Usuario para poder guardar el dato del cliente 
+					//logueado en todas las clases y asi poder seguir el flujo de la app en base al Usuario
+					
+					Usuario.setUsuario(clienteConTodosLosDatos);
+					
+					Perfil panelPerfil = new Perfil();
+					
+					dispose();
+					
+					panelPerfil.setVisible(true);
+					
+				} else {
+					
+					JOptionPane.showMessageDialog(botonLogin, "Usuario o contrasena incorrectos");
+					
+				}
+				
+				
 				
 			}
 			

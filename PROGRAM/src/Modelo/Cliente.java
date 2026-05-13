@@ -1,9 +1,8 @@
 package Modelo;
 
-import java.time.LocalDate;
-
 import Modelo.Enums.idIdioma;
 import Modelo.Enums.tipoUsuario;
+import java.time.LocalDate;
 
 public class Cliente {
 	
@@ -17,19 +16,6 @@ public class Cliente {
 	private tipoUsuario tipo;
 	private Idioma idIdioma;
 
-	
-	//conStructor para registro menos ID 
-	public Cliente(String nombre, String apellido, String usuario, String contrasena,
-			LocalDate fechaNacimiento, LocalDate fechaRegistro, tipoUsuario tipo, Idioma idIdioma) {
-		this.nombre = nombre;
-		this.apellido = apellido;
-		this.usuario = usuario;
-		this.contrasena = contrasena;
-		this.fechaNacimiento = fechaNacimiento;
-		this.fechaRegistro = fechaRegistro;
-		this.tipo = tipo;
-		this.idIdioma = idIdioma;
-	}
 
 	
 	
@@ -56,6 +42,21 @@ public class Cliente {
 		
 		this.usuario = usuario;
 		this.contrasena = contrasena;
+		
+	}
+	
+	
+	//COnstructor para guardar datos editables en el perfil del usuario
+	
+	public Cliente (String nombre, String apellido, String usuario, String contrasena, LocalDate fechaNacimiento,tipoUsuario tipo, Idioma idIdioma) {
+		
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.usuario = usuario;
+		this.contrasena = contrasena;
+		this.fechaNacimiento = fechaNacimiento;
+		this.tipo = tipo;
+		this.idIdioma = idIdioma;
 		
 	}
 
