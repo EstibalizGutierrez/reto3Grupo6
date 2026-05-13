@@ -29,7 +29,7 @@
 																	<xsd:element name="titulo" type="tipoPalabras"/>
 																	<xsd:element name="anno" type="xsd:date"/>
 																	<xsd:element name="genero" type="tipoPalabras"/>
-																	<xsd:element name="imagen" type="tipoPalabras"/>
+																	<xsd:element name="imagen" type="xsd:string"/>
 																	<xsd:element name="canciones">
 																		<xsd:complexType>
 																			<xsd:sequence>
@@ -40,7 +40,7 @@
 																							<xsd:element name="nombre" type="tipoPalabras"/>
 <!--POSIBLE TIPO TIME-->
 																							<xsd:element name="duracion" type="xsd:time"/>
-																							<xsd:element name="archivo" type="tipoPalabras"/>
+																							<xsd:element name="archivo" type="xsd:string"/>
 																							<xsd:element name="NReproducciones" type="xsd:integer"/>
 																							<xsd:element name="artistasInvitados" type="tipoPalabras"/>
 																						</xsd:sequence>
