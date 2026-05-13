@@ -1,5 +1,7 @@
 package Vista;
 
+import Controlador.*;
+
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -9,6 +11,11 @@ import java.awt.GridBagLayout;
 import javax.swing.JButton;
 import java.awt.GridBagConstraints;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.awt.event.ActionEvent;
 import java.awt.Insets;
 import javax.swing.JLabel;
@@ -21,26 +28,8 @@ public class Artistas extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	private JComboBox comboBox;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Artistas frame = new Artistas();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
 	public Artistas() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -50,9 +39,9 @@ public class Artistas extends JFrame {
 		setContentPane(contentPane);
 		GridBagLayout gbl_contentPane = new GridBagLayout();
 		gbl_contentPane.columnWidths = new int[]{73, 0, 0, 0, 0, 0};
-		gbl_contentPane.rowHeights = new int[]{53, 143, 0};
+		gbl_contentPane.rowHeights = new int[]{53, 143, 0, 0};
 		gbl_contentPane.columnWeights = new double[]{1.0, 1.0, 1.0, 1.0, 1.0, Double.MIN_VALUE};
-		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
+		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 0.0, Double.MIN_VALUE};
 		contentPane.setLayout(gbl_contentPane);
 		
 		JButton btnAtras = new JButton("Atras");
@@ -63,6 +52,7 @@ public class Artistas extends JFrame {
 				Artistas.this.dispose();
 			}
 		});
+		btnAtras.setFont(new Font("Constantia", Font.BOLD, 15));
 		GridBagConstraints gbc_btnAtras = new GridBagConstraints();
 		gbc_btnAtras.anchor = GridBagConstraints.NORTHWEST;
 		gbc_btnAtras.insets = new Insets(0, 0, 5, 5);
@@ -79,6 +69,7 @@ public class Artistas extends JFrame {
 		contentPane.add(lblListaArtistas, gbc_lblListaArtistas);
 		
 		JButton btnPerfil = new JButton("Perfil");
+		btnPerfil.setFont(new Font("Constantia", Font.BOLD, 15));
 		GridBagConstraints gbc_btnPerfil = new GridBagConstraints();
 		gbc_btnPerfil.anchor = GridBagConstraints.NORTHEAST;
 		gbc_btnPerfil.insets = new Insets(0, 0, 5, 0);
@@ -86,15 +77,51 @@ public class Artistas extends JFrame {
 		gbc_btnPerfil.gridy = 0;
 		contentPane.add(btnPerfil, gbc_btnPerfil);
 		
-		JComboBox comboBox = new JComboBox();
+		comboBox = new JComboBox();
 		GridBagConstraints gbc_comboBox = new GridBagConstraints();
-		gbc_comboBox.insets = new Insets(0, 0, 0, 5);
+		gbc_comboBox.insets = new Insets(0, 0, 5, 5);
 		gbc_comboBox.fill = GridBagConstraints.BOTH;
 		gbc_comboBox.gridx = 2;
 		gbc_comboBox.gridy = 1;
 		contentPane.add(comboBox, gbc_comboBox);
-
+		
+		JButton btnVerArtista = new JButton("Ver Artista");
+		btnVerArtista.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				 String nombreSeleccionado = (String) comboBox.getSelectedItem();
+	                if (nombreSeleccionado != null) {
+	                	ListaArtista ventanaDeArtista = new ListaArtista();
+	                	ventanaDeArtista.setVisible(true);
+	                    Artistas.this.dispose();
+	                    System.out.println("Cargando a: " + nombreSeleccionado);
+	                }
+	            }
+	        });
+		btnVerArtista.setFont(new Font("Constantia", Font.BOLD, 15));
+		GridBagConstraints gbc_btnVerArtista = new GridBagConstraints();
+		gbc_btnVerArtista.insets = new Insets(0, 0, 0, 5);
+		gbc_btnVerArtista.gridx = 2;
+		gbc_btnVerArtista.gridy = 2;
+		contentPane.add(btnVerArtista, gbc_btnVerArtista);
+		rellenarComboMusicos();
 	}
+	
+	private void rellenarComboMusicos() {
+	    String sql = "SELECT Artista.NombreArtistico " +
+	                 "FROM Artista " +
+	                 "JOIN Musico ON Artista.IdArtista = Musico.IdMusico";
 
+	    try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/reto3spotify", "root", "Elorrieta00");
+	    	 Statement st = con.createStatement();
+	         ResultSet rs = st.executeQuery(sql)) {
+
+	        comboBox.removeAllItems();
+	        while (rs.next()) {
+	            comboBox.addItem(rs.getString("NombreArtistico"));
+	        }
+	    } catch (SQLException e) {
+	        System.err.println("Error al cargar músicos: " + e.getMessage());
+	    }
+	}
 }
 

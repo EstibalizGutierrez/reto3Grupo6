@@ -11,49 +11,36 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Font;
+import java.awt.Color;
 
-public class listaArtista extends JFrame {
+public class ListaArtista extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField txtListaDiscos;
 	private JTextField txtInformacion;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					listaArtista frame = new listaArtista();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
-	public listaArtista() {
+	public ListaArtista() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(128, 128, 0));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		GridBagLayout gbl_contentPane = new GridBagLayout();
-		gbl_contentPane.columnWidths = new int[]{154, 85, 141, 0};
-		gbl_contentPane.rowHeights = new int[]{0, 0, 189, 154, 0};
+		gbl_contentPane.columnWidths = new int[]{164, 85, 141, 0};
+		gbl_contentPane.rowHeights = new int[]{34, 30, 189, 154, 0};
 		gbl_contentPane.columnWeights = new double[]{0.0, 0.0, 1.0, Double.MIN_VALUE};
 		gbl_contentPane.rowWeights = new double[]{1.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		contentPane.setLayout(gbl_contentPane);
 		
 		JButton btnAtras = new JButton("Atras");
+		btnAtras.setFont(new Font("Constantia", Font.BOLD, 15));
 		GridBagConstraints gbc_btnAtras = new GridBagConstraints();
-		gbc_btnAtras.anchor = GridBagConstraints.ABOVE_BASELINE_LEADING;
+		gbc_btnAtras.anchor = GridBagConstraints.NORTHWEST;
 		gbc_btnAtras.insets = new Insets(0, 0, 5, 5);
 		gbc_btnAtras.gridx = 0;
 		gbc_btnAtras.gridy = 0;
@@ -67,8 +54,9 @@ public class listaArtista extends JFrame {
 		contentPane.add(lblNombreArtista, gbc_lblNombreArtista);
 		
 		JButton btnPerfil = new JButton("Perfil");
+		btnPerfil.setFont(new Font("Constantia", Font.BOLD, 15));
 		GridBagConstraints gbc_btnPerfil = new GridBagConstraints();
-		gbc_btnPerfil.anchor = GridBagConstraints.EAST;
+		gbc_btnPerfil.anchor = GridBagConstraints.NORTHEAST;
 		gbc_btnPerfil.insets = new Insets(0, 0, 5, 0);
 		gbc_btnPerfil.gridx = 2;
 		gbc_btnPerfil.gridy = 0;
