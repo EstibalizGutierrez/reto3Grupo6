@@ -118,7 +118,7 @@ public class Artistas extends JFrame {
 	                 "FROM Artista " +
 	                 "JOIN Musico ON Artista.IdArtista = Musico.IdMusico";
 
-	    try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:33060/reto3spotify", "root", "Eljohannbachx25");
+	    try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:33060/reto3spotify", "root", "elorrieta");
 	    	 Statement st = con.createStatement();
 	         ResultSet rs = st.executeQuery(sql)) {
 

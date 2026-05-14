@@ -8,7 +8,7 @@ public class Conexion {
 
 	private final String URL = "jdbc:mysql://localhost:33060/reto3spotify";
 	private final String USER = "root";					//CAMBIARLO DEPENDIENDO DE LA RUTA , USER Y PASSWD DE TU ORDENADOR
-	private final String PASSWORD = "Eljohannbachx25";
+	private final String PASSWORD = "elorrieta";
 	private Connection conexion;
 	
 	public Connection getConnection() {

@@ -15,7 +15,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
-import java.time.format.DateTimeFormatter;
 import java.time.LocalDate;
 import Modelo.Cliente;
 import Modelo.Enums.idIdioma;
@@ -26,7 +25,6 @@ import Modelo.Idioma;
 import Controlador.ClienteDAO;
 import Controlador.PremiumDAO;
 import java.awt.Color;
-import java.awt.FlowLayout;
 import javax.swing.border.EtchedBorder;
 
 
@@ -82,7 +80,7 @@ public class Perfil extends JFrame {
 	public Perfil() {
 		setTitle("Perfil");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 950, 601);
+		setBounds(100, 100, 950, 600);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(128, 128, 0));
 		contentPane.setBorder(new EmptyBorder(9, 13, 17, 9));
@@ -280,7 +278,15 @@ public class Perfil extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 
-
+				if (comboBoxPremiumSiNo.getSelectedIndex() == 1) {
+					
+					panelPremium.setVisible(true);
+					
+				} else {
+					
+					panelPremium.setVisible(false);
+					
+				}
 				
 			}	
 			
@@ -294,7 +300,7 @@ public class Perfil extends JFrame {
 		comboBoxIdiomas.setEnabled(false);
 		comboBoxIdiomas.setEditable(true);
 		comboBoxIdiomas.setBounds(396, 349, 68, 30);
-		comboBoxIdiomas.setSelectedItem(clientePerfil.getIdIdioma().getIdIdioma().toString());
+		comboBoxIdiomas.setSelectedItem(clientePerfil.getIdIdioma().toString());
 		contentPane.add(comboBoxIdiomas);
 		
 		botonEditar = new JButton("EDITAR");
@@ -325,7 +331,7 @@ public class Perfil extends JFrame {
 				//asignamos valores del registro a variables
 				
 				try {
-					
+			
 					String nombre = nombreTxt.getText();
 					String apellido = apellidoTxt.getText();
 					String usuario = usuarioTxt.getText();
@@ -345,6 +351,20 @@ public class Perfil extends JFrame {
 					} else {
 						
 						tipo = tipoUsuario.Free;
+						
+					}
+					
+					// Validación de fecha si decide ser Premium
+					if (tipo == tipoUsuario.Premium) {
+						
+						String fechaLimit = fechaPremiumTxt.getText();
+						
+						if (fechaLimit.trim().isEmpty()) {
+							
+					        JOptionPane.showMessageDialog(botonGuardarCambios, "Si quieres ser Premium, debes introducir una fecha de caducidad.");
+					        return;
+							
+						}
 						
 					}
 					
@@ -374,14 +394,23 @@ public class Perfil extends JFrame {
 								if (pdao.insertarPremium(premium) ) {
 									
 									JOptionPane.showMessageDialog(botonGuardarCambios, "Premium contratado");
-									
+								
 								} else {
 									
 									JOptionPane.showMessageDialog(botonGuardarCambios, "Error al contratar premium");
 									
 								}
 								
-							} JOptionPane.showMessageDialog(botonGuardarCambios, "Dato(s) modificados correctamente");
+							} 
+							
+							JOptionPane.showMessageDialog(botonGuardarCambios, "Dato(s) modificados correctamente");
+							
+							// Actualizamos la sesión con los nuevos datos
+							Usuario.setUsuario(clienteEditado);
+							
+							dispose();
+							Menu_Cliente menuCliente = new Menu_Cliente();
+							menuCliente.setVisible(true);
 							
 						} else {
 							
@@ -419,31 +448,15 @@ public class Perfil extends JFrame {
 	
 	public void editable () {
 		
-		if (comboBoxPremiumSiNo.getSelectedIndex() == 1) {
-			
-			nombreTxt.setEditable(true);
-			apellidoTxt.setEditable(true);
-			usuarioTxt.setEditable(true);
-			contrasenaTxt.setEditable(true);
-			confirmarTxt.setEditable(true);
-			fechaNacimientoTxt.setEditable(true);
-			comboBoxIdiomas.setEnabled(true);
-			
-		} else {
-			
-			nombreTxt.setEditable(true);
-			apellidoTxt.setEditable(true);
-			usuarioTxt.setEditable(true);
-			contrasenaTxt.setEditable(true);
-			confirmarTxt.setEditable(true);
-			fechaNacimientoTxt.setEditable(true);
-			comboBoxIdiomas.setEnabled(true);
-			comboBoxPremiumSiNo.setEnabled(true);
-			fechaPremiumTxt.setEditable(true);
-			
-		}
-		
-		
+		nombreTxt.setEditable(true);
+		apellidoTxt.setEditable(true);
+		usuarioTxt.setEditable(true);
+		contrasenaTxt.setEditable(true);
+		confirmarTxt.setEditable(true);
+		fechaNacimientoTxt.setEditable(true);
+		comboBoxIdiomas.setEnabled(true);
+		comboBoxPremiumSiNo.setEnabled(true);
+		fechaPremiumTxt.setEditable(true);
 		
 	}
 }

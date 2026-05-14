@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sputify - Artistas</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="Login.js"></script>
+</head>
+<body>
+
+    <header>
+        <h1 id="saludo">Bienvenido</h1> 
+        <nav>
+            <a href="index.html">Inicio</a> | 
+            <a href="artistas.html" class="active">Artistas</a> | 
+            <a href="login.html" onclick="localStorage.clear()">Cerrar Sesión</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Nuestros Artistas</h2>
+
+        <section id="filtros">
+            <label for="genero">Filtrar por Género:</label>
+            <select id="select-genero" onchange="filtrarArtistas()">
+                <option value="todos">Todos los géneros</option>
+                <option value="Rap">Rap/Hip-Hop</option>
+                <option value="K-pop">K-pop</option>
+                <option value="Rock">Rock</option>
+            </select>
+        </section>
+
+        <div class="contenedor-grid" id="grid-artistas">
+            
+            <div class="tarjeta-artista" data-genero="Rap">
+                <img src="imagenes/artistas/Eminem.jpg" alt="Eminem">
+                <h3>Eminem</h3>
+                <p class="genero-tag">Rap/Hip-Hop</p>
+                <p class="desc">Conocido como Slim Shady, uno de los raperos más influyentes.</p>
+            </div>
+
+            <div class="tarjeta-artista" data-genero="K-pop">
+                <img src="imagenes/artistas/bts.jpg" alt="BTS">
+                <h3>BTS</h3>
+                <p class="genero-tag">K-pop</p>
+                <p class="desc">Septeto surcoreano formado en Seúl en 2010.</p>
+            </div>
+
+            <div class="tarjeta-artista" data-genero="Rock">
+                <img src="imagenes/artistas/hombresg.jpg" alt="Hombres G">
+                <h3>Hombres G</h3>
+                <p class="genero-tag">Rock</p>
+                <p class="desc">Banda española de pop-rock fundada en Madrid.</p>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        // Función rápida para el filtro que pide la rúbrica
+        function filtrarArtistas() {
+            const seleccion = document.getElementById('select-genero').value;
+            const tarjetas = document.querySelectorAll('.tarjeta-artista');
+
+            tarjetas.forEach(tarjeta => {
+                if (seleccion === 'todos' || tarjeta.getAttribute('data-genero') === seleccion) {
+                    tarjeta.style.display = 'block';
+                } else {
+                    tarjeta.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
