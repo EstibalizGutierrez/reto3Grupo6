@@ -66,6 +66,57 @@ public class PremiumDAO {
 		return premiumValido;
 		
 	}
+	
+	
+	/**
+	 * Metodo que sirve para obtener la fechaLimite del premium usando como parametro
+	 *  el constructor Cliente que solo tiene el id como paraametro
+	 * 
+	 * 
+	 * @param cliente
+	 * @return LocalDate
+	 */
+	
+	public LocalDate obtenerFechaLimitePremium (Cliente cliente) {
+		
+		Connection conexion = null;
+		
+		//variable para el return donde guardaremos la fecha limite del premium
+		LocalDate fechaLimitePremium = null;
+		
+		String sql = "Select FechaCaducidad "
+					+ "FROM Premium "
+					+ "WHERE IdCliente = ?";
+		
+		try {
+			
+			conexion = conn.getConnection();
+			
+			if (conexion!= null) {
+				
+				statement = conexion.prepareStatement(sql);
+				//Asignamos valor
+				statement.setString(1, cliente.getIdCliente());
+				resultSet = statement.executeQuery();
+				
+				if (resultSet.next()) {
+					
+					fechaLimitePremium = resultSet.getDate("FechaCaducidad").toLocalDate();
+					
+				}
+											
+			}
+			
+		} catch (SQLException error) {
+			
+			error.printStackTrace();
+			
+		}
+		
+		return fechaLimitePremium;
+		
+	}
+	
 }
 
 

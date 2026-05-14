@@ -118,7 +118,7 @@ public class Artistas extends JFrame {
 	                 "FROM Artista " +
 	                 "JOIN Musico ON Artista.IdArtista = Musico.IdMusico";
 
-	    try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/reto3spotify", "root", "Elorrieta00");
+	    try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:33060/reto3spotify", "root", "Eljohannbachx25");
 	    	 Statement st = con.createStatement();
 	         ResultSet rs = st.executeQuery(sql)) {
 
@@ -127,7 +127,7 @@ public class Artistas extends JFrame {
 	            comboBox.addItem(rs.getString("NombreArtistico"));
 	        }
 	    } catch (SQLException e) {
-	        System.err.println("Error al cargar músicos: " + e.getMessage());
+	        System.err.println("Error al cargar mï¿½sicos: " + e.getMessage());
 	    }
 	}
 }
