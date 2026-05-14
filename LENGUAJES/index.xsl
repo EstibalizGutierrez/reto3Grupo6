@@ -4,6 +4,7 @@
         <html>
             <head>
                 <title>Spotify - Inicio</title>
+                <link rel="stylesheet" href="styles.css"/>
                 <script src="Login.js"></script>
             </head>
             <body>
@@ -23,7 +24,7 @@
                 <main>
                     <h3>Canciones recomendadas</h3>
                     <xsltemplate match="album">
-                        <a href="canciones.html"> <img><xsl:attribute name="src"><xsl:value-of select="imagen"/></xsl:attribute></img></a>
+                        <a href="canciones.html"> <img src="imagen" alt=""/></a>
                         <a href="canciones.html"> <img src="hrtbf" alt=""/></a>
                         <a href="canciones.html"> <img src="ifhiofj" alt=""/></a>
                         <a href="canciones.html"> <img src="fef" alt=""/></a>
@@ -48,7 +49,6 @@
                     <img src="imagenes/footer/instagram.png" alt="instagram"/>
                 </footer>
             </body>
-            <xsl:apply-templates/>
         </html>
     </xsl:template>
 </xsl:stylesheet>

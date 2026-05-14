@@ -1,14 +1,16 @@
-/*todavia no ejecutar*/
 use reto3spotify;
 create user DBA_Administrador_IT identified by '1234';
 grant all privileges on *.* to DBA_Administrador_IT
 with grant option;
--- primero este
-GRANT 'RolEmpleados' TO 'Empleados'@'%';
 
+-- primero este
 create user Empleados identified by '4321';
 -- luego este
 alter user 'Empleados'@'%' default role 'RolEmpleados';
+
+-- si no funciona ejecutar este
+GRANT 'RolEmpleados' TO 'Empleados'@'%';
+
 create role RolEmpleados;
 drop role RolEmpleados;
 grant select on reto3spotify.cliente to 'RolEmpleados';
@@ -43,4 +45,7 @@ grant insert, update, delete on reto3spotify.gustos to 'RolClientesFree';
 /*depende de la tabla cliente, no se sabe si darle la opcion de update*/
 grant insert, update, delete on reto3spotify.cliente to 'RolClientesFree';
 
-create user ClientePremium identified by '1111' default role RolClientesFree;
+create user ClientePremium identified by '1111' default role RolClientesPremium;
+
+
+
