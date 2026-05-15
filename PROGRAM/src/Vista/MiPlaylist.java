@@ -39,6 +39,8 @@ public class MiPlaylist extends JFrame {
 	private JPanel panelOpciones;
 	private JLabel lblNombrePlaylist;
 	private JTextField nombrePlaylistTxt;
+	private JButton botonGuardar;
+	private JButton botonActualizar;
 	
 
 
@@ -63,6 +65,7 @@ public class MiPlaylist extends JFrame {
 	 * Create the frame.
 	 */
 	public MiPlaylist() {
+		setTitle("Gestion Playlist");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 950, 600);
 		contentPane = new JPanel();
@@ -134,6 +137,16 @@ public class MiPlaylist extends JFrame {
 		botonBorrar.setForeground(new Color(255, 0, 128));
 		botonBorrar.setFont(new Font("Constantia", Font.BOLD, 15));
 		botonBorrar.setBounds(454, 168, 191, 31);
+		botonBorrar.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				eventoEliminar();
+				
+			}
+		
+		});
 		contentPane.add(botonBorrar);
 		
 		botonImportar = new JButton("IMPORTAR");
@@ -148,7 +161,13 @@ public class MiPlaylist extends JFrame {
 		botonExportar.setBounds(474, 249, 147, 31);
 		contentPane.add(botonExportar);
 		
-
+		panelOpciones = new JPanel();
+		panelOpciones.setBackground(new Color(128, 128, 0));
+		panelOpciones.setBounds(361, 300, 563, 250);
+		contentPane.add(panelOpciones);
+		panelOpciones.setLayout(null);
+		
+		
 		
 
 	}
@@ -208,12 +227,8 @@ public class MiPlaylist extends JFrame {
 	
 	public void eventoCrear () {
 		
-
-		panelOpciones = new JPanel();
-		panelOpciones.setBackground(new Color(128, 128, 0));
-		panelOpciones.setBounds(361, 300, 563, 250);
-		contentPane.add(panelOpciones);
-		panelOpciones.setLayout(null);
+		panelOpciones.removeAll();
+		panelOpciones.repaint();
 		
 		lblNombrePlaylist = new JLabel("Nombre Playlist: ");
 		lblNombrePlaylist.setFont(new Font("Constantia", Font.BOLD, 15));
@@ -224,19 +239,102 @@ public class MiPlaylist extends JFrame {
 		nombrePlaylistTxt.setBounds(196, 28, 152, 26);
 		panelOpciones.add(nombrePlaylistTxt);
 		nombrePlaylistTxt.setColumns(10);
+		
+		botonGuardar = new JButton("GUARDAR");
+		botonGuardar.setFont(new Font("Constantia", Font.BOLD, 15));
+		botonGuardar.setBounds(60, 84, 118, 31);
+		botonGuardar.addActionListener(new ActionListener() {
 
-		PlaylistDAO dao = new PlaylistDAO();
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				PlaylistDAO dao = new PlaylistDAO();
+				//Damos valor a las variables
+				String nombre = nombrePlaylistTxt.getText();
+				//lo ponemos 0 porque al ser autoincrement en mysql, el 0 lo acepta como null, no ponemos null porque los int no deja ponerlo
+				int id = 0;
+				String idCliente = clientePerfil.getIdCliente();
+				LocalDate fechaCreacion = LocalDate.now();
+				//Pasamos el idCliente a un constructor de cliente debido a que es el parametro que necesitamos, no un string de cliente
+				Cliente cliente = new Cliente(idCliente);
+				Playlist playL = new Playlist(id,nombre,fechaCreacion);
+				
+				//metemos los dos objetos como parametros para insertar la playlist
+				if (dao.playlistInsertar(cliente, playL)) {
+					
+					JOptionPane.showMessageDialog(botonGuardar, "Playlist creada");
+					
+				}
+				
+			}
+			
+		});
+		panelOpciones.add(botonGuardar);
 		
-		String nombre = nombrePlaylistTxt.getText();
-		int id = dao.generarId();
-		String idCliente = clientePerfil.getIdCliente();
-		LocalDate fechaCreacion = LocalDate.now();
+		botonActualizar = new JButton("ACTUALIZAR PAGINA");
+		botonActualizar.setFont(new Font("Constantia", Font.BOLD, 15));
+		botonActualizar.setBounds(203, 84, 227, 31);
+		botonActualizar.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				dispose();
+				MiPlaylist reseteo = new MiPlaylist();
+				reseteo.setVisible(true);
+				
+			}
+				
+		});
+		panelOpciones.add(botonActualizar);
 		
-		Cliente cliente = new Cliente(idCliente);
-		Playlist playL = new Playlist(id,nombre,fechaCreacion, idCliente);
+		panelOpciones.validate();
+	}
+	
+	
+	public void eventoEliminar () {
 		
+		panelOpciones.removeAll();
+		panelOpciones.repaint();
 		
+		lblNombrePlaylist = new JLabel("Nombre Playlist: ");
+		lblNombrePlaylist.setFont(new Font("Constantia", Font.BOLD, 15));
+		lblNombrePlaylist.setBounds(60, 28, 143, 29);
+		panelOpciones.add(lblNombrePlaylist);
 		
+		nombrePlaylistTxt = new JTextField();
+		nombrePlaylistTxt.setBounds(196, 28, 152, 26);
+		panelOpciones.add(nombrePlaylistTxt);
+		nombrePlaylistTxt.setColumns(10);
+		
+		botonGuardar = new JButton("ELIMINAR");
+		botonGuardar.setFont(new Font("Constantia", Font.BOLD, 15));
+		botonGuardar.setBounds(60, 84, 118, 31);
+		botonGuardar.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				PlaylistDAO dao = new PlaylistDAO();
+				//Damos valor a las variables
+				String nombre = nombrePlaylistTxt.getText();
+				Playlist playL = new Playlist(nombre);
+				
+				//metemos los dos objetos como parametros para insertar la playlist
+				if (dao.eliminarPlaylist(playL)) {
+					
+					JOptionPane.showMessageDialog(botonGuardar, "Playlist borrada");
+					dispose();
+					MiPlaylist p = new MiPlaylist();
+					p.setVisible(true);
+					
+				}
+				
+			}
+			
+		});
+		panelOpciones.add(botonGuardar);
 		
 	}
-}
+		
+	}

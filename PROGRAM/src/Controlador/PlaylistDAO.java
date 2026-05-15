@@ -50,13 +50,21 @@ public class PlaylistDAO {
 		
 	}
 	
+	
+	/**
+	 * mETODO para insertar playlist desde la ventana gestion de playlist
+	 * 
+	 * @param Cliente cliente, Playlist playlist
+	 * @return boolean
+	 * 
+	 */
+	
 	public boolean playlistInsertar (Cliente cliente, Playlist playlist) {
 		
 		Connection conexion = null;
 		boolean playlistValida = false;
-		int idNuevo = generarId();
 		
-		String sql = "Insert into Playlist (IdList,Titulo, FechaCreacion, IdCliente "
+		String sql = "Insert into Playlist (IdList,Titulo, FechaCreacion, IdCliente) "
 					+ " Values (?,?,?,?)";
 		
 		try {
@@ -65,13 +73,16 @@ public class PlaylistDAO {
 			
 			if (conexion != null) {
 				
-				statement.setInt(1, idNuevo);
+				statement = conexion.prepareStatement(sql);
+				
+				//pasamos null porque es autoincrement int
+				statement.setObject(1, null);
 				statement.setString(2, playlist.getTitulo());
 				statement.setDate(3, Date.valueOf(playlist.getFechaCreacion()));
 				statement.setString(4, cliente.getIdCliente());
 				
 				int filas = statement.executeUpdate();
-				
+				 
 				if (filas > 0) {
 					
 					playlistValida = true;
@@ -90,38 +101,41 @@ public class PlaylistDAO {
 		
 	}
 	
-	public int generarId() {
+	
+	public boolean eliminarPlaylist (Playlist playlist) {
 		
 		Connection conexion = null;
-		int nuevoId = 0;
-		String sql = "Select IdList from Playlist order by IdList desc limit 1";
-
+		boolean borrado = false;
+		
+		String sql = "DELETE FROM Playlist where Titulo = ?";
+		
 		try {
 			
-			if (conexion!= null) {
+			conexion = conn.getConnection();
+			
+			if (conexion != null) {
+				
 				
 				statement = conexion.prepareStatement(sql);
-				resultSet = statement.executeQuery();
 				
-				if (resultSet.next()) {
+				statement.setString(1, playlist.getTitulo());
+				
+				int filasAfectadas = statement.executeUpdate();
+				
+				if (filasAfectadas > 0) {
 					
-					int ultimoId = resultSet.getInt("IdList");
+					borrado = true;
 					
-					nuevoId = ultimoId;
 				}
-				
-				
 			}
-			
 		} catch (SQLException error) {
 			
 			error.printStackTrace();
 			
 		}
 		
-		return nuevoId;
+		return borrado;
 		
 	}
-	
 	
 }
