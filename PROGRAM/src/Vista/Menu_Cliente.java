@@ -77,7 +77,7 @@ public class Menu_Cliente extends JFrame {
 		JButton btnDescubrirMusica = new JButton("Descubrir Musica");
 		btnDescubrirMusica.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Artistas ventanaDeArtistas = new Artistas();
+				ListaDeArtistas ventanaDeArtistas = new ListaDeArtistas();
 				ventanaDeArtistas.setVisible(true);
 				Menu_Cliente.this.dispose();
 			}
@@ -108,7 +108,7 @@ public class Menu_Cliente extends JFrame {
 		JButton btnDescubrirPodcast = new JButton("Descubrir Podcast");
 		btnDescubrirPodcast.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Podcasters ventanaDePodcasters = new Podcasters();
+				ListaDePodcasters ventanaDePodcasters = new ListaDePodcasters();
 				ventanaDePodcasters.setVisible(true);
 				Menu_Cliente.this.dispose();
 			}

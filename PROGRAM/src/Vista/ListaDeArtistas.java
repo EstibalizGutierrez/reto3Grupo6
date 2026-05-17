@@ -1,6 +1,8 @@
 package Vista;
 
-import Controlador.*;
+import Controlador.Conexion;
+import Modelo.Cliente;
+import Modelo.Usuario;
 
 import java.awt.EventQueue;
 import javax.swing.JFrame;
@@ -19,18 +21,21 @@ import java.sql.Statement;
 import java.awt.event.ActionEvent;
 import java.awt.Insets;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import java.awt.Color;
 
-public class Artistas extends JFrame {
+public class ListaDeArtistas extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JComboBox comboBox;
+	private Cliente clientePerfil = Usuario.getCliente();
 
-	public Artistas() {
+	public ListaDeArtistas() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -49,7 +54,7 @@ public class Artistas extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				Menu_Cliente ventanaDeMenu = new Menu_Cliente();
 				ventanaDeMenu.setVisible(true);
-				Artistas.this.dispose();
+				ListaDeArtistas.this.dispose();
 			}
 		});
 		btnAtras.setFont(new Font("Constantia", Font.BOLD, 15));
@@ -68,12 +73,12 @@ public class Artistas extends JFrame {
 		gbc_lblListaArtistas.gridy = 0;
 		contentPane.add(lblListaArtistas, gbc_lblListaArtistas);
 		
-		JButton btnPerfil = new JButton("Perfil");
+		JButton btnPerfil = new JButton(clientePerfil.getUsuario());
 		btnPerfil.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Artistas ventanaDeArtistas = new Artistas();
-				ventanaDeArtistas.setVisible(true);
-				Artistas.this.dispose();
+				Perfil ventanaDePerfil = new Perfil();
+				ventanaDePerfil.setVisible(true);
+				ListaDeArtistas.this.dispose();
 			}
 		});
 		btnPerfil.setFont(new Font("Constantia", Font.BOLD, 15));
@@ -97,9 +102,9 @@ public class Artistas extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				 String nombreSeleccionado = (String) comboBox.getSelectedItem();
 	                if (nombreSeleccionado != null) {
-	                	ListaArtista ventanaDeArtista = new ListaArtista();
+	                	Artista ventanaDeArtista = new Artista(nombreSeleccionado);
 	                	ventanaDeArtista.setVisible(true);
-	                    Artistas.this.dispose();
+	                    ListaDeArtistas.this.dispose();
 	                    System.out.println("Cargando a: " + nombreSeleccionado);
 	                }
 	            }	
@@ -114,21 +119,31 @@ public class Artistas extends JFrame {
 	}
 	
 	private void rellenarComboMusicos() {
+		Conexion db = new Conexion();
+        Connection con = db.getConnection();
+		
 	    String sql = "SELECT Artista.NombreArtistico " +
 	                 "FROM Artista " +
 	                 "JOIN Musico ON Artista.IdArtista = Musico.IdMusico";
 
-	    try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/reto3spotify", "root", "Elorrieta00");
-	    	 Statement st = con.createStatement();
-	         ResultSet rs = st.executeQuery(sql)) {
+	    if (con != null) {
+            try (Statement st = con.createStatement();
+                 ResultSet rs = st.executeQuery(sql)) {
 
-	        comboBox.removeAllItems();
-	        while (rs.next()) {
-	            comboBox.addItem(rs.getString("NombreArtistico"));
-	        }
-	    } catch (SQLException e) {
-	        System.err.println("Error al cargar m�sicos: " + e.getMessage());
-	    }
-	}
+                while (rs.next()) {
+                    // Sacamos el nombre y lo metemos al combo
+                    comboBox.addItem(rs.getString("NombreArtistico"));
+                }
+
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(this, "Error al consultar: " + e.getMessage());
+            } finally {
+                // 2. Cerramos la conexión usando tu método cerrarConexion()
+                db.cerrarConexion();
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "No se pudo establecer la conexión.");
+        }
+    }
 }
 

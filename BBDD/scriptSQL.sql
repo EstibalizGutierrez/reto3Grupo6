@@ -2,7 +2,6 @@ CREATE DATABASE reto3spotify COLLATE utf8mb4_spanish_ci;
 USE reto3spotify;
 
 /* --------------TABLA DE IDIOMA-------------- */
-/* ta bn*/
 DROP TABLE if exists Idioma;
 CREATE TABLE Idioma (
 	IdIdioma ENUM('ES', 'EU', 'EN', 'FR', 'DE', 'CA', 'GA', 'AR') PRIMARY KEY,
@@ -10,7 +9,6 @@ CREATE TABLE Idioma (
 );
 
 /* --------------TABLA DE ARTISTA-------------- */
-/* TA BN */
 DROP TABLE if exists Artista;
 CREATE TABLE Artista (
 	IdArtista CHAR(5) PRIMARY KEY,
@@ -21,7 +19,6 @@ CREATE TABLE Artista (
 );
 
 /* --------------TABLA DE PODCASTER-------------- */
-/* TA BN */
 DROP TABLE if exists Podcaster;
 CREATE TABLE Podcaster (
 	IdPodcaster CHAR(5) PRIMARY KEY,
@@ -30,7 +27,6 @@ CREATE TABLE Podcaster (
 );
 
 /* --------------TABLA DE MÚSICO-------------- */
-/* TA BN */
 DROP TABLE if exists Musico;
 CREATE TABLE Musico (
 	IdMusico CHAR(5) PRIMARY KEY,
@@ -40,7 +36,6 @@ CREATE TABLE Musico (
 );
 
 /* --------------TABLA DE ALBUM-------------- */
-/* TA BN*/
 DROP TABLE if exists Album;
 CREATE TABLE Album (
 	IdAlbum CHAR(5) PRIMARY KEY,
@@ -54,7 +49,6 @@ CREATE TABLE Album (
 );
 
 /* --------------TABLA DE AUDIO-------------- */
-/* TA BN */
 DROP TABLE if exists Audio;
 CREATE TABLE Audio (
 	IdAudio CHAR(5) PRIMARY KEY, 
@@ -66,7 +60,6 @@ CREATE TABLE Audio (
 );
 
 /* --------------TABLA DE PODCAST-------------- */
-
 DROP TABLE if exists Podcast;
 CREATE TABLE Podcast (
     IdPodcast CHAR(5) PRIMARY KEY,
@@ -164,8 +157,8 @@ values ('ES','español'),
 		
 
 insert into Artista (IdArtista, NombreArtistico, Genero, Imagen, Descripcion)
-values ('A0001', 'Eminem', 'Rap/Hip-Hop', 'https://static.wikia.nocookie.net/rap/images/3/34/Eminem_Fotografia_01.jpg/revision/latest?cb=20220507042018&path-prefix=es', 'Eminem, conocido también como Slim Shady, es uno de los raperos más influyentes y exitosos en la historia del hip hop. Destaca por su técnica excepcional, rimas complejas y una capacidad única para narrar historias crudas y personales con un estilo provocador. A lo largo de su carrera ha ganado múltiples premios Grammy y un Oscar, consolidándose como un ícono cultural global. Su impacto no solo transformó el género, sino que rompió barreras raciales en la industria musical.'),
-	   ('A0002', 'BTS', 'k-pop', 'https://static.wikia.nocookie.net/mamarre-estudios-espanol/images/2/24/3OWSV6ZZHZHQFDIC6HXDTQDUKE.jpg/revision/latest?cb=20200420001515&path-prefix=es', 'Septeto surcoreano formado en Seúl en 2010. Es el grupo de K-pop más influyente a nivel mundial, compuesto por Jin, Suga, J-Hope, RM, Jimin, V y Jungkook. Han encabezado las listas de Billboard y son reconocidos por su impacto cultural global y récords en ventas.'),
+values ('A0001', 'Eminem', 'Rap/Hip-Hop', 'https://media.pitchfork.com/photos/59c910db55dac976b8158cb7/master/pass/Eminem_Photo%20by%20Dave%20J%20Hogan:Getty%20Images%20for%20MTV_187596325_News.jpg', 'Eminem, conocido también como Slim Shady, es uno de los raperos más influyentes y exitosos en la historia del hip hop. Destaca por su técnica excepcional, rimas complejas y una capacidad única para narrar historias crudas y personales con un estilo provocador. A lo largo de su carrera ha ganado múltiples premios Grammy y un Oscar, consolidándose como un ícono cultural global. Su impacto no solo transformó el género, sino que rompió barreras raciales en la industria musical.'),
+	   ('A0002', 'BTS', 'k-pop', 'https://m.media-amazon.com/images/M/MV5BYzU5NjA3Y2YtY2UwZi00ZDMwLWE5NjAtOTljNTA4NTI4ZjYyXkEyXkFqcGc@._V1_.jpg', 'Septeto surcoreano formado en Seúl en 2010. Es el grupo de K-pop más influyente a nivel mundial, compuesto por Jin, Suga, J-Hope, RM, Jimin, V y Jungkook. Han encabezado las listas de Billboard y son reconocidos por su impacto cultural global y récords en ventas.'),
        ('A0003', 'Hombres G', 'Rock', 'https://lafonoteca.net/wp-content/uploads/2008/03/hombres-g.jpg', 'Banda española de pop-rock y new wave fundada en Madrid en 1982. Liderada por David Summers, se convirtió en uno de los grupos más exitosos de los años 80 con himnos como Devuélveme a mi chica y Venezia, marcando a toda una generación en España y Latinoamérica'),
        ('A0004', 'Romeo Santos', 'Bachata', 'https://cdn-images.dzcdn.net/images/artist/0a20c1c5fb5cdd61052c915a325b3589/1900x1900-000000-80-0-0.jpg', 'Cantante y compositor estadounidense de origen dominicano, conocido mundialmente como El Rey de la Bachata. Fue el líder y vocalista de la agrupación Aventura antes de consolidarse como solista, donde ha colaborado con grandes estrellas internacionales como Drake, Usher y Rosalía, logrando posicionar la bachata en las listas de éxitos más importantes del mundo.'),
        ('A0005', 'Bad Gyal' , 'Genero Urbano', 'https://elgeneracionalpost.com/wp-content/uploads/2024/01/365689375_844099157085279_2412177309070566805_n.jpeg', 'Cantante, compositora y DJ española, referente absoluta del género urbano y la música de club. Conocida como la Reina del Dancehall en España, ha logrado fusionar el reggaetón, el dembow y el trap con una estética única. Ha colaborado con grandes figuras internacionales y es responsable de éxitos globales como Fiebre, Alocao y Chulo, destacando por su estilo innovador y su gran impacto en la escena musical actual.'),
@@ -226,14 +219,14 @@ values  ('AU001', 'Space bound', 4, 'media/cancion/AU001.mp3', 'Canción', 343),
 
 INSERT INTO Album (IdAlbum, Titulo, Anno, Genero, Imagen, IdMusico)
 values 	('ALB01', 'Recovery', '2010-06-18', 'Rap/Hip-Hop', 'https://cdn-images.dzcdn.net/images/cover/be682506145061814eddee648edb7c59/1900x1900-000000-81-0-0.jpg', 'A0001'),
-		('ALB02', 'Formula, vol.2', '2014-02-25', 'Bachata', 'https://i.discogs.com/Yg_4JABhzbAaYe0_gva4Utt8tDYWq98c4f2Ih3Xobk0/rs:fit/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEzMjI5/MjU5LTE1NTAzNDkw/NTUtMjYwOC5qcGVn.jpegg', 'A0004'),
+		('ALB02', 'Formula, vol.2', '2014-02-25', 'Bachata', 'https://m.media-amazon.com/images/I/81U1dPInpIL._UF894,1000_QL80_.jpg', 'A0004'),
 		('ALB03', 'Slow wine Mixtape', '2016-11-09', 'Dancehall', 'https://i.discogs.com/crWjb1vUa54B4vOK32UJWaQ4izEnHb375Di3KuAiK08/rs:fit/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEwMzg1/NDA2LTE0OTY0MjM1/NzgtMzEwNS5qcGVn.jpeg', 'A0005'),
 		('ALB04', 'Marshall Mathers LP', '2020-05-23', 'Rap/hip-hop', 'https://cdn-3.expansion.mx/dims4/default/52bd153/2147483647/strip/true/crop/1200x630+0+85/resize/1200x630!/format/jpg/quality/80/?url=https%3A%2F%2Fcdn-3.expansion.mx%2Fae%2F67%2F5fb91bce4edd8f43eba266613793%2Feminem.jpg','A0001'),
-		('ALB05', 'Music to be Murdered By', '2020-01-17','Rap/hip-hop','https://upload.wikimedia.org/wikipedia/en/8/80/Eminem_-_Music_to_Be_Murdered_By.png','A0001'),
-		('ALB06', 'Love yourself: Answer', '2017-08-24','K-pop','https://static.wikia.nocookie.net/bangtan/images/5/55/Answer_cover.jpg/revision/latest?cb=20180824221028&path-prefix=es','A0002'),
+		('ALB05', 'Music to be Murdered By', '2020-01-17','Rap/hip-hop','https://images.genius.com/706b4786e89212a70685e9ef5a7073f7.999x999x1.jpg','A0001'),
+		('ALB06', 'Love yourself: Answer', '2017-08-24','K-pop','https://upload.wikimedia.org/wikipedia/en/thumb/e/e2/BTS%2C_Love_Yourself_Answer%2C_album_cover.jpg/250px-BTS%2C_Love_Yourself_Answer%2C_album_cover.jpg','A0002'),
 		('ALB07', 'Wings', '2016-10-10', 'K-pop','https://kstoryespana.es/cdn/shop/products/cokodive-bts-2nd-full-length-album-wings-3716964745296.png?v=1753594143&width=1946', 'A0002'),
-		('ALB08', 'La cagaste...Burt Lancaster', '1986-04-28', 'Rock','https://static.wikia.nocookie.net/hombres-g/images/4/48/La_Cagaste_Burt_Lancaster.jpeg/revision/latest/thumbnail/width/360/height/450?cb=20240625075251&path-prefix=es', 'A0003'),
-        ('ALB09', 'Agitar antes de usar', '1988-05-24', 'Rock', 'https://static.wikia.nocookie.net/hombres-g/images/a/a0/Agitar_Antes_De_Usar.jpg/revision/latest?cb=20240618195117&path-prefix=es','A0003');
+		('ALB08', 'La cagaste...Burt Lancaster', '1986-04-28', 'Rock','https://upload.wikimedia.org/wikipedia/en/thumb/b/b7/La_Cagaste_Burt_Lancaster.jpg/250px-La_Cagaste_Burt_Lancaster.jpg', 'A0003'),
+        ('ALB09', 'Agitar antes de usar', '1988-05-24', 'Rock', 'https://pbs.twimg.com/media/Fw6EfzeWAA05_g3.jpg','A0003');
 
 
 INSERT INTO Cancion(IdCancion, IdAlbum, ArtistasInvitados)
