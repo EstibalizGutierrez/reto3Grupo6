@@ -300,7 +300,7 @@ public class Perfil extends JFrame {
 		comboBoxIdiomas.setEnabled(false);
 		comboBoxIdiomas.setEditable(true);
 		comboBoxIdiomas.setBounds(396, 349, 68, 30);
-		comboBoxIdiomas.setSelectedItem(clientePerfil.getIdIdioma().toString());
+		comboBoxIdiomas.setSelectedItem(clientePerfil.getIdIdioma().getIdIdioma().name());
 		contentPane.add(comboBoxIdiomas);
 		
 		botonEditar = new JButton("EDITAR");

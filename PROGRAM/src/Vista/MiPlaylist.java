@@ -23,6 +23,8 @@ import java.util.ArrayList;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.BoxLayout;
+import java.awt.FlowLayout;
 
 public class MiPlaylist extends JFrame {
 
@@ -41,8 +43,8 @@ public class MiPlaylist extends JFrame {
 	private JTextField nombrePlaylistTxt;
 	private JButton botonGuardar;
 	private JButton botonActualizar;
+	private JButton boton;
 	
-
 
 
 	/**
@@ -105,7 +107,8 @@ public class MiPlaylist extends JFrame {
 		panelPlaylists.setBounds(37, 100, 314, 438);
 		panelPlaylists.setVisible(false);
 		contentPane.add(panelPlaylists);
-		
+		panelPlaylists.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+	
 		
 		botonMostrarPlaylist = new JButton("MOSTRAR PLAYLIST");
 		botonMostrarPlaylist.setFont(new Font("Constantia", Font.BOLD, 15));
@@ -180,16 +183,8 @@ public class MiPlaylist extends JFrame {
 			PlaylistDAO dao = new PlaylistDAO();
 			ArrayList <String> listaPlaylist = dao.listaPlaylists(clientePerfil);
 			
-			//metemos lo que haya en el panel actualmente
-			Component [] panelInfo = panelPlaylists.getComponents();
-		
-			//añadimos la playlist
-			for (int i = 0; i < panelInfo.length; i++) {
-				
-				panelPlaylists.remove(panelInfo[i]);
-				
-				}
 			
+			panelPlaylists.removeAll();
 			panelPlaylists.setVisible(true);
 				
 			//ahora añadimos nuestras playlist mediante botones
@@ -204,13 +199,25 @@ public class MiPlaylist extends JFrame {
 					
 					for (int i = 0; i < listaPlaylist.size(); i++) {
 
-					JButton boton = new JButton(listaPlaylist.get(i));
-					panelPlaylists.add(boton);
+					String nombrePL = listaPlaylist.get(i);
+					JButton boton = new JButton(nombrePL);
 					
+					//Le damos un evento al boton de playlist
+					boton.addActionListener(new ActionListener() {
+						
+						public void actionPerformed (ActionEvent e) {
+						
+						InfoPlaylist pagina = new InfoPlaylist(nombrePL);	
+						dispose();
+						pagina.setVisible(true);
+						
+						}
+						
+					});
+					panelPlaylists.add(boton);			
 					
 				}
 	
-			
 			}
 			
 		    panelPlaylists.revalidate();
@@ -336,5 +343,4 @@ public class MiPlaylist extends JFrame {
 		panelOpciones.add(botonGuardar);
 		
 	}
-		
 	}

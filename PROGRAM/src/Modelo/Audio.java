@@ -1,18 +1,20 @@
 package Modelo;
 
+import java.time.LocalTime;
+
 import Modelo.Enums.tipoAudio;;
 
 public abstract class Audio {
 	
 	private String idAudio;
 	private String nombre;
-	private int duracion;
+	private LocalTime duracion;
 	private String archivo;
 	private tipoAudio tipo;
 	private int numReproducciones;
 	
 
-	public Audio(String idAudio, String nombre, int duracion, String archivo, tipoAudio tipo, int numReproducciones) {
+	public Audio(String idAudio, String nombre, LocalTime duracion, String archivo, tipoAudio tipo, int numReproducciones) {
 
 		this.idAudio = idAudio;
 		this.nombre = nombre;
@@ -20,6 +22,15 @@ public abstract class Audio {
 		this.archivo = archivo;
 		this.tipo = tipo;
 		this.numReproducciones = numReproducciones;
+	}
+	
+	//CONSTRUCTOR PARA LA INFOPLAYLIST
+	public Audio (String nombre, LocalTime duracion, int numReproducciones ) {
+		
+		this.nombre = nombre;
+		this.duracion = duracion;
+		this.numReproducciones = numReproducciones;
+		
 	}
 	
 	
@@ -35,10 +46,10 @@ public abstract class Audio {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public int getDuracion() {
+	public LocalTime getDuracion() {
 		return duracion;
 	}
-	public void setDuracion(int duracion) {
+	public void setDuracion(LocalTime duracion) {
 		this.duracion = duracion;
 	}
 	public String getArchivo() {

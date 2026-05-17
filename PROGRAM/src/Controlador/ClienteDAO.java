@@ -18,7 +18,6 @@ public class ClienteDAO {
 	private ResultSet resultSet;
 
 	
-	
 
 	/*
 	 * Método para validar el login y obtener los datos del cliente

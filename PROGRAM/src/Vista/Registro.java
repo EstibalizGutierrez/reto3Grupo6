@@ -321,9 +321,9 @@ public class Registro extends JFrame {
 			                    if (pdao.insertarPremium(premium)) {
 			                   
 			                    	JOptionPane.showMessageDialog(botonRegistro, "Cliente Premium registrado correctamente");
-			                        dispose();
-			                        Menu_Cliente menuCliente = new Menu_Cliente();
-				                    menuCliente.setVisible(true);
+			                        Login login = new Login();
+				                    dispose();
+				                    login.setVisible(true);
 			                  
 			                    } else {
 			                    	
@@ -333,8 +333,8 @@ public class Registro extends JFrame {
 			                } else {
 
 			                    JOptionPane.showMessageDialog(botonRegistro, "Cliente registrado correctamente");
-			                    dispose();
 			                    Login login = new Login();
+			                    dispose();
 			                    login.setVisible(true);
 			                }
 			                

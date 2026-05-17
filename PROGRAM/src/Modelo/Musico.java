@@ -14,6 +14,12 @@ public class Musico extends Artista{
 		
 	}
 
+	
+	public Musico (String nombre) {
+		
+		super(nombre);
+		
+	}
 
 	public caracteristicaMusico getCaracteristica() {
 		return caracteristica;

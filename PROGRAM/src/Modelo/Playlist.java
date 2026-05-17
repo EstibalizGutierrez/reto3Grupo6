@@ -36,6 +36,13 @@ public class Playlist {
 		this.titulo = titulo;
 		
 	}
+	
+	
+	public Playlist (int idPlaylist) {
+		
+		this.idPlaylist = idPlaylist;
+		
+	}
 
 
 	public String getTitulo() {

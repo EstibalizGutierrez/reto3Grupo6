@@ -29,7 +29,7 @@ public class PlaylistDAO {
 		try {
 			
 			conexion = conn.getConnection();
-			
+		 	
 			statement = conexion.prepareStatement(sql);
 			statement.setString(1, cliente.getIdCliente());
 			resultSet = statement.executeQuery();
