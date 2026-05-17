@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="artistas.xsl"?>
+<spotify xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="spotify.xsd">
+    <artistas>
+        <artista id="A0001">
+            <nombreArtistico>Eminem</nombreArtistico>
+            <genero>Rap/Hip-Hop</genero>
+            <imagen>imagenes/artistas/Eminem.jpg</imagen>
+            <descripcion>Eminem, conocido también como Slim Shady, es uno de los raperos más influyentes y exitosos en la historia del hip hop. 
+                Destaca por su técnica excepcional, rimas complejas y una capacidad única para narrar historias crudas y personales con un estilo provocador.
+                A lo largo de su carrera ha ganado múltiples premios Grammy y un Oscar, consolidándose como un ícono cultural global. 
+                Su impacto no solo transformó el género, sino que rompió barreras raciales en la industria musical.</descripcion>
+            
+            <musico caracteristica="Solista">
+                <album id="ALB01">
+                    <titulo>Recovery</titulo>
+                    <anno>2010-06-18</anno>
+                    <genero>Rap/Hip-Hop</genero>
+                    <imagen>imagenes/albumes/recovery.jpg</imagen>
+                    <canciones>
+						<cancion id="AU001">
+                            <nombre>Space bound</nombre>
+                            <duracion>00:04:47</duracion>
+                            <archivo>BBDD/media/cancion/AU001.mp3</archivo>
+                            <NReproducciones>343</NReproducciones>
+                            <artistasInvitados>ninguno</artistasInvitados>
+                        </cancion>
+
+                        <cancion id="AU005">
+                            <nombre>Love the way you lie</nombre>
+                            <duracion>00:04:47</duracion>
+                            <archivo>BBDD/media/cancion/AU005.mp3</archivo>
+                            <NReproducciones>203</NReproducciones>
+                            <artistasInvitados>x</artistasInvitados>
+                        </cancion>
+
+                        <cancion id="AU006">
+                            <nombre>No love</nombre>
+                            <duracion>00:04:47</duracion>
+                            <archivo>BBDD/media/cancion/AU006.mp3</archivo>
+                            <NReproducciones>43493</NReproducciones>
+                            <artistasInvitados>x</artistasInvitados>
+                        </cancion>
+
+                        <cancion id="AU007">
+                            <nombre>Going through changes</nombre>
+                            <duracion>00:04:47</duracion>
+                            <archivo>BBDD/media/cancion/AU007.mp3</archivo>
+                            <NReproducciones>4504</NReproducciones>
+                            <artistasInvitados>ninguno</artistasInvitados>
+                        </cancion>
+
+                        <cancion id="AU008">
+                            <nombre>Wont back down</nombre>
+                            <duracion>00:04:47</duracion>
+                            <archivo>BBDD/media/cancion/AU008.mp3</archivo>
+                            <NReproducciones>433</NReproducciones>
+                            <artistasInvitados>x</artistasInvitados>
+                        </cancion>
+                    </canciones>
+                </album>
+
+                <album id="ALB05">
+                    <titulo>Marshall Mathers LP</titulo>
+                    <anno>2020-05-23</anno>
+                    <genero>Rap/hip-hop</genero>
+                    <imagen>imagenes/albumes/MarshallMathersLP.jpg</imagen>
+                    <canciones>
+                        <cancion id="AU009">
+                            <nombre>Kill you</nombre>
+                            <duracion>00:04:24</duracion>
+                            <archivo>media/cancion/AU009.mp3</archivo>
+                            <NReproducciones>53454</NReproducciones>
+                            <artistasInvitados>ninguno</artistasInvitados>
+                        </cancion>
+                        
+                        <cancion id="AU010">
+                            <nombre>Stan</nombre>
+                            <duracion>00:06:44</duracion>
+                            <archivo>media/cancion/AU010.mp3</archivo>
+                            <NReproducciones>449549</NReproducciones>
+                            <artistasInvitados>x</artistasInvitados>
+                        </cancion>
+
+                        <cancion id="AU011">
+                            <nombre>The real slim shady</nombre>
+                            <duracion>00:04:47</duracion>
+                            <archivo>media/cancion/AU011.mp3</archivo>
+                            <NReproducciones>4544</NReproducciones>
+                            <artistasInvitados>ninguno</artistasInvitados>
+                        </cancion>
+
+                        <cancion id="AU012">
+                            <nombre>Marshall Mathers</nombre>
+                            <duracion>00:05:20</duracion>
+                            <archivo>media/cancion/AU012.mp3</archivo>
+                            <NReproducciones>45545</NReproducciones>
+                            <artistasInvitados>ninguno</artistasInvitados>
+                        </cancion>
+
+                        <cancion id="AU013">
+                            <nombre>Drug ballad</nombre>
+                            <duracion>00:05:00</duracion>
+                            <archivo>media/cancion/AU013.mp3</archivo>
+                            <NReproducciones>69699</NReproducciones>
+                            <artistasInvitados>ninguno</artistasInvitados>
+                        </cancion>
+                    </canciones>
+                </album>
+                
+                <album id="ALB05">
+                    <titulo>Music to be Murdered By</titulo>
+                    <anno>2020-01-17</anno>
+                    <genero>Rap/hip-hop</genero>
+                    <imagen>imagenes/albumes/MusicToBeMurderedBy.png</imagen>
+                    <canciones>
+                        <cancion id="AU014">
+                            <nombre>You Gon learn</nombre>
+                            <duracion>00:03:54</duracion>
+                            <archivo>media/cancion/AU014.mp3</archivo>
+                            <NReproducciones>343</NReproducciones>
+                            <artistasInvitados>x</artistasInvitados>
+                        </cancion>
+                        
+                        <cancion id="AU015">
+                            <nombre>Darkness</nombre>
+                            <duracion>00:05:37</duracion>
+                            <archivo>media/cancion/AU015.mp3</archivo>
+                            <NReproducciones>43435</NReproducciones>
+                            <artistasInvitados>ninguno</artistasInvitados>
+                        </cancion>
+
+                        <cancion id="AU016">
+                            <nombre>Leaving heaven</nombre>
+                            <duracion>00:04:25</duracion>
+                            <archivo>media/cancion/AU016.mp3</archivo>
+                            <NReproducciones>234</NReproducciones>
+                            <artistasInvitados>x</artistasInvitados>
+                        </cancion>
+
+                        <cancion id="AU017">
+                            <nombre>Never love again</nombre>
+                            <duracion>00:03:00</duracion>
+                            <archivo>media/cancion/AU017.mp3</archivo>
+                            <NReproducciones>23</NReproducciones>
+                            <artistasInvitados>ninguno</artistasInvitados>
+                        </cancion>
+
+                        <cancion id="AU018">
+                            <nombre>No regrets</nombre>
+                            <duracion>00:03:20</duracion>
+                            <archivo>media/cancion/AU018.mp3</archivo>
+                            <NReproducciones>656</NReproducciones>
+                            <artistasInvitados>x</artistasInvitados>
+                        </cancion>
+                    </canciones>
+                </album>
+            </musico>
+        </artista>
+        
+        <artista id="A0002">
+            <nombreArtistico>BTS</nombreArtistico>
+            <genero>k-pop</genero>
+            <imagen>imagenes/artistas/bts.jpg</imagen>
+            <descripcion>Septeto surcoreano formado en Seúl en 2010. Es el grupo de K-pop más influyente a nivel mundial, compuesto por Jin, Suga, J-Hope, RM, Jimin, V y Jungkook. 
+                Han encabezado las listas de Billboard y son reconocidos por su impacto cultural global y récords en ventas.</descripcion>
+        
+            <musico caracteristica="Grupo">
+                <album id="ALB06">
+                    <titulo>Love Yourself Answer</titulo>
+                    <anno>2017-08-24</anno>
+                    <genero>k-pop</genero>
+                    <imagen>imagenes/albumes/LoveYourselfAnswer.jpg</imagen>
+                    <canciones>
+                        <cancion id="AU019">
+                            <nombre>DNA</nombre>
+                            <duracion>00:03:43</duracion>
+                            <archivo>BBDD/media/cancion/AU019.mp3</archivo>
+                            <NReproducciones>43535</NReproducciones>
+                            <artistasInvitados>ninguno</artistasInvitados>
+                        </cancion>
+
+                        <cancion id="AU020">
+                            <nombre>Fake love</nombre>
+                            <duracion>00:04:02</duracion>
+                            <archivo>media/cancion/AU020.mp3</archivo>
+                            <NReproducciones>656</NReproducciones>
+                            <artistasInvitados>ninguno</artistasInvitados>
+                        </cancion>
+
+                        <cancion id="AU021">
+                            <nombre>Dimple</nombre>
+                            <duracion>00:03:16</duracion>
+                            <archivo>media/cancion/AU021.mp3</archivo>
+                            <NReproducciones>4333</NReproducciones>
+                            <artistasInvitados>ninguno</artistasInvitados>
+                        </cancion>
+
+                        <cancion id="AU022">
+                            <nombre>Her</nombre>
+                            <duracion>00:03:49</duracion>
+                            <archivo>media/cancion/AU022.mp3</archivo>
+                            <NReproducciones>67676</NReproducciones>
+                            <artistasInvitados>ninguno</artistasInvitados>
+                        </cancion>
+
+                        <cancion id="AU023">
+                            <nombre>Singularity</nombre>
+                            <duracion>00:03:16</duracion>
+                            <archivo>media/cancion/AU023.mp3</archivo>
+                            <NReproducciones>123</NReproducciones>
+                            <artistasInvitados>ninguno</artistasInvitados>
+                        </cancion>
+                    </canciones>
+                </album>
+
+                <album id="ALB07">
+                    <titulo>Wings</titulo>
+                    <anno>2016-10-10</anno>
+                    <genero>K-pop</genero>
+                    <imagen>imagenes/albumes/wings.jpg</imagen>
+                    <canciones>
+                        <cancion id="AU024">
+                            <nombre>Awake</nombre>
+                            <duracion>00:03:46</duracion>
+                            <archivo>media/cancion/AU024.mp3</archivo>
+                            <NReproducciones>3344</NReproducciones>
+                            <artistasInvitados>x</artistasInvitados>
+                        </cancion>
+
+                        <cancion id="AU025">
+                            <nombre>Lost</nombre>
+                            <duracion>00:04:02</duracion>
+                            <archivo>media/cancion/AU025.mp3</archivo>
+                            <NReproducciones>233</NReproducciones>
+                            <artistasInvitados>x</artistasInvitados>
+                        </cancion>
+
+                        <cancion id="AU026">
+                            <nombre>MAMA</nombre>
+                            <duracion>00:03:52</duracion>
+                            <archivo>media/cancion/AU026.mp3</archivo>
+                            <NReproducciones>66</NReproducciones>
+                            <artistasInvitados>x</artistasInvitados>
+                        </cancion>
+
+                        <cancion id="AU027">
+                            <nombre>Lie</nombre>
+                            <duracion>00:03:35</duracion>
+                            <archivo>media/cancion/AU027.mp3</archivo>
+                            <NReproducciones>3</NReproducciones>
+                            <artistasInvitados>x</artistasInvitados>
+                        </cancion>
+
+                        <cancion id="AU028">
+                            <nombre>Stigma</nombre>
+                            <duracion>00:03:36</duracion>
+                            <archivo>media/cancion/AU028.mp3</archivo>
+                            <NReproducciones>1111</NReproducciones>
+                            <artistasInvitados>x</artistasInvitados>
+                        </cancion>
+                    </canciones>
+                </album>
+            </musico>
+        </artista>
+
+        <artista id="A0003">
+            <nombreArtistico>Hombres G</nombreArtistico>
+            <genero>Rock</genero>
+            <imagen>imagenes/artistas/hombresg.jpg</imagen>
+            <descripcion>Banda española de pop-rock y new wave fundada en Madrid en 1982. 
+                Liderada por David Summers, se convirtió en uno de los grupos más exitosos de los años 80 con himnos como Devuélveme a mi chica y Venezia, 
+                marcando a toda una generación en España y Latinoamérica</descripcion>
+        
+            <musico caracteristica="Grupo">
+                <album id="ALB08">
+                    <titulo>La cagaste...Burt Lancaster</titulo>
+                    <anno>1986-04-28</anno>
+                    <genero>Rock</genero>
+                    <imagen>imagenes/albumes/LaCagasteBurtLancaster.jpg</imagen>
+                    <canciones>
+                        <cancion id="AU029">
+                            <nombre>El ataque de las chicas cocodrilo</nombre>
+                            <duracion>00:03:10</duracion>
+                            <archivo>BBDD/media/cancion/AU029.mp3</archivo>
+                            <NReproducciones>65650</NReproducciones>
+                            <artistasInvitados>ninguno</artistasInvitados>
+                        </cancion>
+
+                        <cancion id="AU030">
+                            <nombre>Te quiero</nombre>
+                            <duracion>00:03:35</duracion>
+                            <archivo>BBDD/media/cancion/AU030</archivo>
+                            <NReproducciones>454</NReproducciones>
+                            <artistasInvitados>ninguno</artistasInvitados>
+                        </cancion>
+
+                        <cancion id="AU031">
+                            <nombre>En la playa</nombre>
+                            <duracion>00:04:09</duracion>
+                            <archivo>BBDD/media/cancion/AU031</archivo>
+                            <NReproducciones>234</NReproducciones>
+                            <artistasInvitados>ninguno</artistasInvitados>
+                        </cancion>
+
+                        <cancion id="AU032">
+                            <nombre>Indiana</nombre>
+                            <duracion>00:02:53</duracion>
+                            <archivo>BBDD/media/cancion/AU032</archivo>
+                            <NReproducciones>545</NReproducciones>
+                            <artistasInvitados>ninguno</artistasInvitados>
+                        </cancion>
+
+                        <cancion id="AU033">
+                            <nombre>Un par de palabras</nombre>
+                            <duracion>00:03:15</duracion>
+                            <archivo>BBDD/media/cancion/AU033</archivo>
+                            <NReproducciones>23</NReproducciones>
+                            <artistasInvitados>ninguno</artistasInvitados>
+                        </cancion>
+                    </canciones>
+                </album>
+                
+                <album id="ALB09">
+                    <titulo>Agitar antes de usar</titulo>
+                    <anno>1988-05-24</anno>
+                    <genero>Rock</genero>
+                    <imagen>imagenes/albumes/AgitarAntesDeUsar.jpg</imagen>
+                    <canciones>
+                        <cancion id="AU034">
+                            <nombre>Tengo una chica</nombre>
+                            <duracion>00:03:50</duracion>
+                            <archivo>BBDD/media/cancion/AU034</archivo>
+                            <NReproducciones>5454</NReproducciones>
+                            <artistasInvitados>ninguno</artistasInvitados>
+                        </cancion>
+
+                        <cancion id="AU035">
+                            <nombre>Viernes</nombre>
+                            <duracion>00:03:09</duracion>
+                            <archivo>BBDD/media/cancion/AU035</archivo>
+                            <NReproducciones>343</NReproducciones>
+                            <artistasInvitados>ninguno</artistasInvitados>
+                        </cancion>
+
+                        <cancion id="AU036">
+                            <nombre>Será esta noche</nombre>
+                            <duracion>00:04:07</duracion>
+                            <archivo>BBDD/media/cancion/AU036</archivo>
+                            <NReproducciones>341</NReproducciones>
+                            <artistasInvitados>ninguno</artistasInvitados>
+                        </cancion>
+
+                        <cancion id="AU037">
+                            <nombre>Suéltate el pelo</nombre>
+                            <duracion>00:03:13</duracion>
+                            <archivo>BBDD/media/cancion/AU037</archivo>
+                            <NReproducciones>6767</NReproducciones>
+                            <artistasInvitados>ninguno</artistasInvitados>
+                        </cancion>
+
+                        <cancion id="AU038">
+                            <nombre>La madre de Ana</nombre>
+                            <duracion>00:03:35</duracion>
+                            <archivo>BBDD/media/cancion/AU038</archivo>
+                            <NReproducciones>79</NReproducciones>
+                            <artistasInvitados>ninguno</artistasInvitados>
+                        </cancion>
+                    </canciones>
+                </album>
+            </musico>
+        </artista>
+
+        <artista id="A0004">
+            <nombreArtistico>Romeo Santos</nombreArtistico>
+            <genero>Bachata</genero>
+            <imagen>imagenes/artistas/RomeoSantos.jpg</imagen>
+            <descripcion>Cantante y compositor estadounidense de origen dominicano, conocido mundialmente como El Rey de la Bachata. 
+                Fue el líder y vocalista de la agrupación Aventura antes de consolidarse como solista, 
+                donde ha colaborado con grandes estrellas internacionales como Drake, Usher y Rosalía, 
+                logrando posicionar la bachata en las listas de éxitos más importantes del mundo.</descripcion>
+            <musico caracteristica="Solista">
+                <album id="ALB02">
+                    <titulo>Formula, vol.2</titulo>
+                    <anno>2014-02-25</anno>
+                    <genero>Bachata</genero>
+                    <imagen>imagenes/albumes/Formula.jpg</imagen>
+                    <canciones>
+                        <cancion id="AU004">
+                            <nombre>Odio</nombre>
+                            <duracion>00:03:45</duracion>
+                            <archivo>media/cancion/AU004.mp3</archivo>
+                            <NReproducciones>7000</NReproducciones>
+                            <artistasInvitados>x</artistasInvitados>
+                        </cancion>
+                    </canciones>
+                </album>
+            </musico>
+        </artista>
+
+        <artista id="A0005">
+            <nombreArtistico>Bad Gyal</nombreArtistico>
+            <genero>Genero Urbano</genero>
+            <imagen>imagenes/artistas/badgyal.jpg</imagen>
+            <descripcion>Cantante, compositora y DJ española, referente absoluta del género urbano y la música de club. 
+                Conocida como la Reina del Dancehall en España, ha logrado fusionar el reggaetón, el dembow y el trap con una estética única. 
+                Ha colaborado con grandes figuras internacionales y es responsable de éxitos globales como Fiebre, Alocao y Chulo, destacando por su estilo innovador y su gran impacto en la escena musical actual.</descripcion>
+            <musico caracteristica="Solista">
+                <album id="ALB03">
+                    <titulo>Slow wine Mixtape</titulo>
+                    <anno>2016-11-09</anno>
+                    <genero>Dancehall</genero>
+                    <imagen>imagenes/albumes/slowWineMixtape.jpg</imagen>
+                    <canciones>
+                        <cancion id="AU003">
+                            <nombre>Fiebre</nombre>
+                            <duracion>00:04:07</duracion>
+                            <archivo>media/cancion/AU003.mp3</archivo>
+                            <NReproducciones>3400</NReproducciones>
+                            <artistasInvitados>x</artistasInvitados>
+                        </cancion>
+                    </canciones>
+                </album>
+            </musico>
+        </artista>
+		<!-- podcasters-->
+		
+		<artista id="A0006">
+            <nombreArtistico>The wildProject</nombreArtistico>
+            <genero>Talk show</genero>
+            <imagen>imagenes/artistas/TheWildProject.jpg</imagen>
+            <descripcion>The Wild Project es el podcast número uno en español, dirigido por Jordi Wild. 
+                Se caracteriza por conversaciones extensas y sin censura sobre actualidad, deportes (MMA, boxeo), ciencia, misterio y filosofía. 
+                Con invitados variados, busca el entretenimiento y el debate, ganando premios ESALAND al mejor talk show.</descripcion>
+			<podcaster>
+				<podcast id="AU002">
+                    <nombre>¿Donde invertir?</nombre>
+                    <duracion>00:09:45</duracion>
+                    <archivo>BBDD/media/podcast/AU002.mp3</archivo>
+                    <NReproducciones>23</NReproducciones>
+                    <NColaboradores>2</NColaboradores>
+                </podcast>
+			</podcaster>
+		</artista>
+
+        <artista id="A0007">
+            <nombreArtistico>Dinosaur Vlogs</nombreArtistico>
+            <genero>True Crime</genero>
+            <imagen>imagenes/artistas/DinosaurVlogs.jpg</imagen>
+            <descripcion>Dinosaur Vlogs, liderado por Vicky Armida, es un exitoso canal de YouTube enfocado en casos misteriosos, 
+                True Crime, misterios sin resolver y vlogs de la vida cotidiana. 
+                Con más de 2 millones de suscriptores, destaca por una narrativa de investigación detallada de 
+                casos oscuros y una personalidad cercana, incluyendo también contenido personal.</descripcion>
+			<podcaster>
+				<podcast id="AU039">
+                    <nombre>¿De CANTANTE FAMOSO A ASESINO? El Caso de D4VD y Celeste Rivas</nombre>
+                    <duracion>01:14:33</duracion>
+                    <archivo>BBDD/media/podcast/AU039.mp3</archivo>
+                    <NReproducciones>5413</NReproducciones>
+                    <NColaboradores>1</NColaboradores>
+                </podcast>
+			</podcaster>
+		</artista>
+
+        <artista id="A0008">
+            <nombreArtistico>Black Mango</nombreArtistico>
+            <genero>True Crime</genero>
+            <imagen>imagenes/artistas/BlackMango.jpg</imagen>
+            <descripcion>Black Mango es un popular podcast español de crímenes, historia y misterio, 
+                creado por un trío de jóvenes divulgadores, que cuenta con más de dos millones de 
+                seguidores en plataformas como Spotify, YouTube y Apple Podcasts. 
+                Sus episodios abordan temas como atracos famosos, misterios sin resolver y crímenes históricos.</descripcion>
+			<podcaster>
+				<podcast id="AU040">
+                    <nombre>LA MAFIA MEXICANA</nombre>
+                    <duracion>02:54:49</duracion>
+                    <archivo>BBDD/media/podcast/AU040.mp3</archivo>
+                    <NReproducciones>1654</NReproducciones>
+                    <NColaboradores>3</NColaboradores>
+                </podcast>
+			</podcaster>
+		</artista>
+    </artistas>
+
+	
+
+	<!-- Parte usuario-->
+
+	<clientes>
+        <cliente id="CL001" >
+            <nombre>Ernesto Manuel</nombre>
+            <apellido>Valverde</apellido>
+            <usuario>mrKristo67</usuario>
+
+			<contrasena>elorrieta00</contrasena>
+            <fechaNacimiento>2004-08-04</fechaNacimiento>
+            <fechaRegistro>2026-05-04</fechaRegistro>
+
+			<premium>
+                <fechaCaducidad>2027-05-04</fechaCaducidad>
+            </premium>
+        
+        </cliente>
+
+		<cliente id="CL002" >
+			<nombre>Victoria</nombre>
+			<apellido>Rosales</apellido>
+			<usuario>Vickyy04</usuario>
+			<contrasena>estrellaluna</contrasena>
+			<fechaNacimiento>1999-04-04</fechaNacimiento>
+			<fechaRegistro>2026-05-05</fechaRegistro>
+		</cliente>
+
+        <cliente id="CL003" >
+            <nombre>Jhon</nombre>
+            <apellido>Izarra</apellido>
+            <usuario>johannbachx25</usuario>
+
+			<contrasena>piscobamba</contrasena>
+            <fechaNacimiento>2004-08-04</fechaNacimiento>
+            <fechaRegistro>2026-05-04</fechaRegistro>
+
+			<premium>
+                <fechaCaducidad>2027-05-04</fechaCaducidad>
+            </premium>
+        
+        </cliente>
+
+        <cliente id="CL004" >
+			<nombre>Keyla</nombre>
+			<apellido>Castillo</apellido>
+			<usuario>freeGirl</usuario>
+			<contrasena>iamfree99</contrasena>
+			<fechaNacimiento>2000-12-12</fechaNacimiento>
+			<fechaRegistro>2026-05-05</fechaRegistro>
+		</cliente>
+    </clientes>
+
+</spotify>

@@ -123,7 +123,7 @@ public class Menu_Cliente extends JFrame {
 		JButton btnMisPlaylist = new JButton("Mis Playlist");
 		btnMisPlaylist.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Playlist ventanaDePlaylist = new Playlist();
+				MiPlaylist ventanaDePlaylist = new MiPlaylist();
 				ventanaDePlaylist.setVisible(true);
 				Menu_Cliente.this.dispose();
 			}

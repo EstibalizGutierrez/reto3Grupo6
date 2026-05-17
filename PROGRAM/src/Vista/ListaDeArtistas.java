@@ -126,6 +126,7 @@ public class ListaDeArtistas extends JFrame {
 	                 "FROM Artista " +
 	                 "JOIN Musico ON Artista.IdArtista = Musico.IdMusico";
 
+
 	    if (con != null) {
             try (Statement st = con.createStatement();
                  ResultSet rs = st.executeQuery(sql)) {

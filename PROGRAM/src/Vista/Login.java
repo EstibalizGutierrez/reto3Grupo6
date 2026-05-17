@@ -121,7 +121,6 @@ public class Login extends JFrame {
 					
 					Usuario.setUsuario(clienteConTodosLosDatos);
 					
-					
 					dispose();
 					Menu_Cliente panelMenuCliente = new Menu_Cliente();
 					panelMenuCliente.setVisible(true);

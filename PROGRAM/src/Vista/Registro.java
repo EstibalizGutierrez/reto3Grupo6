@@ -177,8 +177,7 @@ public class Registro extends JFrame {
 		fechaRegistroTxt.setColumns(10);
 		fechaRegistroTxt.setBounds(396, 301, 143, 32);
 		//Formateamos la fechaRegistro y la rellenamos automaticamente y no editable con la fecha actual
-		DateTimeFormatter formateo = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-		fechaRegistroTxt.setText(LocalDate.now().format(formateo)); 
+		fechaRegistroTxt.setText(LocalDate.now().toString()); 
 		contentPane.add(fechaRegistroTxt);		
 		
 		
@@ -207,7 +206,7 @@ public class Registro extends JFrame {
 		
 		
 
-		lblAviso = new JLabel("**Formato fechas -> dd-MM-yyyy**");
+		lblAviso = new JLabel("      ** ej:  2025-12-31 **");
 		lblAviso.setForeground(new Color(255, 0, 0));
 		lblAviso.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		lblAviso.setBackground(new Color(255, 0, 0));
@@ -276,8 +275,7 @@ public class Registro extends JFrame {
 					String confirmar = confirmarTxt.getText();
 					//formateo de fechaNacimiento
 					String fecNac = fechaNacimientoTxt.getText(); 
-					DateTimeFormatter formateo = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-					LocalDate fechaNacimiento = LocalDate.parse(fecNac, formateo);
+					LocalDate fechaNacimiento = LocalDate.parse(fecNac);
 					
 					LocalDate fechaRegistro = LocalDate.now();
 					
@@ -313,7 +311,7 @@ public class Registro extends JFrame {
 			                if (tipo == tipoUsuario.Premium) {
 
 			                    String fecLimit = fechaPremiumTxt.getText();
-			                    LocalDate fechaCaducidadPremium = LocalDate.parse(fecLimit, formateo);
+			                    LocalDate fechaCaducidadPremium = LocalDate.parse(fecLimit);
 			                    
 			                    clienteInsertado = new Cliente(idCliente);
 			                    Premium premium = new Premium(clienteInsertado, fechaCaducidadPremium);    
@@ -336,8 +334,8 @@ public class Registro extends JFrame {
 
 			                    JOptionPane.showMessageDialog(botonRegistro, "Cliente registrado correctamente");
 			                    dispose();
-			                    Menu_Cliente menuCliente = new Menu_Cliente();
-			                    menuCliente.setVisible(true);
+			                    Login login = new Login();
+			                    login.setVisible(true);
 			                }
 			                
 			            } else {

@@ -6,12 +6,10 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Date;
-import java.time.LocalDate;
 import Modelo.Cliente;
 import Modelo.Idioma;
 import Modelo.Enums.idIdioma;
 import Modelo.Enums.tipoUsuario;
-import Controlador.Conexion;
 
 public class ClienteDAO {
 		
@@ -158,7 +156,7 @@ public class ClienteDAO {
 					if (resultSet.next()) {
 						String ultimoId = resultSet.getString("IdCliente"); //guardamos el ultimo id en un string
 						
-						int num = Integer.parseInt(ultimoId.substring(2)); //Hacemos substring para OBTENER los ultimos 3 digitos y quitarnos la parte "CL" del id "CL004" (EJEMPLO)
+						int num = Integer.parseInt(ultimoId.substring(2)); //Haacemos substring para OBTENER los ultimos 3 digitos y quitarnos la parte "CL" del id "CL004" (EJEMPLO)
 						
 						nuevoId = "CL" + String.format("%03d", num + 1); //sSumamos y lo formateamos con %03d para que solo acepte 3 numeros y que empiece por la izquierda con 0 asi como maximo solo podria existir CL999
 					}

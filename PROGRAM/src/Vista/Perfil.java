@@ -15,7 +15,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
-import java.time.format.DateTimeFormatter;
 import java.time.LocalDate;
 import Modelo.Cliente;
 import Modelo.Enums.idIdioma;
@@ -26,7 +25,7 @@ import Modelo.Idioma;
 import Controlador.ClienteDAO;
 import Controlador.PremiumDAO;
 import java.awt.Color;
-import java.awt.FlowLayout;
+import javax.swing.border.EtchedBorder;
 
 
 public class Perfil extends JFrame {
@@ -53,7 +52,12 @@ public class Perfil extends JFrame {
 	private JButton botonEditar;
 	
 	private Cliente clientePerfil = Usuario.getCliente();
-
+	
+	//declaro aqui el dao fechaPremium solamente para obtener la fecha del cliente logueado
+	private PremiumDAO daoFecha = new PremiumDAO();
+	private LocalDate fechaPremium = daoFecha.obtenerFechaLimitePremium(clientePerfil);
+	
+	
 	/**
 	 * Launch the application.
 	 */
@@ -76,10 +80,10 @@ public class Perfil extends JFrame {
 	public Perfil() {
 		setTitle("Perfil");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 950, 601);
+		setBounds(100, 100, 950, 600);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(128, 128, 0));
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setBorder(new EmptyBorder(9, 13, 17, 9));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
@@ -187,18 +191,25 @@ public class Perfil extends JFrame {
 		fechaRegistroTxt.setColumns(10);
 		fechaRegistroTxt.setBounds(396, 301, 143, 32);
 		//Formateamos la fechaRegistro y la rellenamos automaticamente y no editable con la fecha actual
-		DateTimeFormatter formateo = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-		fechaRegistroTxt.setText(LocalDate.now().format(formateo)); 
 		fechaRegistroTxt.setText(clientePerfil.getFechaRegistro().toString());
 		contentPane.add(fechaRegistroTxt);		
 		
 		
-		fechaPremiumTxt = new JTextField();
+		fechaPremiumTxt = new JTextField("");
 		fechaPremiumTxt.setEditable(false);
 		fechaPremiumTxt.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		fechaPremiumTxt.setColumns(10);
 		fechaPremiumTxt.setBounds(396, 450, 143, 32);
+		
+		//validamos para que en caso de que el cliente no sea Premium no ponga nada en el txt
+		if (fechaPremium != null) {
+			
+			fechaPremiumTxt.setText(fechaPremium.toString());
+			
+		} 
 		panelPremium.add(fechaPremiumTxt);
+
+	
 		
 		apellidoTxt = new JTextField();
 		apellidoTxt.setEditable(false);
@@ -223,14 +234,15 @@ public class Perfil extends JFrame {
 		
 		
 
-		lblAviso = new JLabel("**Formato fechas -> dd-MM-yyyy**");
+		lblAviso = new JLabel("      ** ej:  2025-12-31 **");
 		lblAviso.setForeground(new Color(255, 0, 0));
-		lblAviso.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblAviso.setFont(new Font("Calibri Light", Font.BOLD, 20));
 		lblAviso.setBackground(new Color(255, 0, 0));
-		lblAviso.setBounds(601, 315, 213, 48);
+		lblAviso.setBounds(571, 301, 261, 78);
 		contentPane.add(lblAviso);
 		
 		panelAviso = new JPanel();
+		panelAviso.setBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 0, 128), null));
 		panelAviso.setBackground(Color.PINK);
 		panelAviso.setBounds(581, 315, 234, 43);
 		contentPane.add(panelAviso);
@@ -266,7 +278,15 @@ public class Perfil extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 
-
+				if (comboBoxPremiumSiNo.getSelectedIndex() == 1) {
+					
+					panelPremium.setVisible(true);
+					
+				} else {
+					
+					panelPremium.setVisible(false);
+					
+				}
 				
 			}	
 			
@@ -280,6 +300,7 @@ public class Perfil extends JFrame {
 		comboBoxIdiomas.setEnabled(false);
 		comboBoxIdiomas.setEditable(true);
 		comboBoxIdiomas.setBounds(396, 349, 68, 30);
+		comboBoxIdiomas.setSelectedItem(clientePerfil.getIdIdioma().toString());
 		contentPane.add(comboBoxIdiomas);
 		
 		botonEditar = new JButton("EDITAR");
@@ -310,17 +331,16 @@ public class Perfil extends JFrame {
 				//asignamos valores del registro a variables
 				
 				try {
-					
+			
 					String nombre = nombreTxt.getText();
 					String apellido = apellidoTxt.getText();
 					String usuario = usuarioTxt.getText();
 					String contrasena = contrasenaTxt.getText();
 					String confirmar = confirmarTxt.getText();
 					
-					//formateo de fechaNacimiento
+					//formateo de fechaNacimiento a txt
 					String fecNac = fechaNacimientoTxt.getText(); 
-					DateTimeFormatter formateo = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-					LocalDate fechaNacimiento = LocalDate.parse(fecNac, formateo);
+					LocalDate fechaNacimiento = LocalDate.parse(fecNac);
 					
 					tipoUsuario tipo;
 					
@@ -331,6 +351,20 @@ public class Perfil extends JFrame {
 					} else {
 						
 						tipo = tipoUsuario.Free;
+						
+					}
+					
+					// Validación de fecha si decide ser Premium
+					if (tipo == tipoUsuario.Premium) {
+						
+						String fechaLimit = fechaPremiumTxt.getText();
+						
+						if (fechaLimit.trim().isEmpty()) {
+							
+					        JOptionPane.showMessageDialog(botonGuardarCambios, "Si quieres ser Premium, debes introducir una fecha de caducidad.");
+					        return;
+							
+						}
 						
 					}
 					
@@ -350,7 +384,7 @@ public class Perfil extends JFrame {
 							if (tipo == tipoUsuario.Premium) {
 								
 								String fecLimit = fechaPremiumTxt.getText();
-								LocalDate fechaCaducidadPremium = LocalDate.parse(fecLimit,formateo);
+								LocalDate fechaCaducidadPremium = LocalDate.parse(fecLimit);
 								
 								String idCliente = clientePerfil.getIdCliente();
 								Cliente clienteId = new Cliente(idCliente);
@@ -360,14 +394,23 @@ public class Perfil extends JFrame {
 								if (pdao.insertarPremium(premium) ) {
 									
 									JOptionPane.showMessageDialog(botonGuardarCambios, "Premium contratado");
-									
+								
 								} else {
 									
 									JOptionPane.showMessageDialog(botonGuardarCambios, "Error al contratar premium");
 									
 								}
 								
-							} JOptionPane.showMessageDialog(botonGuardarCambios, "Dato(s) modificados correctamente");
+							} 
+							
+							JOptionPane.showMessageDialog(botonGuardarCambios, "Dato(s) modificados correctamente");
+							
+							// Actualizamos la sesión con los nuevos datos
+							Usuario.setUsuario(clienteEditado);
+							
+							dispose();
+							Menu_Cliente menuCliente = new Menu_Cliente();
+							menuCliente.setVisible(true);
 							
 						} else {
 							
@@ -395,21 +438,7 @@ public class Perfil extends JFrame {
 		
 	}		
 		
-	/**
-	 * Metodo para formatear fecha y pasar de localdate a string
-	 * 
-	 * @return String
-	 */
-	
-	public String formatearFecha() {
-		
-		LocalDate fecha = LocalDate.now();
-		DateTimeFormatter formateo = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-		String fechaFormateada = fecha.format(formateo);
-		
-		return fechaFormateada;
-		
-	}
+
 	
 	/**
 	 * 
@@ -419,31 +448,15 @@ public class Perfil extends JFrame {
 	
 	public void editable () {
 		
-		if (comboBoxPremiumSiNo.getSelectedIndex() == 1) {
-			
-			nombreTxt.setEditable(true);
-			apellidoTxt.setEditable(true);
-			usuarioTxt.setEditable(true);
-			contrasenaTxt.setEditable(true);
-			confirmarTxt.setEditable(true);
-			fechaNacimientoTxt.setEditable(true);
-			comboBoxIdiomas.setEnabled(true);
-			
-		} else {
-			
-			nombreTxt.setEditable(true);
-			apellidoTxt.setEditable(true);
-			usuarioTxt.setEditable(true);
-			contrasenaTxt.setEditable(true);
-			confirmarTxt.setEditable(true);
-			fechaNacimientoTxt.setEditable(true);
-			comboBoxIdiomas.setEnabled(true);
-			comboBoxPremiumSiNo.setEnabled(true);
-			fechaPremiumTxt.setEditable(true);
-			
-		}
-		
-		
+		nombreTxt.setEditable(true);
+		apellidoTxt.setEditable(true);
+		usuarioTxt.setEditable(true);
+		contrasenaTxt.setEditable(true);
+		confirmarTxt.setEditable(true);
+		fechaNacimientoTxt.setEditable(true);
+		comboBoxIdiomas.setEnabled(true);
+		comboBoxPremiumSiNo.setEnabled(true);
+		fechaPremiumTxt.setEditable(true);
 		
 	}
 }

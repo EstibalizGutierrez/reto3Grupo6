@@ -1,6 +1,5 @@
 package Modelo;
 
-import Modelo.Cliente;
 
 public class Usuario {
 	
