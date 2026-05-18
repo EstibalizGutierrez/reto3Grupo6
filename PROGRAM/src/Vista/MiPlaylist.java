@@ -95,6 +95,15 @@ public class MiPlaylist extends JFrame {
 		JButton botonPerfil = new JButton(clientePerfil.getUsuario());
 		botonPerfil.setFont(new Font("Constantia", Font.BOLD, 15));
 		botonPerfil.setBounds(806, 11, 118, 31);
+		botonPerfil.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Perfil perfil = new Perfil();
+				dispose();
+				perfil.setVisible(true);
+				
+			}
+		});
 		contentPane.add(botonPerfil);
 		
 		JLabel lblMisPlaylists = new JLabel("MIS PLAYLISTS:");

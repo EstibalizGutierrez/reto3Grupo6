@@ -16,3 +16,7 @@
 /Playlist.class
 /PlaylistCanciones.class
 /Administrador.class
+/ControladorSonido.class
+/VistaRankingAlbumes.class
+/VistaRankingArtistas.class
+/VistaRankingContenido.class
