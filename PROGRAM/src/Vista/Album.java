@@ -18,7 +18,7 @@ public class Album extends JFrame {
     private JLabel lblTituloAlbum;
 
     public Album(String idAlbum, String tituloAlbum) {
-        setTitle("Ventana de Álbum");
+        setTitle("Ventana de Ã�lbum");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 750, 500);
         contentPane = new JPanel();
@@ -28,8 +28,8 @@ public class Album extends JFrame {
         // Establecemos Absolute Layout
         contentPane.setLayout(null);
 
-        // --- BOTÓN ATRÁS ---
-        JButton btnAtras = new JButton("Atrás");
+        // --- BOTÃ“N ATRÃ�S ---
+        JButton btnAtras = new JButton("AtrÃ¡s");
         btnAtras.setBounds(10, 10, 80, 25);
         btnAtras.addActionListener(e -> {
         	Artista ventanaDeArtista = new Artista(tituloAlbum);
@@ -39,7 +39,7 @@ public class Album extends JFrame {
         });
         contentPane.add(btnAtras);
 
-        lblTituloAlbum = new JLabel("Álbum: " + tituloAlbum);
+        lblTituloAlbum = new JLabel("Ã�lbum: " + tituloAlbum);
         lblTituloAlbum.setFont(new Font("Tahoma", Font.BOLD, 14));
         lblTituloAlbum.setBounds(100, 10, 400, 25);
         contentPane.add(lblTituloAlbum);
@@ -55,8 +55,8 @@ public class Album extends JFrame {
         scrollCanciones.setBounds(20, 80, 300, 350);
         contentPane.add(scrollCanciones);
 
-        // --- INFORMACIÓN DEL DISCO (DERECHA) ---
-        JLabel lblInfoT = new JLabel("Información del disco:");
+        // --- INFORMACIÃ“N DEL DISCO (DERECHA) ---
+        JLabel lblInfoT = new JLabel("InformaciÃ³n del disco:");
         lblInfoT.setBounds(350, 50, 200, 20);
         contentPane.add(lblInfoT);
 
@@ -66,7 +66,7 @@ public class Album extends JFrame {
         txtInfoAlbum.setBounds(350, 80, 350, 100);
         contentPane.add(txtInfoAlbum);
 
-        // --- PORTADA DEL ÁLBUM ---
+        // --- PORTADA DEL Ã�LBUM ---
         lblPortada = new JLabel("Cargando portada...");
         lblPortada.setHorizontalAlignment(SwingConstants.CENTER);
         lblPortada.setBorder(BorderFactory.createLineBorder(Color.BLACK));
@@ -95,10 +95,10 @@ public class Album extends JFrame {
                 int duracionSegundos = rs.getInt("DuracionTotal");
                 String tiempoFormateado = (duracionSegundos / 60) + ":" + String.format("%02d", (duracionSegundos % 60));
                 
-                String info = "Colaboradores: Varios\n" + // En tu SQL no hay tabla de colaboradores por álbum, se podría sacar de ArtistasInvitados
-                             "Fecha de publicación: " + rs.getString("Anno") + "\n" +
+                String info = "Colaboradores: Varios\n" + 
+                             "Fecha de publicaciÃ³n: " + rs.getString("Anno") + "\n" +
                              "Cantidad de canciones: " + rs.getInt("TotalCanciones") + "\n" +
-                             "Duración total: " + tiempoFormateado + " min";
+                             "DuraciÃ³n total: " + tiempoFormateado + " min";
                 
                 txtInfoAlbum.setText(info);
 
@@ -125,7 +125,7 @@ public class Album extends JFrame {
             ResultSet rsC = psC.executeQuery();
 
             while (rsC.next()) {
-                String dur = rsC.getInt("Duracion") + ":00"; // Simplificado
+                String dur = rsC.getInt("Duracion") + ":00"; 
                 String item = rsC.getString("Nombre") + " - " + rsC.getInt("NReproducciones") + " repros - " + dur;
                 modeloLista.addElement(item);
             }
