@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="albumes.xsl" type="text/xsl"?>
 <spotify xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="spotify.xsd">
     <artistas>
         <artista id="A0001">
@@ -17,14 +18,14 @@
                     <genero>Rap/Hip-Hop</genero>
                     <imagen>imagenes/albumes/recovery.jpg</imagen>
                     <canciones>
-						<cancion id="AU001">
+                        <cancion id="AU001">
                             <nombre>Space bound</nombre>
                             <duracion>00:04:47</duracion>
                             <archivo>BBDD/media/cancion/AU001.mp3</archivo>
                             <NReproducciones>343</NReproducciones>
                             <artistasInvitados>ninguno</artistasInvitados>
                         </cancion>
-<!-- tengo que ver las duraciones-->
+                        
                         <cancion id="AU005">
                             <nombre>Love the way you lie</nombre>
                             <duracion>00:04:47</duracion>
@@ -32,7 +33,7 @@
                             <NReproducciones>203</NReproducciones>
                             <artistasInvitados>x</artistasInvitados>
                         </cancion>
-
+                        
                         <cancion id="AU006">
                             <nombre>No love</nombre>
                             <duracion>00:04:47</duracion>
@@ -40,7 +41,7 @@
                             <NReproducciones>43493</NReproducciones>
                             <artistasInvitados>x</artistasInvitados>
                         </cancion>
-
+                        
                         <cancion id="AU007">
                             <nombre>Going through changes</nombre>
                             <duracion>00:04:47</duracion>
@@ -48,7 +49,7 @@
                             <NReproducciones>4504</NReproducciones>
                             <artistasInvitados>ninguno</artistasInvitados>
                         </cancion>
-
+                        
                         <cancion id="AU008">
                             <nombre>Wont back down</nombre>
                             <duracion>00:04:47</duracion>
@@ -58,7 +59,7 @@
                         </cancion>
                     </canciones>
                 </album>
-
+                
                 <album id="ALB05">
                     <titulo>Marshall Mathers LP</titulo>
                     <anno>2020-05-23</anno>
@@ -80,7 +81,7 @@
                             <NReproducciones>449549</NReproducciones>
                             <artistasInvitados>x</artistasInvitados>
                         </cancion>
-
+                        
                         <cancion id="AU011">
                             <nombre>The real slim shady</nombre>
                             <duracion>00:04:47</duracion>
@@ -88,7 +89,7 @@
                             <NReproducciones>4544</NReproducciones>
                             <artistasInvitados>ninguno</artistasInvitados>
                         </cancion>
-
+                        
                         <cancion id="AU012">
                             <nombre>Marshall Mathers</nombre>
                             <duracion>00:05:20</duracion>
@@ -96,7 +97,7 @@
                             <NReproducciones>45545</NReproducciones>
                             <artistasInvitados>ninguno</artistasInvitados>
                         </cancion>
-
+                        
                         <cancion id="AU013">
                             <nombre>Drug ballad</nombre>
                             <duracion>00:05:00</duracion>
@@ -128,7 +129,7 @@
                             <NReproducciones>43435</NReproducciones>
                             <artistasInvitados>ninguno</artistasInvitados>
                         </cancion>
-
+                        
                         <cancion id="AU016">
                             <nombre>Leaving heaven</nombre>
                             <duracion>00:04:25</duracion>
@@ -136,7 +137,7 @@
                             <NReproducciones>234</NReproducciones>
                             <artistasInvitados>x</artistasInvitados>
                         </cancion>
-
+                        
                         <cancion id="AU017">
                             <nombre>Never love again</nombre>
                             <duracion>00:03:00</duracion>
@@ -144,7 +145,7 @@
                             <NReproducciones>23</NReproducciones>
                             <artistasInvitados>ninguno</artistasInvitados>
                         </cancion>
-
+                        
                         <cancion id="AU018">
                             <nombre>No regrets</nombre>
                             <duracion>00:03:20</duracion>
@@ -163,7 +164,7 @@
             <imagen>imagenes/artistas/bts.jpg</imagen>
             <descripcion>Septeto surcoreano formado en Seúl en 2010. Es el grupo de K-pop más influyente a nivel mundial, compuesto por Jin, Suga, J-Hope, RM, Jimin, V y Jungkook. 
                 Han encabezado las listas de Billboard y son reconocidos por su impacto cultural global y récords en ventas.</descripcion>
-        
+            
             <musico caracteristica="Grupo">
                 <album id="ALB06">
                     <titulo>Love Yourself Answer</titulo>
@@ -178,7 +179,7 @@
                             <NReproducciones>43535</NReproducciones>
                             <artistasInvitados>ninguno</artistasInvitados>
                         </cancion>
-
+                        
                         <cancion id="AU020">
                             <nombre>Fake love</nombre>
                             <duracion>00:04:02</duracion>
@@ -186,7 +187,7 @@
                             <NReproducciones>656</NReproducciones>
                             <artistasInvitados>ninguno</artistasInvitados>
                         </cancion>
-
+                        
                         <cancion id="AU021">
                             <nombre>Dimple</nombre>
                             <duracion>00:03:16</duracion>
@@ -194,7 +195,7 @@
                             <NReproducciones>4333</NReproducciones>
                             <artistasInvitados>ninguno</artistasInvitados>
                         </cancion>
-
+                        
                         <cancion id="AU022">
                             <nombre>Her</nombre>
                             <duracion>00:03:49</duracion>
@@ -202,7 +203,7 @@
                             <NReproducciones>67676</NReproducciones>
                             <artistasInvitados>ninguno</artistasInvitados>
                         </cancion>
-
+                        
                         <cancion id="AU023">
                             <nombre>Singularity</nombre>
                             <duracion>00:03:16</duracion>
@@ -212,7 +213,7 @@
                         </cancion>
                     </canciones>
                 </album>
-
+                
                 <album id="ALB07">
                     <titulo>Wings</titulo>
                     <anno>2016-10-10</anno>
@@ -226,7 +227,7 @@
                             <NReproducciones>3344</NReproducciones>
                             <artistasInvitados>x</artistasInvitados>
                         </cancion>
-
+                        
                         <cancion id="AU025">
                             <nombre>Lost</nombre>
                             <duracion>00:04:02</duracion>
@@ -234,7 +235,7 @@
                             <NReproducciones>233</NReproducciones>
                             <artistasInvitados>x</artistasInvitados>
                         </cancion>
-
+                        
                         <cancion id="AU026">
                             <nombre>MAMA</nombre>
                             <duracion>00:03:52</duracion>
@@ -242,7 +243,7 @@
                             <NReproducciones>66</NReproducciones>
                             <artistasInvitados>x</artistasInvitados>
                         </cancion>
-
+                        
                         <cancion id="AU027">
                             <nombre>Lie</nombre>
                             <duracion>00:03:35</duracion>
@@ -250,7 +251,7 @@
                             <NReproducciones>3</NReproducciones>
                             <artistasInvitados>x</artistasInvitados>
                         </cancion>
-
+                        
                         <cancion id="AU028">
                             <nombre>Stigma</nombre>
                             <duracion>00:03:36</duracion>
@@ -262,7 +263,7 @@
                 </album>
             </musico>
         </artista>
-
+        
         <artista id="A0003">
             <nombreArtistico>Hombres G</nombreArtistico>
             <genero>Rock</genero>
@@ -270,7 +271,7 @@
             <descripcion>Banda española de pop-rock y new wave fundada en Madrid en 1982. 
                 Liderada por David Summers, se convirtió en uno de los grupos más exitosos de los años 80 con himnos como Devuélveme a mi chica y Venezia, 
                 marcando a toda una generación en España y Latinoamérica</descripcion>
-        
+            
             <musico caracteristica="Grupo">
                 <album id="ALB08">
                     <titulo>La cagaste...Burt Lancaster</titulo>
@@ -285,7 +286,7 @@
                             <NReproducciones>65650</NReproducciones>
                             <artistasInvitados>ninguno</artistasInvitados>
                         </cancion>
-
+                        
                         <cancion id="AU030">
                             <nombre>Te quiero</nombre>
                             <duracion>00:03:35</duracion>
@@ -293,7 +294,7 @@
                             <NReproducciones>454</NReproducciones>
                             <artistasInvitados>ninguno</artistasInvitados>
                         </cancion>
-
+                        
                         <cancion id="AU031">
                             <nombre>En la playa</nombre>
                             <duracion>00:04:09</duracion>
@@ -301,7 +302,7 @@
                             <NReproducciones>234</NReproducciones>
                             <artistasInvitados>ninguno</artistasInvitados>
                         </cancion>
-
+                        
                         <cancion id="AU032">
                             <nombre>Indiana</nombre>
                             <duracion>00:02:53</duracion>
@@ -309,7 +310,7 @@
                             <NReproducciones>545</NReproducciones>
                             <artistasInvitados>ninguno</artistasInvitados>
                         </cancion>
-
+                        
                         <cancion id="AU033">
                             <nombre>Un par de palabras</nombre>
                             <duracion>00:03:15</duracion>
@@ -333,7 +334,7 @@
                             <NReproducciones>5454</NReproducciones>
                             <artistasInvitados>ninguno</artistasInvitados>
                         </cancion>
-
+                        
                         <cancion id="AU035">
                             <nombre>Viernes</nombre>
                             <duracion>00:03:09</duracion>
@@ -341,7 +342,7 @@
                             <NReproducciones>343</NReproducciones>
                             <artistasInvitados>ninguno</artistasInvitados>
                         </cancion>
-
+                        
                         <cancion id="AU036">
                             <nombre>Será esta noche</nombre>
                             <duracion>00:04:07</duracion>
@@ -349,7 +350,7 @@
                             <NReproducciones>341</NReproducciones>
                             <artistasInvitados>ninguno</artistasInvitados>
                         </cancion>
-
+                        
                         <cancion id="AU037">
                             <nombre>Suéltate el pelo</nombre>
                             <duracion>00:03:13</duracion>
@@ -357,7 +358,7 @@
                             <NReproducciones>6767</NReproducciones>
                             <artistasInvitados>ninguno</artistasInvitados>
                         </cancion>
-
+                        
                         <cancion id="AU038">
                             <nombre>La madre de Ana</nombre>
                             <duracion>00:03:35</duracion>
@@ -369,7 +370,7 @@
                 </album>
             </musico>
         </artista>
-
+        
         <artista id="A0004">
             <nombreArtistico>Romeo Santos</nombreArtistico>
             <genero>Bachata</genero>
@@ -396,7 +397,7 @@
                 </album>
             </musico>
         </artista>
-
+        
         <artista id="A0005">
             <nombreArtistico>Bad Gyal</nombreArtistico>
             <genero>Genero Urbano</genero>
@@ -422,26 +423,26 @@
                 </album>
             </musico>
         </artista>
-		<!-- podcaster-->
-		
-		<artista id="A0006">
+        <!-- podcasters-->
+        
+        <artista id="A0006">
             <nombreArtistico>The wildProject</nombreArtistico>
             <genero>Talk show</genero>
             <imagen>imagenes/artistas/TheWildProject.jpg</imagen>
             <descripcion>The Wild Project es el podcast número uno en español, dirigido por Jordi Wild. 
                 Se caracteriza por conversaciones extensas y sin censura sobre actualidad, deportes (MMA, boxeo), ciencia, misterio y filosofía. 
                 Con invitados variados, busca el entretenimiento y el debate, ganando premios ESALAND al mejor talk show.</descripcion>
-			<podcaster>
-				<podcast id="AU002">
+            <podcaster>
+                <podcast id="AU002">
                     <nombre>¿Donde invertir?</nombre>
                     <duracion>00:09:45</duracion>
                     <archivo>BBDD/media/podcast/AU002.mp3</archivo>
                     <NReproducciones>23</NReproducciones>
                     <NColaboradores>2</NColaboradores>
                 </podcast>
-			</podcaster>
-		</artista>
-
+            </podcaster>
+        </artista>
+        
         <artista id="A0007">
             <nombreArtistico>Dinosaur Vlogs</nombreArtistico>
             <genero>True Crime</genero>
@@ -450,17 +451,17 @@
                 True Crime, misterios sin resolver y vlogs de la vida cotidiana. 
                 Con más de 2 millones de suscriptores, destaca por una narrativa de investigación detallada de 
                 casos oscuros y una personalidad cercana, incluyendo también contenido personal.</descripcion>
-			<podcaster>
-				<podcast id="AU039">
+            <podcaster>
+                <podcast id="AU039">
                     <nombre>¿De CANTANTE FAMOSO A ASESINO? El Caso de D4VD y Celeste Rivas</nombre>
                     <duracion>01:14:33</duracion>
                     <archivo>BBDD/media/podcast/AU039.mp3</archivo>
                     <NReproducciones>5413</NReproducciones>
                     <NColaboradores>1</NColaboradores>
                 </podcast>
-			</podcaster>
-		</artista>
-
+            </podcaster>
+        </artista>
+        
         <artista id="A0008">
             <nombreArtistico>Black Mango</nombreArtistico>
             <genero>True Crime</genero>
@@ -469,70 +470,70 @@
                 creado por un trío de jóvenes divulgadores, que cuenta con más de dos millones de 
                 seguidores en plataformas como Spotify, YouTube y Apple Podcasts. 
                 Sus episodios abordan temas como atracos famosos, misterios sin resolver y crímenes históricos.</descripcion>
-			<podcaster>
-				<podcast id="AU040">
+            <podcaster>
+                <podcast id="AU040">
                     <nombre>LA MAFIA MEXICANA</nombre>
                     <duracion>02:54:49</duracion>
                     <archivo>BBDD/media/podcast/AU040.mp3</archivo>
                     <NReproducciones>1654</NReproducciones>
                     <NColaboradores>3</NColaboradores>
                 </podcast>
-			</podcaster>
-		</artista>
+            </podcaster>
+        </artista>
     </artistas>
-
-	
-
-	<!-- Parte usuario-->
-
-	<clientes>
+    
+    
+    
+    <!-- Parte usuario-->
+    
+    <clientes>
         <cliente id="CL001" >
             <nombre>Ernesto Manuel</nombre>
             <apellido>Valverde</apellido>
             <usuario>mrKristo67</usuario>
-
-			<contrasena>elorrieta00</contrasena>
+            
+            <contrasena>elorrieta00</contrasena>
             <fechaNacimiento>2004-08-04</fechaNacimiento>
             <fechaRegistro>2026-05-04</fechaRegistro>
-
-			<premium>
+            
+            <premium>
                 <fechaCaducidad>2027-05-04</fechaCaducidad>
             </premium>
-        
+            
         </cliente>
-
-		<cliente id="CL002" >
-			<nombre>Victoria</nombre>
-			<apellido>Rosales</apellido>
-			<usuario>Vickyy04</usuario>
-			<contrasena>estrellaluna</contrasena>
-			<fechaNacimiento>1999-04-04</fechaNacimiento>
-			<fechaRegistro>2026-05-05</fechaRegistro>
-		</cliente>
-
+        
+        <cliente id="CL002" >
+            <nombre>Victoria</nombre>
+            <apellido>Rosales</apellido>
+            <usuario>Vickyy04</usuario>
+            <contrasena>estrellaluna</contrasena>
+            <fechaNacimiento>1999-04-04</fechaNacimiento>
+            <fechaRegistro>2026-05-05</fechaRegistro>
+        </cliente>
+        
         <cliente id="CL003" >
             <nombre>Jhon</nombre>
             <apellido>Izarra</apellido>
             <usuario>johannbachx25</usuario>
-
-			<contrasena>piscobamba</contrasena>
+            
+            <contrasena>piscobamba</contrasena>
             <fechaNacimiento>2004-08-04</fechaNacimiento>
             <fechaRegistro>2026-05-04</fechaRegistro>
-
-			<premium>
+            
+            <premium>
                 <fechaCaducidad>2027-05-04</fechaCaducidad>
             </premium>
-        
+            
         </cliente>
-
+        
         <cliente id="CL004" >
-			<nombre>Keyla</nombre>
-			<apellido>Castillo</apellido>
-			<usuario>freeGirl</usuario>
-			<contrasena>iamfree99</contrasena>
-			<fechaNacimiento>2000-12-12</fechaNacimiento>
-			<fechaRegistro>2026-05-05</fechaRegistro>
-		</cliente>
+            <nombre>Keyla</nombre>
+            <apellido>Castillo</apellido>
+            <usuario>freeGirl</usuario>
+            <contrasena>iamfree99</contrasena>
+            <fechaNacimiento>2000-12-12</fechaNacimiento>
+            <fechaRegistro>2026-05-05</fechaRegistro>
+        </cliente>
     </clientes>
-
+    
 </spotify>

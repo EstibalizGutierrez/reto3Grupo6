@@ -1,28 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-<xsl:output method="html" encoding="UTF-8" doctype-system="about:legacy-compat"/>
+<xsl:output method="html" encoding="UTF-8"/>
 
     <xsl:template match="/">
-        <html lang="es">
+        <html>
             <head>
-                <meta charset="UTF-8"/>
-                <title>Login</title>
-                <script src="Login.js"></script>
+                <title>Sputify - Artistas</title>
+                <link rel="stylesheet" href="styles.css"/>
             </head>
             <body>
-                    <h2>Acceso al Sistema</h2>
-                    
-                    <form id="formularioLogin" onsubmit="validarLogin(event)">
-                        <label for="usuario">Usuario:</label><br>
-                        <input type="text" id="usuario"></input>
-                    </br>
-                        
-                        <label for="password">Contraseña:</label><br>
-                        <input type="password" id="password" ></input>
-                    </br>
-    
-                        <button type="submit">Entrar</button>
-                    </form>
+                <header>
+                    <a href="spotify.xml"><img href="imagenes/header/logo.png"/></a>
+                    <a href="spotify.xml"><h1>Sputify</h1></a>
+                    <nav>
+                        <a href="spotifyArt.xml">Artistas</a>
+                        <a href="spotifyAlb.xml">Álbumes</a>
+                        <a href="spotifyCan.xml">Canciones</a>
+                    </nav>
+                </header>
+                <main>
+                    <xsl:for-each select="//cancion">
+                        <h3><xsl:value-of select="nombre"/></h3>
+                        <p>Duración:<xsl:value-of select="duracion"/></p>
+                        <p>Reproducciones:<xsl:value-of select="NReproducciones"/></p>
+                        <!--  Álbum al que pertenece la canción  -->
+                        <p>Álbum: </p><a href="spotifyAlb.xml"><xsl:value-of select="../../titulo"/></a>
+                        <!--  Artista al que pertenece la canción  -->
+                        <p>Artista: </p><a href="spotifyArt.xml"><xsl:value-of select="../../../../nombreArtistico"/></a>
+                    </xsl:for-each>
+                </main>
             </body>
         </html>
     </xsl:template>

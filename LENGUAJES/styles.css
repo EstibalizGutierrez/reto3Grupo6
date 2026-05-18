@@ -1,37 +1,53 @@
-.contenedor_login{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 25%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+/*Estilos generales para la pagina*/
+body {
     background-color: black;
-    width: 30%;
+    color: white;
+}
+
+header{
+    background-color: #98000076;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+/*login*/
+.contenedor_login{
+    margin-top: 12%;
+    background-color: #1c1c1c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    max-width: 25rem;
+    padding: 5%;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    text-align: center;
 }
 
 h1{
-    font-size: 2rem;
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+}
+
+form {
+    text-align: center;
 }
 
 input{
     width: 12rem;
-}
-
-input[type="submit"] {
-    background-color: rgb(255, 255, 255);
+    background-color: white;
 }
 
 
+/*--------------index.xsl---------------*/
 
-
-
-
-/*-----------------Estilo parilla para artistas.xsl--------*/
-/* Estilo para la parrilla */
-.contenedor-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
+/*--------------artistas.xsl------------*/
+.contenedor_artistas {
+    display: flex;
+    padding: 2rem;
 }
 
 /* Estilo para cada tarjeta de artista */
@@ -44,12 +60,7 @@ input[type="submit"] {
     transition: transform 0.3s;
 }
 
-.tarjeta-artista:hover {
-    transform: scale(1.05); /* Efecto al pasar el ratón */
-    background-color: #282828;
-}
-
-.tarjeta-artista img {
+img {
     width: 100%;
     height: 200px;
     object-fit: cover; /* Para que todas las fotos midan lo mismo */

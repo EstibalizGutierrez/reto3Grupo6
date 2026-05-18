@@ -25,7 +25,7 @@ function validarLogin(event) {
     // Respuesta de si encontro el usuario y su contraseña o no
     if (accesoConcedido) {
         alert("Acceso correcto! Redirigiendo...");
-        window.location.href = "index.html";
+        window.location.href = "spotify.xml";
     } else {
         alert("Usuario o contraseña incorrectos.");
         document.getElementById("password").value = "";

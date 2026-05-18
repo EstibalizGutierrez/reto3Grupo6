@@ -1,54 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:output method="html" encoding="UTF-8"/>
+
     <xsl:template match="/">
-        <html>
+        <html lang="es">
             <head>
-                <title>Spotify - Inicio</title>
+                <meta charset="UTF-8"/>
+                <title>Sputify - Inicio</title>
                 <link rel="stylesheet" href="styles.css"/>
-                <script src="Login.js"></script>
             </head>
+
             <body>
                 <header>
-                    <a href="index.html"><img src="imagenes/header/logo.png" alt="logo" /></a>
-                    <h2 id="saludo"></h2>
-                    <h1>sputify</h1>
-                    <a href="login.html">Iniciar sesión</a><!--esto tambien tiene que ser botón-->
-                    <button onclick="cerrarSesion()">Cerrar Sesion</button>
+                    <a href="spotify.xml"><img href="imagenes/header/logo.png"/></a>
+                    <h1>Sputify</h1>
                     <nav>
-                        <a href="index.html">Inicio</a>
-                        <a href="podcasts.html">Artistas</a>
-                        <a href="contacto.html">Álbumes</a>
+                        <a href="spotifyArt.xml" class="enlace">Artistas</a> 
+                        <a href="spotifyAlb.xml" class="enlace">Álbumes</a>  
+                        <a href="spotifyCan.xml" class="enlace">Canciones</a>
                     </nav>
                 </header>
+                
+                <div class="contenedor_artistas">
+                    <xsl:for-each select="//artista">
+                        <div class="artista">
+                            <a href="spotifyArt.xml"><img src="{imagen}" alt="{nombreArtistico}"/></a>
+                            <a href="spotifyArt.xml"><h2><xsl:value-of select="nombreArtistico"/></h2></a>
 
-                <main>
-                    <h3>Canciones recomendadas</h3>
-                    <xsltemplate match="album">
-                        <a href="canciones.html"> <img src="imagen" alt=""/></a>
-                        <a href="canciones.html"> <img src="hrtbf" alt=""/></a>
-                        <a href="canciones.html"> <img src="ifhiofj" alt=""/></a>
-                        <a href="canciones.html"> <img src="fef" alt=""/></a>
-                    </xsltemplate>
-                    <!--nose cuantos poner lol-->
+                            <div class="info_tipo">
+                                <xsl:if test="musico">
+                                    <xsl:value-of select="musico/@caracteristica"/>
+                                </xsl:if>
+                                <xsl:if test="podcaster">
+                                    Podcaster
+                                </xsl:if>
+                            </div>
+                        </div>
+                    </xsl:for-each>
+                </div>
 
-                    <h3>Artistas recomendados</h3>
-                    <a href="artistas.html"> <img src="jiod"/> </a>
-                    <a href="artistas.html"> <img src="hjtjt"/> </a>
-                    <a href="artistas.html"> <img src="rjjrty"/> </a>
-                    <a href="artistas.html"> <img src="jyjt"/> </a>
-                    <a href="artistas.html"> <img src="jijtod"/> </a>
-                    <a href="artistas.html"> <img src="kuyfk"/> </a>
-                    <a href="artistas.html"> <img src="jiod"/> </a>
-                    <a href="artistas.html"> <img src="jiod"/> </a>
-                </main>
-
-                <footer>
-                    <img src="imagenes/footer/cc.png" alt="CC"/>
-                    <img src="imagenes/footer/x.png" alt="x"/>
-                    <img src="imagenes/footer/facebook.png" alt="facebook"/>
-                    <img src="imagenes/footer/instagram.png" alt="instagram"/>
-                </footer>
+                <div class="contenedor_albumes">
+                    <xsl:for-each select="//album">
+                        <div class="album">
+                            <a href="spotifyAlb.xml"><img src="{imagen}" alt="{titulo}"/></a>
+                            <a href="spotifyAlb.xml"><h2><xsl:value-of select="titulo"/></h2></a>
+                            <a href="artistas.xsl"><p><xsl:value-of select="../../nombreArtistico"/></p></a>
+                        </div>
+                    </xsl:for-each>
+                </div>
             </body>
         </html>
     </xsl:template>
+
 </xsl:stylesheet>
