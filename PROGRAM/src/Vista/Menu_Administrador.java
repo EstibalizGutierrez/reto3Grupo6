@@ -72,6 +72,7 @@ public class Menu_Administrador extends JFrame {
 		btnGestionarMsica.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				GestionMusica ventanaMusica = new GestionMusica();
+				dispose();
 		        ventanaMusica.setVisible(true);
 			}
 		});
@@ -82,8 +83,8 @@ public class Menu_Administrador extends JFrame {
 		JButton btnGestionarPodcast = new JButton("Gestionar Podcast");
 		btnGestionarPodcast.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				GestionPodcast ventanaPodcast = new GestionPodcast();
-		        ventanaPodcast.setVisible(true);
+				
+			
 			}
 		});
 		btnGestionarPodcast.setFont(new Font("Constantia", Font.BOLD, 15));
@@ -94,6 +95,7 @@ public class Menu_Administrador extends JFrame {
 		btnEstadsticas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Estadisticas ventanaEstats = new Estadisticas();
+				dispose();
 		        ventanaEstats.setVisible(true);
 			}
 		});

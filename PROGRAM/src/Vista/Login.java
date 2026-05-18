@@ -8,6 +8,7 @@ import javax.swing.border.EmptyBorder;
 
 import Modelo.Cliente;
 import Modelo.Usuario;
+import Modelo.Administrador;
 import Controlador.ClienteDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -109,6 +110,9 @@ public class Login extends JFrame {
 				String user = txtUsuario.getText();
 				String password = txtContrasena.getText();
 				
+				//lo pasamos por ambas clases tanto cliente como administrador
+				Administrador admin = new Administrador(user,password);
+				
 				clienteExistente = new Cliente(user,password);
 				ClienteDAO dao = new ClienteDAO();
 				
@@ -125,17 +129,20 @@ public class Login extends JFrame {
 					Menu_Cliente panelMenuCliente = new Menu_Cliente();
 					panelMenuCliente.setVisible(true);
 					
-				} else {
+					//se ve raro pero es una opcion valida
+				} else if (admin.login(admin) && comboBoxOpcionUsuario.getSelectedIndex() == 1) {
 					
-					JOptionPane.showMessageDialog(botonLogin, "Usuario o contrasena incorrectos");
+						dispose();
+						Menu_Administrador ventana = new Menu_Administrador();
+						ventana.setVisible(true);
 					
-				}
-				
-				
-				
-			}
+					}
+						else {
 			
-		});
+							JOptionPane.showMessageDialog(botonLogin, "Usuario o contrasena incorrectos");
+					}
+				}
+				});
 		panelUsuario.add(botonLogin);
 		
 		botonRegistro = new JButton("REGISTRO");
@@ -157,4 +164,5 @@ public class Login extends JFrame {
 		panelUsuario.add(botonRegistro);
 
 	}
+	
 }

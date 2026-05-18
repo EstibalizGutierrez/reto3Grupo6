@@ -89,7 +89,7 @@ public class CancionDAO {
 
 
 	/**
-	 * Metodo que se basa en pbtener el id de la cancion cuyo nombre sea X (parametro)
+	 * Metodo que se basa en obtener el id de la cancion cuyo nombre sea X (parametro)
 	 * 
 	 * @param p
 	 * @return int

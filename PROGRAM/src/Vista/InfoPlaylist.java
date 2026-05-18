@@ -18,9 +18,13 @@ import java.awt.Color;
 import javax.swing.JList;
 import javax.swing.JButton;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import javax.swing.JScrollPane;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.MatteBorder;
 
 public class InfoPlaylist extends JFrame {
 
@@ -33,11 +37,13 @@ public class InfoPlaylist extends JFrame {
 	private JList<String> jotaLista;
 
 	private String nombrePL;
+	private JButton botonAtras;
 	
 	public InfoPlaylist(String nombrePlaylist) {
 		
 		this.nombrePL = nombrePlaylist;
 		
+		setTitle(nombrePL);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 950, 600);
 		contentPane = new JPanel();
@@ -47,8 +53,10 @@ public class InfoPlaylist extends JFrame {
 		contentPane.setLayout(null);
 		
 		jotaLista = new JList<String>();
-		jotaLista.setBackground(new Color(128, 0, 128));
+		jotaLista.setBorder(new MatteBorder(3, 3, 3, 3, (Color) new Color(0, 0, 0)));
+		jotaLista.setBackground(new Color(192, 192, 192));
 		jotaLista.setBounds(23, 80, 888, 456);
+		jotaLista.setFont(new Font("Arial", Font.BOLD, 24));
 		contentPane.add(jotaLista);
 		
 		botonPerfil = new JButton(clientePerfil.getUsuario());
@@ -60,7 +68,23 @@ public class InfoPlaylist extends JFrame {
 		scrollPane.setBounds(23, 80, 888, 456);
 		contentPane.add(scrollPane);
 		
+		botonAtras = new JButton("ATRAS");
+		botonAtras.setFont(new Font("Constantia", Font.BOLD, 15));
+		botonAtras.setBounds(23, 22, 118, 31);
+		botonAtras.addActionListener(new ActionListener() {
+			
+			public void actionPerformed (ActionEvent e) {
+				
+				MiPlaylist ventana = new MiPlaylist();
+				dispose();
+				ventana.setVisible(true);
+			}
+			
+		});
+		contentPane.add(botonAtras);
+		
 	
+		//INSERTAMOS LOS METODOS DEL DAO, GENERANDO EL ID DE LA PLAYLIST Y LUEGO USANDOLO PARA CREAR LA LISTADECANCIONES
 		CancionDAO dao = new CancionDAO();
 		Playlist pNombre = new Playlist(nombrePL);
 		int idPL = dao.obtenerIdPlaylist(pNombre);
