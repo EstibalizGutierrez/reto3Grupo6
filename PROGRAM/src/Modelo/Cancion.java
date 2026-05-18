@@ -7,13 +7,17 @@ import Modelo.Enums.tipoAudio;
 public class Cancion extends Audio {
 	
 	private Album idAlbum;
+	private String cancion;
 	private String artistasInvitados;
+	private boolean reproduciendo;
 	
 	
-	public Cancion(String idAudio, String nombre, LocalTime duracion, String archivo, tipoAudio tipo, int numReproducciones, Album idAlbum, String artistasInvitados) {
+	public Cancion(String idAudio, String nombre, LocalTime duracion, String archivo, tipoAudio tipo, int numReproducciones, Album idAlbum, String cancion, String artistasInvitados) {
 		super(idAudio, nombre, duracion, archivo, tipo, numReproducciones);
 		this.idAlbum = idAlbum;
+		this.cancion = cancion;
 		this.artistasInvitados = artistasInvitados;
+		this.reproduciendo = false;
 				
 	}
 	
@@ -24,6 +28,13 @@ public class Cancion extends Audio {
 		
 	}
 
+	public boolean sonando() {
+		if (!reproduciendo) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 
 	public String getArtistasInvitados() {
 		return artistasInvitados;
@@ -39,7 +50,12 @@ public class Cancion extends Audio {
 		return idAlbum;
 	}
 	
-	
-	
+	public String getCancion() {
+		return cancion;
+	}
 
+	public void setCancion(String cancion) {
+		this.cancion = cancion;
+	}
+	
 }
