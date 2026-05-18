@@ -7,22 +7,21 @@
         <link rel="stylesheet" href="styles.css"/>
     </head>
     <body>
-
-        <div class="contenedor_login">
-            <h1>Iniciar sesion</h1>
-            
-            <form id="formularioLogin" onsubmit="validarLogin(event)">
-                <label for="usuario">Usuario:</label></br>
-                <input type="text" id="usuario" required>
-            </br>
+        <div class="body_login">
+            <div class="contenedor_login">
+                <h1>Iniciar sesion</h1>
                 
-                <label for="password">Contraseña:</label></br>
-                <input type="password" id="password" required></br></br>
-                <input type="submit" value="Entrar">
-            
+                <form id="formularioLogin" onsubmit="validarLogin(event)">
+                    <label for="usuario">Usuario:</label></br>
+                    <input type="text" id="usuario" required>
+                </br>
+                    
+                    <label for="password">Contraseña:</label></br>
+                    <input type="password" id="password" required></br></br>
+                    <input type="submit" value="Entrar">
 
-            </form>
+                </form>
+            </div>
         </div>
-
     </body>
 </html>

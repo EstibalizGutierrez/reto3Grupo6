@@ -12,28 +12,37 @@ a{
     text-decoration: none;
     color: white;
 }
+
 /*login*/
-.contenedor_login{
-    margin-top: 12%;
-    background-color: #1c1c1c;
+.body_login{
+    margin-top: 12rem;
     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contenedor_login{
+    background-color: #383737b7;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 90%;
     max-width: 25rem;
     padding: 5%;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
     text-align: center;
+    border: 2px solid #c70404a2;
 }
 
 h1{
-    margin-bottom: 25px;
-    font-size: 1.8rem;
+    font-size: 2rem;
+    color: rgba(224, 3, 3, 0.87);
 }
 
 form {
     text-align: center;
+    font-size: 1.2rem;
+    color: rgba(224, 3, 3, 0.87);
 }
 
 input{
@@ -41,8 +50,46 @@ input{
     background-color: white;
 }
 
-
 /*--------------index.xsl---------------*/
+.logo {
+    width: 10rem;
+    border-radius: 5px;
+}
+
+.contenedor_header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.titulo {
+    color: white;
+}
+
+button{
+    background-color: #c70404a2;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #ff39392f;
+    font-size: 1.5rem;
+}
+
+nav a{
+    border: 1px solid #ff000044;
+    width: 100%;
+    display:flex;
+    justify-content: center;
+    padding: 1rem;
+}
 
 /*--------------artistas.xsl------------*/
 .contenedor_artistas {
@@ -52,17 +99,47 @@ input{
 
 /* Estilo para cada tarjeta de artista */
 .tarjeta-artista {
-    background-color: #181818; /* Color oscuro tipo Spotify */
+    background-color: #181818;
     color: white;
     padding: 15px;
     border-radius: 10px;
     text-align: center;
-    transition: transform 0.3s;
 }
 
-img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover; /* Para que todas las fotos midan lo mismo */
-    border-radius: 5px;
+/*Estilo para el footer*/
+
+.contenedor_footer{
+    background-color: #b304047c;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    max-width: 6000px;
+    padding: 20px;
+}
+.creative_commons {
+    width: 10.5rem;
+    height: 3.5rem;
+    max-width: 80%;
+    order: 1;
+}
+
+.texto_contenedor_footer {
+    text-align: center;
+    font-size: 25px;
+    order: 2;
+}
+
+.imagenes_contenedor_footer {
+    text-align: center;
+    order: 3;
+}
+
+.imagenes_redessociales {
+    width: 4rem;
+    height: 4rem;
+}
+
+.imagenes_redessociales:hover {
+    filter: grayscale(100%);
 }
