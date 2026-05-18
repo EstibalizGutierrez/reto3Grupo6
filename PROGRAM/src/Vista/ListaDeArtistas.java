@@ -1,6 +1,7 @@
 package Vista;
 
 import Controlador.Conexion;
+import Controlador.MusicoDAO;
 import Modelo.Cliente;
 import Modelo.Usuario;
 
@@ -18,6 +19,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import java.awt.Insets;
 import javax.swing.JLabel;
@@ -118,33 +120,17 @@ public class ListaDeArtistas extends JFrame {
 		rellenarComboMusicos();
 	}
 	
-	private void rellenarComboMusicos() {
-		Conexion db = new Conexion();
-        Connection con = db.getConnection();
-		
-	    String sql = "SELECT Artista.NombreArtistico " +
-	                 "FROM Artista " +
-	                 "JOIN Musico ON Artista.IdArtista = Musico.IdMusico";
+	public void rellenarComboMusicos() {
+       // Sacamos el nombre y lo metemos al combo
+		MusicoDAO dao = new MusicoDAO();
+		 ArrayList<String> listaMusicos = dao.listaMusicos();
 
+		 for (int i =0; i<listaMusicos.size(); i++) {
+			 
+				comboBox.addItem(listaMusicos.get(i));
 
-	    if (con != null) {
-            try (Statement st = con.createStatement();
-                 ResultSet rs = st.executeQuery(sql)) {
+		 }
 
-                while (rs.next()) {
-                    // Sacamos el nombre y lo metemos al combo
-                    comboBox.addItem(rs.getString("NombreArtistico"));
-                }
-
-            } catch (SQLException e) {
-                JOptionPane.showMessageDialog(this, "Error al consultar: " + e.getMessage());
-            } finally {
-                // 2. Cerramos la conexión usando tu método cerrarConexion()
-                db.cerrarConexion();
-            }
-        } else {
-            JOptionPane.showMessageDialog(this, "No se pudo establecer la conexión.");
-        }
-    }
+		}	
 }
 

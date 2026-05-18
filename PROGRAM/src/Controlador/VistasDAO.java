@@ -21,6 +21,13 @@ public class VistasDAO {
 	private ResultSet resultSet;
 
 	
+	/**
+	 * Metodo que se usa para obtener los datos de la vista y guardarlos en un arraylist para luego
+	 * pasarlos a la JTable
+	 * 
+	 * @return ArrayList
+	 */
+	
 	public ArrayList<VistaRankingContenido> tablaRankingContenido () {
 		
 		Connection conexion = null;
@@ -63,7 +70,12 @@ public class VistasDAO {
 		
 	}
 	
-	
+	/**
+	 * Metodo que se usa para obtener los datos de la vista y guardarlos en un arraylist para luego
+	 * pasarlos a la JTable
+	 * 
+	 * @return ArrayList
+	 */
 	public ArrayList<VistaRankingAlbumes> tablaRankingAlbum() {
 		
 		Connection conexion = null;
@@ -101,7 +113,12 @@ public class VistasDAO {
 		return ranking;
 	}
 	
-	
+	/**
+	 * Metodo que se usa para obtener los datos de la vista y guardarlos en un arraylist para luego
+	 * pasarlos a la JTable
+	 * 
+	 * @return ArrayList
+	 */
 	public ArrayList<VistaRankingArtistas> tablaRankingArtista() {
 		
 		Connection conexion = null;

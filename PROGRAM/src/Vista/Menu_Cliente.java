@@ -31,7 +31,6 @@ public class Menu_Cliente extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private final Action action = new SwingAction();
 	private Cliente clientePerfil = Usuario.getCliente();
 
 	public Menu_Cliente() {
@@ -136,12 +135,6 @@ public class Menu_Cliente extends JFrame {
 		contentPane.add(btnMisPlaylist, gbc_btnMisPlaylist);
 
 	}
-	private class SwingAction extends AbstractAction {
-		public SwingAction() {
-			putValue(NAME, "SwingAction");
-			putValue(SHORT_DESCRIPTION, "Some short description");
-		}
-		public void actionPerformed(ActionEvent e) {
-		}
-	}
+	
+	
 }

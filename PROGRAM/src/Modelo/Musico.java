@@ -14,7 +14,8 @@ public class Musico extends Artista{
 		
 	}
 
-	
+	//Constructor para infoPlaylist y otros metodos
+
 	public Musico (String nombre) {
 		
 		super(nombre);

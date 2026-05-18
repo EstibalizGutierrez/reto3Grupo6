@@ -20,7 +20,7 @@ public abstract class  Artista {
 		this.descripcion = descripcion;
 	}
 	
-	//Constructor para infoPlaylist
+	//Constructor para infoPlaylist y otros metodos
 	
 	public Artista (String nombre) {
 		
