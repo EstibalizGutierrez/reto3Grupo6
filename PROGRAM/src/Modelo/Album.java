@@ -85,6 +85,11 @@ public class Album {
 	public void setIdMusico(Musico idMusico) {
 		this.idMusico = idMusico;
 	}
+
+	public void setVisible(boolean b) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 	

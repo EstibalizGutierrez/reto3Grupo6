@@ -24,10 +24,9 @@ public class ArtistaVentana extends JFrame {
 	private JLabel lblFoto;
 	private Cliente clientePerfil = Usuario.getCliente();
 	
-	private String nombreArtista; //static para usarlo en otras ventanas al momento del boton ATRAS
+	private String nombreArtista;
 
 	public ArtistaVentana(String nombreArtista) {
-		//pasamos el nombre del artista que seleccionamos al string para usarlo como parametro
 		this.nombreArtista = nombreArtista; 
 		setTitle("Lista de artistas");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -42,7 +41,7 @@ public class ArtistaVentana extends JFrame {
 		gbl_contentPane.rowHeights = new int[]{40, 30, 150, 150, 0};
 		contentPane.setLayout(gbl_contentPane);
 		
-		// --- BOTÃ“N ATRÃ�S ---
+		// --- BOTON ATRAS ---
 		JButton btnAtras = new JButton("Atras");
 		btnAtras.addActionListener(e -> {
 			new ListaDeArtistas().setVisible(true);
@@ -61,7 +60,7 @@ public class ArtistaVentana extends JFrame {
 		gbc_lblNombre.gridx = 1; gbc_lblNombre.gridy = 0;
 		contentPane.add(lblNombre, gbc_lblNombre);
 
-		// --- BOTÃ“N PERFIL ---
+		// --- BOTON PERFIL ---
 		JButton btnPerfil = new JButton(clientePerfil.getUsuario());
 		btnPerfil.addActionListener(e -> {
 			new Perfil().setVisible(true);
@@ -98,7 +97,7 @@ public class ArtistaVentana extends JFrame {
 		gbc_scrollD.gridx = 0; gbc_scrollD.gridy = 2; gbc_scrollD.gridheight = 2;
 		contentPane.add(scrollDiscos, gbc_scrollD);
 		
-		// --- INFORMACIÃ“N ---
+		// --- INFORMACION ---
 		txtInformacion = new JTextArea();
 		txtInformacion.setLineWrap(true);
 		txtInformacion.setWrapStyleWord(true);
@@ -122,12 +121,11 @@ public class ArtistaVentana extends JFrame {
 		//Para Jlist no usamos addActionListener sino MouseListener (para que sean dos clickks no solo uno)
 		listDiscos.addMouseListener(new MouseAdapter() {
 		    public void mouseClicked(MouseEvent evento) {
-		    	//si hacemos dos click
 		        if (evento.getClickCount() == 2) {
 		            int i = listDiscos.locationToIndex(evento.getPoint());
 		            if (i != -1) {
 		                String sel = modeloLista.getElementAt(i);
-		                // Separamos el tÃ­tulo del resto de la cadena (Titulo - AÃ±o - Canciones)
+		                // Separamos el titulo del resto de la cadena (Titulo - Anno - Canciones)
 		                String tituloAlbum = sel.split(" - ")[0];
 		                
 		                AlbumVentana ventana= new AlbumVentana(tituloAlbum,nombreArtista);
@@ -155,7 +153,7 @@ public class ArtistaVentana extends JFrame {
 	    
 	    //usamos el metodo para recorrer toda la inforamcion a "info"
 	    ArrayList<String> info = dao.obtenerInfoArtista(nombre);
-	    //comprobamos que haya informaciÃ³on
+	    //comprobamos que haya informacion
 	    
 	    if (info.size() > 0) {
 	    	
@@ -163,16 +161,16 @@ public class ArtistaVentana extends JFrame {
 	        String idArtista = info.get(3);
 
 	        // rellenamos informacion
-	        txtInformacion.setText("GÃ©nero: " + info.get(0) + "\n" +
-	                               "AÃ±o de Inicio: " + info.get(4) + "\n\n" +
-	                               "DescripciÃ³n:\n" + info.get(1));
+	        txtInformacion.setText("Genero: " + info.get(0) + "\n" +
+	                               "Anno de Inicio: " + info.get(4) + "\n\n" +
+	                               "Descripcion:\n" + info.get(1));
 	        txtInformacion.setCaretPosition(0);
 
 	        // Llamamos al otro metodo
 	        String rutaImagen = dao.rutaImagenArtista(idArtista); 
 	        
 	        if (rutaImagen != null) {
-	            // Cargamos desde la carpeta 'imagenes' de tu proyecto
+	            // Cargamos desde la carpeta 'imagenes'
 
 	            ImageIcon iconoOriginal = new ImageIcon(rutaImagen);
 	            
@@ -184,7 +182,7 @@ public class ArtistaVentana extends JFrame {
 	            lblFoto.setText("Sin imagen");
 	        }
 
-	        //cargamos los Ã¡lbumes usando el ID
+	        //cargamos los Albumes usando el ID
 	        ArrayList<String> albumes = dao.listaAlbumesArtista(idArtista);
 	        modeloLista.clear();
 	        for (int i = 0; i < albumes.size(); i++) {

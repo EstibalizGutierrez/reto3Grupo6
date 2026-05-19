@@ -8,6 +8,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import Controlador.Conexion;
+import Modelo.Album;
 import Modelo.Cliente;
 import Modelo.Usuario;
 
@@ -34,7 +35,7 @@ public class Podcaster extends JFrame {
 		gbl_contentPane.rowHeights = new int[]{40, 30, 150, 150, 0};
 		contentPane.setLayout(gbl_contentPane);
 		
-		// --- BOTÃ“N ATRÃ�S ---
+		// --- BOTON ATRAS ---
 		JButton btnAtras = new JButton("Atras");
 		btnAtras.addActionListener(e -> {
 			ListaDePodcasters ventanaDeListaPodcaster = new ListaDePodcasters();
@@ -55,7 +56,7 @@ public class Podcaster extends JFrame {
 		gbc_lblNombre.gridx = 1; gbc_lblNombre.gridy = 0;
 		contentPane.add(lblNombre, gbc_lblNombre);
 
-		// --- BOTÃ“N PERFIL ---
+		// --- BOTON PERFIL ---
 		JButton btnPerfil = new JButton(clientePerfil.getUsuario());
 		btnPerfil.addActionListener(e -> {
 			Perfil ventanaDePerfil = new Perfil();
@@ -93,7 +94,7 @@ public class Podcaster extends JFrame {
 						String sel = modeloLista.getElementAt(idx);
 						String tituloPodcast = sel.split(" - ")[0];
 						String idPodcast = obtenerIdAlbumPorTitulo(tituloPodcast);
-						new Album(idPodcast, tituloPodcast).setVisible(true);
+						new Album(idPodcast).setVisible(true);
 						dispose();
 					}
 				}
@@ -107,7 +108,7 @@ public class Podcaster extends JFrame {
 		gbc_scrollPodcast.gridx = 0; gbc_scrollPodcast.gridy = 2; gbc_scrollPodcast.gridheight = 2;
 		contentPane.add(scrollPodcast, gbc_scrollPodcast);
 		
-		// --- INFORMACIÃ“N ---
+		// --- INFORMACION ---
 		txtInformacion = new JTextArea();
 		txtInformacion.setLineWrap(true);
 		txtInformacion.setWrapStyleWord(true);
@@ -133,8 +134,8 @@ public class Podcaster extends JFrame {
 	}
 	
 	/**
-	 * Carga la informaciÃ³n de un artista y sus Ã¡lbumes en la interfaz.
-	 * @param nombre El nombre artÃ­stico seleccionado por el usuario.
+	 * Carga la informacion de un artista y sus albumes en la interfaz.
+	 * @param nombre El nombre artistico seleccionado por el usuario.
 	 */
 	private void cargarDatosPodcaster(String nombre) {
 	    Conexion db = new Conexion();

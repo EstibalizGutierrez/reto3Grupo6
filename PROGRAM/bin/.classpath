@@ -6,10 +6,11 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path=""/>
-	<classpathentry kind="lib" path="C:/Users/in1dm3-v/Downloads/mysql-connector-j-8.3.0.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/in1dm3-v/Downloads/mysql-connector-j-8.3.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/in1dm3-v/Downloads/tritonus_share.jar"/>
+	<classpathentry kind="lib" path="C:/Users/in1dm3-v/Downloads/basicplayer3.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/in1dm3-v/Downloads/mp3spi1.9.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/in1dm3-v/Downloads/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/in1dm3-v/Downloads/jlayer-1.0.1.jar"/>
 	<classpathentry kind="output" path=""/>
 </classpath>

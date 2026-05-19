@@ -85,7 +85,7 @@ public class AlbumVentana extends JFrame {
         			if(cancion!=null) {
         				
         				//cortamos hasta cuando empieza el - porque solo queremos el titulo de la cancion no lo demas
-        				String nombreLimpio = cancion.split(" - ")[0]; //nos quedamos con la primera parte
+        				String nombreLimpio = cancion.split(" - ")[0];
         				VentanaReproduccion ventana = new VentanaReproduccion(nombreLimpio, tituloAlbum,nombreArtista);
         				dispose();
         				ventana.setVisible(true);
@@ -98,7 +98,7 @@ public class AlbumVentana extends JFrame {
         });
         contentPane.add(scrollCanciones);
 
-        // --- INFORMACiónN DEL DISCO (parte derechas) ---
+        // --- INFORMACION DEL DISCO (parte derechas) ---
         JLabel lblInfoT = new JLabel("Información del disco:");
         lblInfoT.setBounds(350, 50, 200, 20);
         contentPane.add(lblInfoT);
@@ -140,14 +140,9 @@ public class AlbumVentana extends JFrame {
 		ArrayList<String> info = dao.obtenerInfoAlbum(titulo);
 
 		if (!info.isEmpty()) {
-			//repetimos todo el proceso de la ventana anterior
 			String idAlbum = info.get(0);
-
-			
 			txtInfoAlbum.setText("Lanzamiento: " + info.get(1) + "\n" +
 					             "Canciones: " + info.get(3));
-
-			// pasamos la ruta a un string
 			String ruta = info.get(2);
 			if (ruta != null) {
 				
@@ -157,7 +152,7 @@ public class AlbumVentana extends JFrame {
 				lblPortada.setText("");
 			}
 
-			// lista de canciones con el LocalTime que sale del DAOo
+			// lista de canciones con el LocalTime que sale del DAO
 			ArrayList<String> canciones = dao.listaCancionesAlbum(idAlbum);
 			modeloLista.clear(); //se limpia para que no se acumule uno debjo de otros
 			

@@ -24,7 +24,6 @@ import javax.swing.border.EmptyBorder;
 import Modelo.Cliente;
 import Modelo.Usuario;
 
-// Clase de la ventana de la interfaz gráfica para listar podcasters
 public class ListaDePodcasters extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -32,7 +31,6 @@ public class ListaDePodcasters extends JFrame {
 	private JComboBox comboBox;
 	private Cliente clientePerfil = Usuario.getCliente();
 
-	// Configura la ventana y todos los componentes visuales
 	public ListaDePodcasters() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -41,7 +39,6 @@ public class ListaDePodcasters extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
-		// Configuración del sistema de orden para posicionar componentes
 		GridBagLayout gbl_contentPane = new GridBagLayout();
 		gbl_contentPane.columnWidths = new int[]{73, 0, 0, 0, 0, 0};
 		gbl_contentPane.rowHeights = new int[]{53, 143, 0, 0};
@@ -49,7 +46,7 @@ public class ListaDePodcasters extends JFrame {
 		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 0.0, Double.MIN_VALUE};
 		contentPane.setLayout(gbl_contentPane);
 		
-		// Botón para regresar al menú anterior
+		// Botón atras
 		JButton btnAtras = new JButton("Atras");
 		btnAtras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -75,7 +72,7 @@ public class ListaDePodcasters extends JFrame {
 		gbc_lblListaPodcasters.gridy = 0;
 		contentPane.add(lblListaPodcasters, gbc_lblListaPodcasters);
 		
-		// Botón para redirigir a la lista de artistas generales
+		// Botón perfil
 		JButton btnPerfil = new JButton(clientePerfil.getUsuario());
 		btnPerfil.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -92,7 +89,7 @@ public class ListaDePodcasters extends JFrame {
 		gbc_btnPerfil.gridy = 0;
 		contentPane.add(btnPerfil, gbc_btnPerfil);
 		
-		// Desplegable (ComboBox) que contendrá los nombres de los podcasters
+		// ComboBox que contendrá los nombres de los podcasters
 		comboBox = new JComboBox();
 		GridBagConstraints gbc_comboBox = new GridBagConstraints();
 		gbc_comboBox.insets = new Insets(0, 0, 5, 5);
@@ -130,6 +127,7 @@ public class ListaDePodcasters extends JFrame {
 	/**
 	 * Metodo para rellenar el comboBox de Podcaster
 	 */
+	
 	// Método que conecta con MySQL y llena el ComboBox con los nombres artísticos
 	private void rellenarComboPodcasters() {
 		// Consulta SQL que une las tablas Artista y Podcaster para obtener los nombres
@@ -142,9 +140,7 @@ public class ListaDePodcasters extends JFrame {
 	    	 Statement st = con.createStatement();
 	         ResultSet rs = st.executeQuery(sql)) {
 	    	
-	    	// Limpia elementos para evitar duplicados
 	        comboBox.removeAllItems();
-	        // Recorre las filas obtenidas de la base de datos y las añade al combobox
 	        while (rs.next()) {
 	            comboBox.addItem(rs.getString("NombreArtistico"));
 	        }
