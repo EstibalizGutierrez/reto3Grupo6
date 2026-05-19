@@ -22,15 +22,21 @@
                     </nav>
                 </header>
                 <main>
-                    <xsl:for-each select="//cancion">
-                        <h3><xsl:value-of select="nombre"/></h3>
-                        <p>Duración:<xsl:value-of select="duracion"/></p>
-                        <p>Reproducciones:<xsl:value-of select="NReproducciones"/></p>
-                        <!--  Álbum al que pertenece la canción  -->
-                        <p>Álbum: </p><a href="spotifyAlb.xml"><xsl:value-of select="../../titulo"/></a>
-                        <!--  Artista al que pertenece la canción  -->
-                        <p>Artista: </p><a href="spotifyArt.xml"><xsl:value-of select="../../../../nombreArtistico"/></a>
-                    </xsl:for-each>
+                    <h2>Canciones</h2>
+
+                    <div class="contenedor_canciones">
+                        <xsl:for-each select="//cancion">
+                            <div class="cancion">
+                                <h3><xsl:value-of select="nombre"/></h3>
+                                <p>Duración: <xsl:value-of select="duracion"/></p>
+                                <p>Reproducciones: <xsl:value-of select="NReproducciones"/></p>
+                                <!--  Álbum al que pertenece la canción  -->
+                                <p>Álbum: <a href="spotifyAlb.xml"><u><xsl:value-of select="../../titulo"/></u></a></p>
+                                <!--  Artista al que pertenece la canción  -->
+                                <p>Artista: <a href="spotifyArt.xml"><u><xsl:value-of select="../../../../nombreArtistico"/></u></a></p>
+                            </div>
+                        </xsl:for-each>
+                    </div>
                 </main>
 
                 <footer>

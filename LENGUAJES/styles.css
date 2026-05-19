@@ -13,6 +13,9 @@ a{
     color: white;
 }
 
+p{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
 /*login*/
 .body_login{
     margin-top: 12rem;
@@ -20,6 +23,7 @@ a{
     justify-content: center;
     align-items: center;
 }
+
 .contenedor_login{
     background-color: #383737b7;
     display: flex;
@@ -37,6 +41,7 @@ a{
 h1{
     font-size: 2rem;
     color: rgba(224, 3, 3, 0.87);
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 form {
@@ -81,6 +86,11 @@ nav{
     justify-content: space-around;
     background-color: #ff39392f;
     font-size: 1.5rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+nav a:hover{
+    background-color: rgb(160, 43, 43);
 }
 
 nav a{
@@ -91,11 +101,49 @@ nav a{
     padding: 1rem;
 }
 
-/*--------------artistas.xsl------------*/
-.contenedor_artistas {
-    display: flex;
-    padding: 2rem;
+h2{
+    text-align: center;
+    background-color: rgba(184, 5, 5, 0.562);
+    font-family: Arial, Helvetica, sans-serif;
 }
+
+.contenedor_artistas{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.artista{
+    width: 20rem;
+    min-width: 25rem;
+}
+
+.imagen_artista{
+    width: 100%;
+    border-radius: 10px;
+}
+
+.contenedor_albumes{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.album{
+    width: 20rem;
+    min-width: 25rem;
+}
+
+.imagen_album{
+    width: 100%;
+    border-radius: 10px;
+}
+
+/*--------------artistas.xsl------------*/
 
 /* Estilo para cada tarjeta de artista */
 .tarjeta-artista {
@@ -105,6 +153,27 @@ nav a{
     border-radius: 10px;
     text-align: center;
 }
+
+
+/*--------------cancion.xsl------------*/
+.contenedor_canciones{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    
+}
+
+.cancion{
+    padding: 2rem;
+    background-color: #a547479d;
+    border-radius: 12px;
+    width: 20%;
+    margin-bottom: 1rem;
+}
+
+
 
 /*Estilo para el footer*/
 

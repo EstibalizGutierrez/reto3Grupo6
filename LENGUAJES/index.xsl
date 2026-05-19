@@ -18,6 +18,7 @@
                         <button><a href="login.html">Cerrar sesión</a></button>
                     </div>
                     <nav>
+                        <a href="spotify.xml">Inicio</a>
                         <a href="spotifyArt.xml">Artistas</a> 
                         <a href="spotifyAlb.xml">Álbumes</a>  
                         <a href="spotifyCan.xml">Canciones</a>
@@ -25,30 +26,22 @@
                 </header>
                 
                 <main>
+                    <h2>Artistas más escuchados</h2>
                     <div class="contenedor_artistas">
                         <xsl:for-each select="//artista">
                             <div class="artista">
-                                <a href="spotifyArt.xml"><img src="{imagen}" alt="{nombreArtistico}"/></a>
-                                <a href="spotifyArt.xml"><h2><xsl:value-of select="nombreArtistico"/></h2></a>
-
-                                <div class="info_tipo">
-                                    <xsl:if test="musico">
-                                        <xsl:value-of select="musico/@caracteristica"/>
-                                    </xsl:if>
-                                    <xsl:if test="podcaster">
-                                        Podcaster
-                                    </xsl:if>
-                                </div>
+                                <a href="spotifyArt.xml"><img class= "imagen_artista" src="{imagen}" alt="{nombreArtistico}"/></a>
+                                <a href="spotifyArt.xml"><h3><xsl:value-of select="nombreArtistico"/></h3></a>
                             </div>
                         </xsl:for-each>
                     </div>
-
+                    <h2>Álbumes más escuchados</h2>
                     <div class="contenedor_albumes">
                         <xsl:for-each select="//album">
                             <div class="album">
-                                <a href="spotifyAlb.xml"><img src="{imagen}" alt="{titulo}"/></a>
-                                <a href="spotifyAlb.xml"><h2><xsl:value-of select="titulo"/></h2></a>
-                                <a href="artistas.xsl"><p><xsl:value-of select="../../nombreArtistico"/></p></a>
+                                <a href="spotifyAlb.xml"><img class= "imagen_album" src="{imagen}" alt="{titulo}"/></a>
+                                <a href="spotifyAlb.xml"><h3><xsl:value-of select="titulo"/></h3></a>
+                                <a href="spotifyArt.xml"><p><xsl:value-of select="../../nombreArtistico"/></p></a>
                             </div>
                         </xsl:for-each>
                     </div>

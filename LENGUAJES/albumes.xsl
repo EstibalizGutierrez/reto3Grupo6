@@ -26,8 +26,8 @@
                     
                     <div class="contenedor_albumes">
                         <xsl:for-each select="//album">
-                            <div class="albumes">
-                                <img src="{imagen}" alt="{titulo}"/>
+                            <div class="album">
+                                <img class="imagen_album" src="{imagen}" alt="{titulo}"/>
                                 <h3><xsl:value-of select="titulo"/></h3>
                                 <p><strong>Lanzamiento:</strong> <xsl:value-of select="anno"/></p>
                             </div>

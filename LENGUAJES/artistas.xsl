@@ -23,12 +23,24 @@
 
                 <main>
                     <h2>Nuestros Artistas</h2>
-                    <xsl:for-each select="//artista">
-                        <img src="{imagen}" alt="{nombreArtistico}"/>
-                        <h3><xsl:value-of select="nombreArtistico"/></h3>
-                        <p class="genero"><strong>Género:</strong> <xsl:value-of select="genero"/></p>
-                        <p><xsl:value-of select="descripcion"/></p>
-                    </xsl:for-each>
+                    <div class="contenedor_artistas">
+                        <xsl:for-each select="//artista">
+                            <div class="artista">
+                                <img class="imagen_artista" src="{imagen}" alt="{nombreArtistico}"/>
+                                <h3><xsl:value-of select="nombreArtistico"/></h3>
+                                <div class="info_tipo">
+                                    <xsl:if test="musico">
+                                        <xsl:value-of select="musico/@caracteristica"/>
+                                    </xsl:if>
+                                    <xsl:if test="podcaster">
+                                        Podcaster
+                                    </xsl:if>
+                                </div>
+                                <p class="genero"><strong>Género:</strong> <xsl:value-of select="genero"/></p>
+                                <p><xsl:value-of select="descripcion"/></p>
+                            </div>
+                            </xsl:for-each>
+                    </div>
                 </main>
 
                 <footer>
