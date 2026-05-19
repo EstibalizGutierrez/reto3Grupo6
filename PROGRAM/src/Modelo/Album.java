@@ -23,7 +23,10 @@ public class Album {
 		
 	}
 
-
+	public Album(String idAlbum) {
+	    this.idAlbum = idAlbum;
+	}
+	
 	public String getIdAlbum() {
 		return idAlbum;
 	}

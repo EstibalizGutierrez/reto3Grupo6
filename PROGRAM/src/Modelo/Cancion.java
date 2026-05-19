@@ -1,5 +1,6 @@
 package Modelo;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 
 import Modelo.Enums.tipoAudio;
@@ -26,6 +27,14 @@ public class Cancion extends Audio {
 		
 		super(nombre,duracion,numReproducciones);
 		
+	}
+	
+	public Cancion(String idAudio, String nombre, Album idAlbum, String artistasInvitados) {
+	    super(idAudio, nombre, java.time.LocalTime.of(0, 3, 30), "archivo_sistema.mp3",null, 0);
+	    this.idAlbum = idAlbum;
+	    this.cancion = nombre;
+	    this.artistasInvitados = artistasInvitados.isEmpty() ? "Ninguno" : artistasInvitados;
+	    this.reproduciendo = false;
 	}
 
 	public boolean sonando() {

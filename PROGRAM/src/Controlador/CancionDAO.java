@@ -2,6 +2,8 @@ package Controlador;
 
 import javax.swing.*;
 
+import Modelo.Artista;
+import Modelo.Audio;
 import Modelo.Cancion;
 import Modelo.PlaylistCanciones;
 import Modelo.Musico;
@@ -131,6 +133,116 @@ public class CancionDAO {
 		
 	}
 	
+	public boolean insertarCancion(Cancion nuevaCancion) {
+	    Connection conexion = null;
+	    boolean insertado = false;
+	    
+	    String sqlAudio = "INSERT INTO Audio (IdAudio, Nombre, Duracion, Archivo, Tipo, NReproducciones) "
+	                    + "VALUES (?, ?, '03:30', 'archivo.mp3', 'Cancion', 0)";
+	    
+	    String sqlCancion = "INSERT INTO Cancion (IdCancion, IdAlbum, ArtistasInvitados) "
+	                      + "VALUES (?, ?, ?)";
+	    
+	    try {
+	        conexion = conn.getConnection();
+	        
+	        if (conexion != null) {
+	            
+	            statement = conexion.prepareStatement(sqlAudio);
+	            statement.setString(1, nuevaCancion.getIdAudio()); 
+	            statement.setString(2, nuevaCancion.getNombre());  
+	            int filasAudio = statement.executeUpdate();
+	            
+	            if (filasAudio > 0) {
+	                statement = conexion.prepareStatement(sqlCancion);
+	                
+	                statement.setString(1, nuevaCancion.getIdAudio()); 
+	                statement.setString(2, nuevaCancion.getIdAlbum().getIdAlbum()); 
+	                statement.setString(3, nuevaCancion.getArtistasInvitados());
+	                
+	                int filasCancion = statement.executeUpdate();
+	                
+	                if (filasCancion > 0) {
+	                    insertado = true;
+	                }
+	            }
+	        }
+	        
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+	    
+	    return insertado;
+	}
 	
+	public boolean modificarCancion(Cancion cancionEditada) {
+	    Connection conexion = null;
+	    boolean modificado = false;
+	    
+	    String sqlAudio = "UPDATE Audio SET Nombre = ? WHERE IdAudio = ?";
+	    
+	    String sqlCancion = "UPDATE Cancion SET IdAlbum = ?, ArtistasInvitados = ? WHERE IdCancion = ?";
+	    
+	    try {
+	        conexion = conn.getConnection();
+	        
+	        if (conexion != null) {
+	            statement = conexion.prepareStatement(sqlAudio);
+	            statement.setString(1, cancionEditada.getNombre());
+	            statement.setString(2, cancionEditada.getIdAudio());
+	            int filasAudio = statement.executeUpdate();
+	            
+	            if (filasAudio > 0) {
+	                statement = conexion.prepareStatement(sqlCancion);
+	                statement.setString(1, cancionEditada.getIdAlbum().getIdAlbum());
+	                statement.setString(2, cancionEditada.getArtistasInvitados());
+	                statement.setString(3, cancionEditada.getIdAudio());
+	                
+	                int filasCancion = statement.executeUpdate();
+	                if (filasCancion > 0) {
+	                    modificado = true;
+	                }
+	            }
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+	    
+	    return modificado;
+	}
+	
+	public boolean eliminarCancion(Audio idAudio) {
+	    Connection conexion = null;
+	    boolean eliminado = false;
+
+	    String sqlCancion = "DELETE FROM Cancion WHERE IdCancion = ?";
+	    
+	    String sqlAudio = "DELETE FROM Audio WHERE IdAudio = ?";
+	    
+	    try {
+	        conexion = conn.getConnection();
+	        
+	        if (conexion != null) {
+	            statement = conexion.prepareStatement(sqlCancion);
+	            statement.setString(1, idAudio.getIdAudio());
+	            int filasCancion = statement.executeUpdate();
+	            
+	            // PASO B: Si se eliminó de Cancion, procedemos a borrar el Audio global
+	            if (filasCancion > 0) {
+	                statement = conexion.prepareStatement(sqlAudio);
+	                statement.setString(1, idAudio.getIdAudio());
+	                int filasAudio = statement.executeUpdate();
+	                
+	                if (filasAudio > 0) {
+	                    eliminado = true;
+	                }
+	            }
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+	    
+	    return eliminado;
+	}
 	
 }
