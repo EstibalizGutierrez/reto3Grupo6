@@ -15,6 +15,7 @@
                         <button><a href="login.html">Cerrar sesión</a></button>
                     </div>
                     <nav>
+                        <a href="spotify.xml">Inicio</a>
                         <a href="spotifyArt.xml">Artistas</a> 
                         <a href="spotifyAlb.xml">Álbumes</a>  
                         <a href="spotifyCan.xml">Canciones</a>

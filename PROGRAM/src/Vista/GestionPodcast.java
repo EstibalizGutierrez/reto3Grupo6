@@ -21,7 +21,6 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import Controlador.Conexion;
-import pruebas.Menu_Administrador;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
