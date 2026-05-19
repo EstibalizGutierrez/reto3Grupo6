@@ -27,7 +27,7 @@ public class PanelReproduccion extends JPanel {
 	private JButton btnPlay;
 	private JButton btnSiguiente;
 	private JButton btnFavorito;
-	private JLabel lblNewLabel;
+	private JLabel lblSubtitulo;
 	private JTextArea txtInfoCancion;
 	
 	/**
@@ -63,9 +63,9 @@ public class PanelReproduccion extends JPanel {
 		txtInfoCancion.setBounds(84, 377, 494, 100);
 		add(txtInfoCancion);
 		
-		lblNewLabel = new JLabel("Información de la canción:");
-		lblNewLabel.setBounds(84, 355, 131, 12);
-		add(lblNewLabel);
+		lblSubtitulo = new JLabel("Información de la canción:");
+		lblSubtitulo.setBounds(84, 355, 131, 12);
+		add(lblSubtitulo);
 		
 		btnMenu = new JButton("Menu");
 		btnMenu.setFont(new Font("Constantia", Font.BOLD, 15));
