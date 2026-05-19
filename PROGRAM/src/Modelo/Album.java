@@ -6,17 +6,17 @@ public class Album {
 	
 	private String idAlbum;
 	private String titulo;
-	private LocalDate año;
+	private LocalDate anno;
 	private String genero;
 	private String imagen;
 	private Musico idMusico;
 	
 	
-	public Album(String idAlbum, String titulo, LocalDate año, String genero, String imagen, Musico idMusico) {
+	public Album(String idAlbum, String titulo, LocalDate anno, String genero, String imagen, Musico idMusico) {
 
 		this.idAlbum = idAlbum;
 		this.titulo = titulo;
-		this.año = año;
+		this.anno = anno;
 		this.genero = genero;
 		this.imagen = imagen;
 		this.idMusico = idMusico;
@@ -47,13 +47,13 @@ public class Album {
 	}
 
 
-	public LocalDate getAño() {
-		return año;
+	public LocalDate getanno() {
+		return anno;
 	}
 
 
-	public void setAño(LocalDate año) {
-		this.año = año;
+	public void setanno(LocalDate anno) {
+		this.anno = anno;
 	}
 
 
