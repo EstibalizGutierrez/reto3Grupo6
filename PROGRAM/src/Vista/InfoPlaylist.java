@@ -31,11 +31,9 @@ public class InfoPlaylist extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JButton botonPerfil;
-	
 	private Cliente clientePerfil = Usuario.getCliente();
 	private ArrayList<PlaylistCanciones> lstPlaylistCanciones = new ArrayList<>();
 	private JList<String> jotaLista;
-
 	private String nombrePL;
 	private JButton botonAtras;
 	

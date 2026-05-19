@@ -128,14 +128,14 @@ public class Podcaster extends JFrame {
 		contentPane.add(lblFoto, gbc_foto);
 		
 		// Cargar datos al iniciar
-		cargarDatosArtista(Podcaster);
+		cargarDatosPodcaster(Podcaster);
 	}
 	
 	/**
 	 * Carga la información de un artista y sus álbumes en la interfaz.
 	 * @param nombre El nombre artístico seleccionado por el usuario.
 	 */
-	private void cargarDatosArtista(String nombre) {
+	private void cargarDatosPodcaster(String nombre) {
 	    Conexion db = new Conexion();
 	    Connection con = db.getConnection();
 	    
