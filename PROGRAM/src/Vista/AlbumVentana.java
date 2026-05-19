@@ -16,12 +16,11 @@ import javax.swing.border.EmptyBorder;
 import Controlador.AlbumDAO;
 import Controlador.Conexion;
 import Controlador.MusicoDAO;
+import Modelo.Cliente;
+import Modelo.Usuario;
 
 public class AlbumVentana extends JFrame {
 
-    /**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
     private JList<String> listCanciones;
@@ -29,6 +28,7 @@ public class AlbumVentana extends JFrame {
     private JTextArea txtInfoAlbum;
     private JLabel lblPortada;
     private JLabel lblTituloAlbum;
+    private Cliente clientePerfil = Usuario.getCliente();
     
     private String tituloAlb;
     private String nombreArt;
@@ -115,11 +115,26 @@ public class AlbumVentana extends JFrame {
         lblPortada.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         lblPortada.setBounds(350, 190, 250, 250);
         contentPane.add(lblPortada);
+        
+        JButton btnPerfil = new JButton(clientePerfil.getUsuario());
+        btnPerfil.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		new Perfil().setVisible(true);
+    			dispose();
+        	}
+        });
+        btnPerfil.setBounds(635, 11, 89, 23);
+        contentPane.add(btnPerfil);
 
         cargarDatos(tituloAlbum);
   
     }
-
+    
+    
+/**
+ * Metodo para cargar los datos del album
+ * @param titulo para almacenar el nombre del album
+ */
     public void cargarDatos(String titulo) {
 		AlbumDAO dao = new AlbumDAO();
 		ArrayList<String> info = dao.obtenerInfoAlbum(titulo);

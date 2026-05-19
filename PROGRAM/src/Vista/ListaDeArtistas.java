@@ -112,6 +112,9 @@ public class ListaDeArtistas extends JFrame {
 		rellenarComboMusicos();
 	}
 	
+	/**
+	 * Para mostrar tods los musicos en el comboBox
+	 */
 	public void rellenarComboMusicos() {
        // Sacamos el nombre y lo metemos al combo
 		MusicoDAO dao = new MusicoDAO();

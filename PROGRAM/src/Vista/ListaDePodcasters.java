@@ -21,12 +21,16 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import Modelo.Cliente;
+import Modelo.Usuario;
+
 // Clase de la ventana de la interfaz gráfica para listar podcasters
 public class ListaDePodcasters extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JComboBox comboBox;
+	private Cliente clientePerfil = Usuario.getCliente();
 
 	// Configura la ventana y todos los componentes visuales
 	public ListaDePodcasters() {
@@ -72,11 +76,11 @@ public class ListaDePodcasters extends JFrame {
 		contentPane.add(lblListaPodcasters, gbc_lblListaPodcasters);
 		
 		// Botón para redirigir a la lista de artistas generales
-		JButton btnPerfil = new JButton("Perfil");
+		JButton btnPerfil = new JButton(clientePerfil.getUsuario());
 		btnPerfil.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ListaDeArtistas ventanaDeArtistas = new ListaDeArtistas();
-				ventanaDeArtistas.setVisible(true);
+				Perfil ventanaDePerfil = new Perfil();
+				ventanaDePerfil.setVisible(true);
 				ListaDePodcasters.this.dispose();
 			}
 		});
@@ -122,6 +126,10 @@ public class ListaDePodcasters extends JFrame {
 		rellenarComboPodcasters();
 	}
 	
+	
+	/**
+	 * Metodo para rellenar el comboBox de Podcaster
+	 */
 	// Método que conecta con MySQL y llena el ComboBox con los nombres artísticos
 	private void rellenarComboPodcasters() {
 		// Consulta SQL que une las tablas Artista y Podcaster para obtener los nombres

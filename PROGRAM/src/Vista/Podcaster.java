@@ -34,7 +34,7 @@ public class Podcaster extends JFrame {
 		gbl_contentPane.rowHeights = new int[]{40, 30, 150, 150, 0};
 		contentPane.setLayout(gbl_contentPane);
 		
-		// --- BOTÓN ATRÁS ---
+		// --- BOTÃ“N ATRÃ�S ---
 		JButton btnAtras = new JButton("Atras");
 		btnAtras.addActionListener(e -> {
 			ListaDePodcasters ventanaDeListaPodcaster = new ListaDePodcasters();
@@ -45,6 +45,7 @@ public class Podcaster extends JFrame {
 		gbc_btnAtras.insets = new Insets(0, 0, 5, 5);
 		gbc_btnAtras.gridx = 0; gbc_btnAtras.gridy = 0;
 		contentPane.add(btnAtras, gbc_btnAtras);
+
 		
 		// --- NOMBRE ARTISTA ---
 		JLabel lblNombre = new JLabel(Podcaster);
@@ -54,7 +55,7 @@ public class Podcaster extends JFrame {
 		gbc_lblNombre.gridx = 1; gbc_lblNombre.gridy = 0;
 		contentPane.add(lblNombre, gbc_lblNombre);
 
-		// --- BOTÓN PERFIL ---
+		// --- BOTÃ“N PERFIL ---
 		JButton btnPerfil = new JButton(clientePerfil.getUsuario());
 		btnPerfil.addActionListener(e -> {
 			Perfil ventanaDePerfil = new Perfil();
@@ -106,7 +107,7 @@ public class Podcaster extends JFrame {
 		gbc_scrollPodcast.gridx = 0; gbc_scrollPodcast.gridy = 2; gbc_scrollPodcast.gridheight = 2;
 		contentPane.add(scrollPodcast, gbc_scrollPodcast);
 		
-		// --- INFORMACIÓN ---
+		// --- INFORMACIÃ“N ---
 		txtInformacion = new JTextArea();
 		txtInformacion.setLineWrap(true);
 		txtInformacion.setWrapStyleWord(true);
@@ -132,8 +133,8 @@ public class Podcaster extends JFrame {
 	}
 	
 	/**
-	 * Carga la información de un artista y sus álbumes en la interfaz.
-	 * @param nombre El nombre artístico seleccionado por el usuario.
+	 * Carga la informaciÃ³n de un artista y sus Ã¡lbumes en la interfaz.
+	 * @param nombre El nombre artÃ­stico seleccionado por el usuario.
 	 */
 	private void cargarDatosPodcaster(String nombre) {
 	    Conexion db = new Conexion();
@@ -151,7 +152,7 @@ public class Podcaster extends JFrame {
 	            String desc = rsArt.getString("Descripcion");
 	            String urlImg = rsArt.getString("Imagen");
 
-	            txtInformacion.setText("Género: " + genero + "\n\nDescripción:\n" + desc);
+	            txtInformacion.setText("GÃ©nero: " + genero + "\n\nDescripciÃ³n:\n" + desc);
 	            txtInformacion.setCaretPosition(0);
 
 
@@ -193,7 +194,11 @@ public class Podcaster extends JFrame {
 	}
 	
 	
-	
+	/**
+	 * Metodo para obtener el titulo del album por ID
+	 * @param titulo
+	 * @return
+	 */
 	private String obtenerIdAlbumPorTitulo(String titulo) {
 	    String id = "";
 	    Conexion db = new Conexion();

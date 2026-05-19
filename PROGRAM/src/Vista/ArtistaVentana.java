@@ -42,7 +42,7 @@ public class ArtistaVentana extends JFrame {
 		gbl_contentPane.rowHeights = new int[]{40, 30, 150, 150, 0};
 		contentPane.setLayout(gbl_contentPane);
 		
-		// --- BOTÓN ATRÁS ---
+		// --- BOTÃ“N ATRÃ�S ---
 		JButton btnAtras = new JButton("Atras");
 		btnAtras.addActionListener(e -> {
 			new ListaDeArtistas().setVisible(true);
@@ -61,7 +61,7 @@ public class ArtistaVentana extends JFrame {
 		gbc_lblNombre.gridx = 1; gbc_lblNombre.gridy = 0;
 		contentPane.add(lblNombre, gbc_lblNombre);
 
-		// --- BOTÓN PERFIL ---
+		// --- BOTÃ“N PERFIL ---
 		JButton btnPerfil = new JButton(clientePerfil.getUsuario());
 		btnPerfil.addActionListener(e -> {
 			new Perfil().setVisible(true);
@@ -98,7 +98,7 @@ public class ArtistaVentana extends JFrame {
 		gbc_scrollD.gridx = 0; gbc_scrollD.gridy = 2; gbc_scrollD.gridheight = 2;
 		contentPane.add(scrollDiscos, gbc_scrollD);
 		
-		// --- INFORMACIÓN ---
+		// --- INFORMACIÃ“N ---
 		txtInformacion = new JTextArea();
 		txtInformacion.setLineWrap(true);
 		txtInformacion.setWrapStyleWord(true);
@@ -127,7 +127,7 @@ public class ArtistaVentana extends JFrame {
 		            int i = listDiscos.locationToIndex(evento.getPoint());
 		            if (i != -1) {
 		                String sel = modeloLista.getElementAt(i);
-		                // Separamos el título del resto de la cadena (Titulo - Año - Canciones)
+		                // Separamos el tÃ­tulo del resto de la cadena (Titulo - AÃ±o - Canciones)
 		                String tituloAlbum = sel.split(" - ")[0];
 		                
 		                AlbumVentana ventana= new AlbumVentana(tituloAlbum,nombreArtista);
@@ -155,7 +155,7 @@ public class ArtistaVentana extends JFrame {
 	    
 	    //usamos el metodo para recorrer toda la inforamcion a "info"
 	    ArrayList<String> info = dao.obtenerInfoArtista(nombre);
-	    //comprobamos que haya informacióon
+	    //comprobamos que haya informaciÃ³on
 	    
 	    if (info.size() > 0) {
 	    	
@@ -163,9 +163,9 @@ public class ArtistaVentana extends JFrame {
 	        String idArtista = info.get(3);
 
 	        // rellenamos informacion
-	        txtInformacion.setText("Género: " + info.get(0) + "\n" +
-	                               "Año de Inicio: " + info.get(4) + "\n\n" +
-	                               "Descripción:\n" + info.get(1));
+	        txtInformacion.setText("GÃ©nero: " + info.get(0) + "\n" +
+	                               "AÃ±o de Inicio: " + info.get(4) + "\n\n" +
+	                               "DescripciÃ³n:\n" + info.get(1));
 	        txtInformacion.setCaretPosition(0);
 
 	        // Llamamos al otro metodo
@@ -184,7 +184,7 @@ public class ArtistaVentana extends JFrame {
 	            lblFoto.setText("Sin imagen");
 	        }
 
-	        //cargamos los álbumes usando el ID
+	        //cargamos los Ã¡lbumes usando el ID
 	        ArrayList<String> albumes = dao.listaAlbumesArtista(idArtista);
 	        modeloLista.clear();
 	        for (int i = 0; i < albumes.size(); i++) {
