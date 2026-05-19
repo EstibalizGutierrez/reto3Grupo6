@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import Controlador.AlbumDAO;
 import Controlador.CancionDAO;
 import javax.swing.DefaultListModel;
 
@@ -20,6 +21,9 @@ import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import javax.swing.JScrollPane;
@@ -31,9 +35,11 @@ public class InfoPlaylist extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JButton botonPerfil;
+	
 	private Cliente clientePerfil = Usuario.getCliente();
 	private ArrayList<PlaylistCanciones> lstPlaylistCanciones = new ArrayList<>();
 	private JList<String> jotaLista;
+
 	private String nombrePL;
 	private JButton botonAtras;
 	
@@ -55,6 +61,27 @@ public class InfoPlaylist extends JFrame {
 		jotaLista.setBackground(new Color(192, 192, 192));
 		jotaLista.setBounds(23, 80, 888, 456);
 		jotaLista.setFont(new Font("Arial", Font.BOLD, 24));
+		jotaLista.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent click) {
+				
+				if (click.getClickCount() == 2) {
+					String cancion = jotaLista.getSelectedValue();
+					
+					if (cancion != null) {
+						AlbumDAO daoAlb = new AlbumDAO();
+						//limpiamos todo el selected que no sea nombre (hay varios datos como minutos, nombreartista... que no nos interesa y si cogemos el valor entero la ventana de reproduccion no lo entenderá
+						String soloNombre = cancion.split(" \\| ")[0].trim();
+				        String soloNombreArtista = cancion.split(" \\| ")[1].trim();
+						String nombreAlbum = daoAlb.obtenerTituloAlbum(soloNombre);
+						
+						VentanaReproduccion ventana = new VentanaReproduccion(soloNombre, nombreAlbum,soloNombreArtista);
+						dispose();
+						ventana.setVisible(true);
+					}
+				}
+				
+			}
+		});
 		contentPane.add(jotaLista);
 		
 		botonPerfil = new JButton(clientePerfil.getUsuario());
@@ -106,7 +133,7 @@ public class InfoPlaylist extends JFrame {
 	
 	/**
 	 * 
-	 * Metodo que sirve para rellenar el JList con los datos de la
+	 *+ Metodo que sirve para rellenar el JList con los datos de la
 	 * playlist individualmente 
 	 * 
 	 * @param lstPLC

@@ -5,28 +5,20 @@ import Controlador.MusicoDAO;
 import Modelo.Cliente;
 import Modelo.Usuario;
 
-import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import java.awt.GridLayout;
 import java.awt.GridBagLayout;
 import javax.swing.JButton;
 import java.awt.GridBagConstraints;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import java.awt.Insets;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 
 import java.awt.Font;
-import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import java.awt.Color;
 
@@ -104,7 +96,7 @@ public class ListaDeArtistas extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				 String nombreSeleccionado = (String) comboBox.getSelectedItem();
 	                if (nombreSeleccionado != null) {
-	                	Artista ventanaDeArtista = new Artista(nombreSeleccionado);
+	                	ArtistaVentana ventanaDeArtista = new ArtistaVentana(nombreSeleccionado);
 	                	ventanaDeArtista.setVisible(true);
 	                    ListaDeArtistas.this.dispose();
 	                    System.out.println("Cargando a: " + nombreSeleccionado);
@@ -128,7 +120,7 @@ public class ListaDeArtistas extends JFrame {
 		 for (int i =0; i<listaMusicos.size(); i++) {
 			 
 				comboBox.addItem(listaMusicos.get(i));
-
+	
 		 }
 
 		}	

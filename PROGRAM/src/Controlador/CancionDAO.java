@@ -5,6 +5,7 @@ import javax.swing.*;
 import Modelo.Artista;
 import Modelo.Audio;
 import Modelo.Cancion;
+import Modelo.InfoCancion;
 import Modelo.PlaylistCanciones;
 import Modelo.Musico;
 import Modelo.Playlist;
@@ -131,6 +132,83 @@ public class CancionDAO {
 		
 		return id;
 		
+	}
+	
+	/**
+	 * Metodo para obtener info de la cancion para plasmar en la ventana reproductora de canciones
+	 * @param c
+	 * @param m
+	 * @return ArrayList<InfoCancion>
+	 */
+	public ArrayList<InfoCancion> infoCancion (String nombreC) {
+		
+		Connection conexion = null;
+		ArrayList<InfoCancion> listaCanciones = new ArrayList<>();
+
+		String sql = "SELECT A.Nombre, AR.NombreArtistico, A.Duracion, A.NReproducciones, AL.Titulo "
+		           + "FROM Audio A "
+		           + "JOIN Cancion C ON A.IdAudio = C.IdCancion "
+		           + "JOIN Album AL ON C.IdAlbum = AL.IdAlbum "
+		           + "JOIN Artista AR ON AL.IdMusico = AR.IdArtista "
+		           + "WHERE A.Nombre = ?";
+		
+		try {
+			
+			conexion = conn.getConnection();
+			
+			if(conexion!= null) {
+				
+				statement = conexion.prepareStatement(sql);
+				statement.setString(1, nombreC);
+				resultSet = statement.executeQuery();
+				
+				if (resultSet.next()) {
+					InfoCancion info = new InfoCancion(
+							resultSet.getString("Nombre"),
+							resultSet.getString("NombreArtistico"),
+							resultSet.getObject("Duracion", LocalTime.class),
+							resultSet.getInt("NReproducciones"),
+							resultSet.getString("Titulo")
+							);
+					
+					listaCanciones.add(info);
+					
+				}
+			}
+			
+		} catch(SQLException error) {
+			error.printStackTrace();
+		}
+		return listaCanciones;
+	}
+	
+	
+	public String obtenerRutaAudio (String nombreCancion) {
+		
+		Connection conexion = null;
+		String ruta = null;
+		
+		String sql = "Select Archivo from Audio where Nombre = ?";
+		
+		try {
+			conexion = conn.getConnection();
+			
+			if (conexion != null) {
+				statement = conexion.prepareStatement(sql);
+				statement.setString(1, nombreCancion);
+				resultSet = statement.executeQuery();	
+				
+				if (resultSet.next()) {
+					
+					ruta = resultSet.getString("Archivo");
+				}
+				
+			}
+		}catch(SQLException error) {
+			error.printStackTrace();
+			
+		}
+		return ruta;
 	}
 	
 	public boolean insertarCancion(Cancion nuevaCancion) {

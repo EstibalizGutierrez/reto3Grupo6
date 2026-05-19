@@ -4,14 +4,17 @@ import java.awt.*;
 import java.awt.event.*;
 import java.net.URL;
 import java.sql.*;
+import java.util.ArrayList;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import Controlador.Conexion;
+import Controlador.MusicoDAO;
 import Modelo.Cliente;
 import Modelo.Usuario;
 
-public class Artista extends JFrame {
+public class ArtistaVentana extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -20,8 +23,13 @@ public class Artista extends JFrame {
 	private JTextArea txtInformacion;
 	private JLabel lblFoto;
 	private Cliente clientePerfil = Usuario.getCliente();
+	
+	private String nombreArtista; //static para usarlo en otras ventanas al momento del boton ATRAS
 
-	public Artista(String nombreArtista) {
+	public ArtistaVentana(String nombreArtista) {
+		//pasamos el nombre del artista que seleccionamos al string para usarlo como parametro
+		this.nombreArtista = nombreArtista; 
+		setTitle("Lista de artistas");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 550, 500);
 		contentPane = new JPanel();
@@ -72,6 +80,7 @@ public class Artista extends JFrame {
 		contentPane.add(lblTDiscos, gbc_lblT);
 
 		modeloLista = new DefaultListModel<>();
+		listDiscos = new JList<>(modeloLista);
 		
 		// --- APARTADO DE INFORMACION ---
 		JLabel lblInformacion = new JLabel("Informacion");
@@ -80,22 +89,7 @@ public class Artista extends JFrame {
 		gbc_lblInformacion.gridx = 2;
 		gbc_lblInformacion.gridy = 1;
 		contentPane.add(lblInformacion, gbc_lblInformacion);
-		listDiscos = new JList<>(modeloLista);
-		listDiscos.addMouseListener(new MouseAdapter() {
-		// --- EVENTO PARA SELECCIONAR EL ALBUM Y QUE NOS LLEVE A LA NUEVA PESTANA
-			public void mouseClicked(MouseEvent e) {
-				if (e.getClickCount() == 2) {
-					int idx = listDiscos.locationToIndex(e.getPoint());
-					if (idx != -1) {
-						String sel = modeloLista.getElementAt(idx);
-						String tituloAlbum = sel.split(" - ")[0];
-						String idAlbum = obtenerIdAlbumPorTitulo(tituloAlbum);
-						new Album(idAlbum, tituloAlbum).setVisible(true);
-						dispose();
-					}
-				}
-			}
-		});
+		
 		// --- SCROLL DE INFORMACION ---
 		JScrollPane scrollDiscos = new JScrollPane(listDiscos);
 		GridBagConstraints gbc_scrollD = new GridBagConstraints();
@@ -125,91 +119,77 @@ public class Artista extends JFrame {
 		gbc_foto.gridx = 2; gbc_foto.gridy = 3;
 		contentPane.add(lblFoto, gbc_foto);
 		
-		// Cargar datos al iniciar
-		cargarDatosArtista(nombreArtista);
-	}
-	
-	/**
-	 * Carga la información de un artista y sus álbumes en la interfaz.
-	 * @param nombre El nombre artístico seleccionado por el usuario.
-	 */
-	private void cargarDatosArtista(String nombre) {
-		Conexion db = new Conexion();
-		Connection con = db.getConnection();
+		//Para Jlist no usamos addActionListener sino MouseListener (para que sean dos clickks no solo uno)
+		listDiscos.addMouseListener(new MouseAdapter() {
+		    public void mouseClicked(MouseEvent evento) {
+		    	//si hacemos dos click
+		        if (evento.getClickCount() == 2) {
+		            int i = listDiscos.locationToIndex(evento.getPoint());
+		            if (i != -1) {
+		                String sel = modeloLista.getElementAt(i);
+		                // Separamos el título del resto de la cadena (Titulo - Año - Canciones)
+		                String tituloAlbum = sel.split(" - ")[0];
+		                
+		                AlbumVentana ventana= new AlbumVentana(tituloAlbum,nombreArtista);
+		                dispose();
+		                ventana.setVisible(true)
+		                ;
+		            }
+		        }
+		    }
+		});
 		
-		try {
-			// Obtenemos género, descripción, imagen y usamos una consulta
-			String sqlArtista = "SELECT Genero, Descripcion, Imagen, IdArtista, " +
-                               "(SELECT YEAR(MIN(Anno)) FROM Album WHERE IdMusico = Artista.IdArtista) as AnnoInicio " +
-                               "FROM Artista WHERE NombreArtistico = ?";
-			PreparedStatement psArt = con.prepareStatement(sqlArtista);
-			psArt.setString(1, nombre);
-			ResultSet rsArt = psArt.executeQuery();
-			// Formatear y mostrar la información textual en el TextArea
-			if (rsArt.next()) {
-				String infoText = "Genero: " + rsArt.getString("Genero") + "\n" +
-                                 "Año de Inicio: " + rsArt.getString("AnnoInicio") + "\n\n" +
-                                 "Descripcion:\n" + rsArt.getString("Descripcion");
-				txtInformacion.setText(infoText);
-				txtInformacion.setCaretPosition(0);
+		cargarDatosArtista(nombreArtista);
 
-				String urlImg = rsArt.getString("Imagen");
-				String idArt = rsArt.getString("IdArtista");
-
-				new Thread(() -> {
-					try {
-						URL url = new URL(urlImg);
-						Image img = ImageIO.read(url);
-						ImageIcon icon = new ImageIcon(img.getScaledInstance(200, 200, Image.SCALE_SMOOTH));
-						lblFoto.setIcon(icon);
-						lblFoto.setText("");
-					} catch (Exception e) {
-						lblFoto.setIcon(null);
-						lblFoto.setText("Sin Imagen");
-					}
-				}).start();
-
-				// Consulta para álbumes y contar canciones
-				String sqlAlb = "SELECT a.Titulo, YEAR(a.Anno) as Anno, (SELECT COUNT(*) FROM Cancion c WHERE c.IdAlbum = a.IdAlbum) as NumCanciones " +
-                               "FROM Album a WHERE a.IdMusico = ?";
-				PreparedStatement psAlb = con.prepareStatement(sqlAlb);
-				psAlb.setString(1, idArt);
-				ResultSet rsAlb = psAlb.executeQuery();
-
-				while (rsAlb.next()) {
-					String item = rsAlb.getString("Titulo") + " - " + 
-					              rsAlb.getString("Anno") + " - " + 
-					              rsAlb.getInt("NumCanciones") + " kanta";
-					modeloLista.addElement(item);
-				}
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			db.cerrarConexion();
-		}
 	}
 	
+
+	/**
+	 * metodo que usaremos para cargar los datos del artista que plasmaremos en la ventana del artista
+	 * 
+	 * @param nombre
+	 */
 	
-	
-	private String obtenerIdAlbumPorTitulo(String titulo) {
-	    String id = "";
-	    Conexion db = new Conexion();
-	    Connection con = db.getConnection();
+	public void cargarDatosArtista(String nombre) {
+	    MusicoDAO dao = new MusicoDAO();
 	    
-	    String sql = "SELECT IdAlbum FROM Album WHERE Titulo = ?";
+	    //usamos el metodo para recorrer toda la inforamcion a "info"
+	    ArrayList<String> info = dao.obtenerInfoArtista(nombre);
+	    //comprobamos que haya informacióon
 	    
-	    try (PreparedStatement ps = con.prepareStatement(sql)) {
-	        ps.setString(1, titulo);
-	        ResultSet rs = ps.executeQuery();
-	        if (rs.next()) {
-	            id = rs.getString("IdAlbum");
+	    if (info.size() > 0) {
+	    	
+	        //cogemos el id del artista buscando entre la informaacion para usarla luego
+	        String idArtista = info.get(3);
+
+	        // rellenamos informacion
+	        txtInformacion.setText("Género: " + info.get(0) + "\n" +
+	                               "Año de Inicio: " + info.get(4) + "\n\n" +
+	                               "Descripción:\n" + info.get(1));
+	        txtInformacion.setCaretPosition(0);
+
+	        // Llamamos al otro metodo
+	        String rutaImagen = dao.rutaImagenArtista(idArtista); 
+	        
+	        if (rutaImagen != null) {
+	            // Cargamos desde la carpeta 'imagenes' de tu proyecto
+
+	            ImageIcon iconoOriginal = new ImageIcon(rutaImagen);
+	            
+
+	            Image imgEscalada = iconoOriginal.getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH);
+	            lblFoto.setIcon(new ImageIcon(imgEscalada));
+	            lblFoto.setText(""); 
+	        } else {
+	            lblFoto.setText("Sin imagen");
 	        }
-	    } catch (SQLException e) {
-	        e.printStackTrace();
-	    } finally {
-	        db.cerrarConexion();
+
+	        //cargamos los álbumes usando el ID
+	        ArrayList<String> albumes = dao.listaAlbumesArtista(idArtista);
+	        modeloLista.clear();
+	        for (int i = 0; i < albumes.size(); i++) {
+	            modeloLista.addElement(albumes.get(i));
+	        }
 	    }
-	    return id;
 	}
 }
