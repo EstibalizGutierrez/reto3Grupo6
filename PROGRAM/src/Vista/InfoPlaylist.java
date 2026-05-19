@@ -8,6 +8,8 @@ import javax.swing.border.EmptyBorder;
 
 import Controlador.AlbumDAO;
 import Controlador.CancionDAO;
+import Controlador.PlaylistDAO;
+
 import javax.swing.DefaultListModel;
 
 import Modelo.Cliente;
@@ -119,7 +121,7 @@ public class InfoPlaylist extends JFrame {
 		
 	
 		//INSERTAMOS LOS METODOS DEL DAO, GENERANDO EL ID DE LA PLAYLIST Y LUEGO USANDOLO PARA CREAR LA LISTADECANCIONES
-		CancionDAO dao = new CancionDAO();
+		PlaylistDAO dao = new PlaylistDAO();
 		Playlist pNombre = new Playlist(nombrePL);
 		int idPL = dao.obtenerIdPlaylist(pNombre);
 		

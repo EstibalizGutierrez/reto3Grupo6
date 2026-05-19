@@ -43,7 +43,7 @@ public class MiPlaylist extends JFrame {
 	private JTextField nombrePlaylistTxt;
 	private JButton botonGuardar;
 	private JButton botonActualizar;
-	private JButton boton;
+	private static final int NUM_MAX_PLAYLIST_FREE = 3;
 	
 
 
@@ -275,16 +275,32 @@ public class MiPlaylist extends JFrame {
 				Cliente cliente = new Cliente(idCliente);
 				Playlist playL = new Playlist(id,nombre,fechaCreacion);
 				
-				//metemos los dos objetos como parametros para insertar la playlist
-				if (dao.playlistInsertar(cliente, playL)) {
+				//Validamos si es free o premium para las restricciones en caso free
+			
+				if (clientePerfil.getTipo().name().equals("Premium")) {
+					//metemos los dos objetos como parametros para insertar la playlist
+
+					if (dao.playlistInsertar(cliente, playL)) {
+						
+						JOptionPane.showMessageDialog(null, "Playlist creada");
+					} 						
+			}
+				else if (clientePerfil.getTipo().name().equals("Free")) {
+					//usamos dao para contar cuantas playlist tiene el cliente Free
+					int num = dao.numeroPlaylists(clientePerfil.getIdCliente());
 					
-					JOptionPane.showMessageDialog(botonGuardar, "Playlist creada");
-					
-				}
+					if (num < NUM_MAX_PLAYLIST_FREE) {
+
+						if (dao.playlistInsertar(cliente, playL)) {
+							JOptionPane.showMessageDialog(botonGuardar, "Playlist creada");	
+						}
+					} else {
+						JOptionPane.showMessageDialog(botonGuardar, "Tu suscripción no permite crear más de " + NUM_MAX_PLAYLIST_FREE + " playlists.");
+					}
 				
 			}
 			
-		});
+			}});
 		panelOpciones.add(botonGuardar);
 		
 		botonActualizar = new JButton("ACTUALIZAR PAGINA");

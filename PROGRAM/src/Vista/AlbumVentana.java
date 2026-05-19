@@ -5,17 +5,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.net.URL;
-import java.sql.*;
 import java.util.ArrayList;
-
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
 import Controlador.AlbumDAO;
-import Controlador.Conexion;
-import Controlador.MusicoDAO;
+
 import Modelo.Cliente;
 import Modelo.Usuario;
 

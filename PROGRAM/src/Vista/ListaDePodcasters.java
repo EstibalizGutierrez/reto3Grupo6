@@ -136,7 +136,7 @@ public class ListaDePodcasters extends JFrame {
 	                 "JOIN Podcaster ON Artista.IdArtista = Podcaster.IdPodcaster";
 	    
 	    // Gestión de recursos para el cierre automático de la conexión
-	    try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3308/reto3spotify", "root", "");
+	    try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:33060/reto3spotify", "root", "");
 	    	 Statement st = con.createStatement();
 	         ResultSet rs = st.executeQuery(sql)) {
 	    	
