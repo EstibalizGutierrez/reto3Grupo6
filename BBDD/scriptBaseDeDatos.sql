@@ -2,7 +2,6 @@ CREATE DATABASE reto3spotify COLLATE utf8mb4_spanish_ci;
 USE reto3spotify;
 
 /* --------------TABLA DE IDIOMA-------------- */
-/* ta bn*/
 DROP TABLE if exists Idioma;
 CREATE TABLE Idioma (
 	IdIdioma ENUM('ES', 'EU', 'EN', 'FR', 'DE', 'CA', 'GA', 'AR') PRIMARY KEY,
@@ -10,7 +9,6 @@ CREATE TABLE Idioma (
 );
 
 /* --------------TABLA DE ARTISTA-------------- */
-/* TA BN */
 DROP TABLE if exists Artista;
 CREATE TABLE Artista (
 	IdArtista CHAR(5) PRIMARY KEY,
@@ -21,7 +19,6 @@ CREATE TABLE Artista (
 );
 
 /* --------------TABLA DE PODCASTER-------------- */
-/* TA BN */
 DROP TABLE if exists Podcaster;
 CREATE TABLE Podcaster (
 	IdPodcaster CHAR(5) PRIMARY KEY,
@@ -30,7 +27,6 @@ CREATE TABLE Podcaster (
 );
 
 /* --------------TABLA DE MÚSICO-------------- */
-/* TA BN */
 DROP TABLE if exists Musico;
 CREATE TABLE Musico (
 	IdMusico CHAR(5) PRIMARY KEY,
@@ -40,7 +36,6 @@ CREATE TABLE Musico (
 );
 
 /* --------------TABLA DE ALBUM-------------- */
-/* TA BN*/
 DROP TABLE if exists Album;
 CREATE TABLE Album (
 	IdAlbum CHAR(5) PRIMARY KEY,
@@ -54,7 +49,6 @@ CREATE TABLE Album (
 );
 
 /* --------------TABLA DE AUDIO-------------- */
-/* TA BN */
 DROP TABLE if exists Audio;
 CREATE TABLE Audio (
 	IdAudio CHAR(5) PRIMARY KEY, 
@@ -66,7 +60,6 @@ CREATE TABLE Audio (
 );
 
 /* --------------TABLA DE PODCAST-------------- */
-
 DROP TABLE if exists Podcast;
 CREATE TABLE Podcast (
     IdPodcast CHAR(5) PRIMARY KEY,
